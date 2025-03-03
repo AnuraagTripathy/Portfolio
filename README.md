@@ -1,4 +1,4 @@
-# ActuallyAkshat's Portfolio
+# Anuraag's Portfolio
 Heya! Welcome to my portfolio website 👨‍💻☕
 
 This website is built with :
