@@ -24,9 +24,9 @@ export function IntroCard() {
           Anuraag Tripathy
         </h1>
         <p className="mt-2 max-w-lg text-muted-foreground">
-          I'm a software engineer, with a passion for building impactful products using latest technologies. 
+          I&apos;m a software engineer, with a passion for building impactful products using latest technologies. 
           Mainly a fullstack developer, I have been lately exploring ML and Data Science both inside and outside my University.
-          I'm most proficient at Python, React.js and Next.js. 
+          I&apos;m most proficient at Python, React.js and Next.js. 
         </p>
         <Link href="/projects">
           <ShinyButton className="mt-4 flex items-center">
