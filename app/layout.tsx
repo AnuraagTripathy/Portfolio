@@ -6,7 +6,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const url = "https://actuallyakshat.in";
+const url = "https://anuraag.site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
