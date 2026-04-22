@@ -86,7 +86,9 @@ export default function ExperiencePage() {
       </ol>
 
       <p className="mt-6 text-center font-quirk text-lg text-ink-soft sm:text-left">
-        Newest first so the story reads top to bottom.
+        Newest first
+        <br />
+        <span className="font-mono text-sm text-ink-muted">git log --author=&quot;anuraag&quot;</span>
       </p>
     </main>
   );

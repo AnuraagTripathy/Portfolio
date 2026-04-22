@@ -39,7 +39,7 @@ export default function HomePage() {
             transition={{ duration: 0.55, delay: 0.05 }}
             className="font-display text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.35rem]"
           >
-            Software that ships
+            “Builder, mosly.”
           </motion.h1>
           <motion.p
             {...fade}
