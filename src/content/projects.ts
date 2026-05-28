@@ -3,10 +3,44 @@ export type ProjectLink = { label: string; href: string };
 export type Project = {
   name: string;
   period: string;
+  subtitle?: string;
   description: string;
   image: string;
   tech: string[];
   links: ProjectLink[];
+};
+
+export const featuredProject: Project = {
+  name: "Faultline",
+  period: "2025 – 2026 · MOST RECENT",
+  subtitle: "ML training continuity & crash-to-resume",
+  description:
+    "Faultline is a full-stack platform for ML engineers who lose GPU time to crashes and preemptions. I built the hosted product: Python SDK on PyPI (faultline-sdk), FastAPI cloud API, Next.js dashboard, Postgres + object storage, deployed on Vercel + Render + Neon + Cloudflare R2—with OAuth, API keys, recovery UI, and landing-page demo videos. The same repo includes a Rust persistence runtime (async checkpoint queue, gRPC, storage abstractions) wired to the Python SDK for local training and benchmarks. Users on Colab/GPU VMs use the cloud path; Rust powers the systems layer underneath.",
+  image: "/projects/Faultline.png",
+  tech: [
+    "Rust",
+    "Python",
+    "FastAPI",
+    "Next.js",
+    "TypeScript",
+    "PostgreSQL",
+    "gRPC",
+    "SQLAlchemy",
+    "Alembic",
+    "Cloudflare R2",
+    "Docker",
+    "PyTorch",
+    "OAuth",
+    "REST",
+    "Vercel",
+    "Render",
+    "PyPI",
+  ],
+  links: [
+    { label: "Live", href: "https://faultline-eight.vercel.app" },
+    { label: "GitHub", href: "https://github.com/AnuraagTripathy/faultline" },
+    { label: "PyPI", href: "https://pypi.org/project/faultline-sdk/" },
+  ],
 };
 
 export const projects: Project[] = [
