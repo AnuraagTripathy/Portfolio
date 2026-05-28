@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { HeroPortrait } from "@/components/HeroPortrait";
 import { RotatingHi } from "@/components/RotatingHi";
 import { WavyRule } from "@/components/WavyRule";
-import { projects } from "@/content/projects";
+import { featuredProject, projects } from "@/content/projects";
 
 const fade = {
   initial: { opacity: 0, y: 12 },
@@ -15,11 +15,7 @@ const fade = {
 };
 
 export default function HomePage() {
-  const featured = projects.slice(0, 2);
-  const cardTints = [
-    "from-pastel-mint/90 to-white dark:to-surface",
-    "from-pastel-sky/90 to-white dark:to-surface",
-  ] as const;
+  const featured = [featuredProject, projects[0]];
 
   return (
     <main>
@@ -126,9 +122,7 @@ export default function HomePage() {
                     sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, (min-width: 768px) 48vw, 96vw"
                     className="object-cover transition duration-500 group-hover:scale-[1.02]"
                   />
-                  <div
-                    className={`pointer-events-none absolute inset-0 bg-gradient-to-t ${cardTints[i % cardTints.length]} via-white/20 to-transparent opacity-95 dark:via-surface/30`}
-                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent dark:from-surface dark:via-surface/45 dark:to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <p className="text-xs font-medium uppercase tracking-wider text-ink-soft">
                       {p.period}
