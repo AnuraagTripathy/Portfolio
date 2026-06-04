@@ -67,7 +67,7 @@ export const projects: Project[] = [
       "Neon",
     ],
     links: [
-      { label: "Live Demo", href: "https://trace-git-main-anuraagtripathys-projects.vercel.app/" },
+      { label: "Live Demo", href: "https://trace-three-cyan.vercel.app/" },
       { label: "GitHub", href: "https://github.com/AnuraagTripathy/Trace" },
     ],
   },
