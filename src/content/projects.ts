@@ -10,40 +10,67 @@ export type Project = {
   links: ProjectLink[];
 };
 
-export const featuredProject: Project = {
-  name: "Faultline",
-  period: "2025 – 2026 · MOST RECENT",
-  subtitle: "ML training continuity & crash-to-resume",
-  description:
-    "Faultline is a full-stack platform for ML engineers who lose GPU time to crashes and preemptions. I built the hosted product: Python SDK on PyPI (faultline-sdk), FastAPI cloud API, Next.js dashboard, Postgres + object storage, deployed on Vercel + Render + Neon + Cloudflare R2—with OAuth, API keys, recovery UI, and landing-page demo videos. The same repo includes a Rust persistence runtime (async checkpoint queue, gRPC, storage abstractions) wired to the Python SDK for local training and benchmarks. Users on Colab/GPU VMs use the cloud path; Rust powers the systems layer underneath.",
-  image: "/projects/Faultline.png",
-  tech: [
-    "Rust",
-    "Python",
-    "FastAPI",
-    "Next.js",
-    "TypeScript",
-    "PostgreSQL",
-    "gRPC",
-    "SQLAlchemy",
-    "Alembic",
-    "Cloudflare R2",
-    "Docker",
-    "PyTorch",
-    "OAuth",
-    "REST",
-    "Vercel",
-    "Render",
-    "PyPI",
-  ],
-  links: [
-    { label: "Live", href: "https://faultline-eight.vercel.app" },
-    { label: "GitHub", href: "https://github.com/AnuraagTripathy/faultline" },
-    { label: "PyPI", href: "https://pypi.org/project/faultline-sdk/" },
-  ],
-};
-
 export const projects: Project[] = [
+  {
+    name: "Faultline",
+    period: "2025 – 2026 · most recent",
+    subtitle: "ML training continuity & crash-to-resume",
+    description:
+      "Full-stack platform for ML engineers who lose GPU time to crashes and preemptions: Python SDK on PyPI (faultline-sdk), FastAPI cloud API, Next.js dashboard, Postgres + object storage on Vercel, Render, Neon, and Cloudflare R2. Same repo includes a Rust persistence runtime (async checkpoint queue, gRPC) wired to the SDK for local training and benchmarks.",
+    image: "/projects/Faultline.png",
+    tech: [
+      "Rust",
+      "Python",
+      "FastAPI",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "gRPC",
+      "SQLAlchemy",
+      "Alembic",
+      "Cloudflare R2",
+      "Docker",
+      "PyTorch",
+      "OAuth",
+      "REST",
+      "Vercel",
+      "Render",
+      "PyPI",
+    ],
+    links: [
+      { label: "Live", href: "https://faultline-eight.vercel.app" },
+      { label: "GitHub", href: "https://github.com/AnuraagTripathy/faultline" },
+      { label: "PyPI", href: "https://pypi.org/project/faultline-sdk/" },
+    ],
+  },
+  {
+    name: "Trace",
+    period: "June 2025 · full-stack · deployed",
+    description:
+      "Organizational intelligence platform that ingests GitHub and Slack activity, reconstructs cross-tool workflows, and builds an interactive knowledge graph. Surfaces evidence-backed insights on bottlenecks, knowledge risk, and process drift, plus an investigation agent that answers operational questions from real workspace data—not LLM guesswork.",
+    image: "/projects/Trace.png",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "SQLAlchemy",
+      "Alembic",
+      "NetworkX",
+      "Gemini API",
+      "Docker",
+      "Vercel",
+      "Render",
+      "Neon",
+    ],
+    links: [
+      { label: "Live Demo", href: "https://trace-git-main-anuraagtripathys-projects.vercel.app/" },
+      { label: "GitHub", href: "https://github.com/AnuraagTripathy/Trace" },
+    ],
+  },
   {
     name: "Ecosphere",
     period: "July 2024",

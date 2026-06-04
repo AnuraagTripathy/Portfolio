@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { HeroPortrait } from "@/components/HeroPortrait";
 import { RotatingHi } from "@/components/RotatingHi";
 import { WavyRule } from "@/components/WavyRule";
-import { featuredProject, projects } from "@/content/projects";
+import { projects } from "@/content/projects";
 
 const fade = {
   initial: { opacity: 0, y: 12 },
@@ -15,7 +15,7 @@ const fade = {
 };
 
 export default function HomePage() {
-  const featured = [featuredProject, projects[0]];
+  const featured = projects.slice(0, 2);
 
   return (
     <main>
