@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const RESUME =
-  "https://drive.google.com/file/d/1fkFBJolPKDaGf-20K4hnMXqrLFDM98ma/view?usp=sharing";
+  "https://drive.google.com/file/d/1KtSMATRoEkuOwF4Z3cR6fMK5OWIjOeG9/view?usp=sharing";
 
 export function Footer() {
   return (
