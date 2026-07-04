@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/content/projects";
 import { WavyRule } from "@/components/WavyRule";
+import { Reveal } from "@/components/motion/Reveal";
+import { TiltCard } from "@/components/motion/TiltCard";
 
 export const metadata = {
   title: "Projects",
@@ -28,10 +30,9 @@ export default function ProjectsPage() {
 
       <div className="mt-14 grid gap-10 lg:grid-cols-2">
         {projects.map((p, pi) => (
-          <article
-            key={p.name}
-            className="group flex flex-col overflow-hidden rounded-2xl bg-surface shadow-card ring-1 ring-line/15 transition duration-300 hover:-translate-y-0.5 hover:shadow-lift dark:shadow-none dark:ring-line/10 dark:hover:ring-accent/20"
-          >
+          <Reveal key={p.name} delay={(pi % 2) * 0.08} className="h-full">
+            <TiltCard className="h-full">
+              <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-surface shadow-card ring-1 ring-line/15 transition duration-300 hover:shadow-lift dark:shadow-none dark:ring-line/10 dark:hover:ring-accent/20">
             <div className="relative aspect-[16/10] overflow-hidden">
               <Image
                 src={p.image}
@@ -82,9 +83,11 @@ export default function ProjectsPage() {
                     <ArrowUpRight className="size-3.5" aria-hidden />
                   </Link>
                 ))}
-              </div>
-            </div>
-          </article>
+                  </div>
+                </div>
+              </article>
+            </TiltCard>
+          </Reveal>
         ))}
       </div>
     </main>

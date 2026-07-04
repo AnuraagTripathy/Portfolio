@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Caveat, DM_Sans, Syne } from "next/font/google";
 import { AmbientBackdrop } from "@/components/AmbientBackdrop";
+import { CursorGlow } from "@/components/CursorGlow";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans">
         <ThemeProvider>
           <AmbientBackdrop />
+          <CursorGlow />
           <div className="grain" />
           <div className="wash" />
           <Nav />

@@ -7,6 +7,9 @@ import { motion } from "framer-motion";
 import { HeroPortrait } from "@/components/HeroPortrait";
 import { RotatingHi } from "@/components/RotatingHi";
 import { WavyRule } from "@/components/WavyRule";
+import { Magnetic } from "@/components/motion/Magnetic";
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { projects } from "@/content/projects";
 
 const fade = {
@@ -30,13 +33,11 @@ export default function HomePage() {
             <Sparkles className="size-3 text-accent sm:size-3.5" aria-hidden />
             CS + Math @ UMD · full-stack, ML, infra
           </motion.p>
-          <motion.h1
-            {...fade}
-            transition={{ duration: 0.55, delay: 0.05 }}
+          <SplitHeadline
+            text="“Builder, mostly.”"
+            delay={0.05}
             className="font-display text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.35rem]"
-          >
-            “Builder, mostly.”
-          </motion.h1>
+          />
           <motion.p
             {...fade}
             transition={{ duration: 0.55, delay: 0.08 }}
@@ -63,19 +64,23 @@ export default function HomePage() {
             transition={{ duration: 0.55, delay: 0.18 }}
             className="mt-8 flex flex-wrap gap-3"
           >
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
-            >
-              View projects
-              <ArrowUpRight className="size-4" aria-hidden />
-            </Link>
-            <Link
-              href="/experience"
-              className="inline-flex items-center gap-2 rounded-full border border-line/15 bg-surface px-5 py-2.5 text-sm font-medium text-ink shadow-card transition hover:border-accent/25 hover:shadow-lift dark:shadow-none dark:hover:ring-1 dark:hover:ring-line/10"
-            >
-              Experience timeline
-            </Link>
+            <Magnetic>
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white shadow-soft transition hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+              >
+                View projects
+                <ArrowUpRight className="size-4" aria-hidden />
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <Link
+                href="/experience"
+                className="inline-flex items-center gap-2 rounded-full border border-line/15 bg-surface px-5 py-2.5 text-sm font-medium text-ink shadow-card transition hover:border-accent/25 hover:shadow-lift dark:shadow-none dark:hover:ring-1 dark:hover:ring-line/10"
+              >
+                Experience timeline
+              </Link>
+            </Magnetic>
           </motion.div>
         </div>
         <HeroPortrait />
@@ -85,7 +90,7 @@ export default function HomePage() {
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+          <Reveal className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
             <div className="max-w-xl">
               <h2 className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
                 Selected work
@@ -102,35 +107,36 @@ export default function HomePage() {
               see everything
               <span className="inline-block transition group-hover:translate-x-0.5">→</span>
             </Link>
-          </div>
+          </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {featured.map((p, i) => (
-              <Link
-                key={p.name}
-                href="/projects"
-                className="group relative overflow-hidden rounded-2xl bg-surface shadow-card ring-1 ring-line/15 transition duration-300 hover:-translate-y-1 hover:shadow-lift dark:shadow-none dark:ring-line/10 dark:hover:ring-accent/20"
-              >
-                <div
-                  className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${i === 0 ? "from-pastel-mint via-pastel-sky to-pastel-lilac" : "from-pastel-peach via-pastel-rose to-pastel-lemon"}`}
-                />
-                <div className="relative aspect-[16/10]">
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    quality={90}
-                    sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, (min-width: 768px) 48vw, 96vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.02]"
+              <Reveal key={p.name} delay={i * 0.1}>
+                <Link
+                  href="/projects"
+                  className="group relative block overflow-hidden rounded-2xl bg-surface shadow-card ring-1 ring-line/15 transition duration-300 hover:-translate-y-1 hover:shadow-lift dark:shadow-none dark:ring-line/10 dark:hover:ring-accent/20"
+                >
+                  <div
+                    className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${i === 0 ? "from-pastel-mint via-pastel-sky to-pastel-lilac" : "from-pastel-peach via-pastel-rose to-pastel-lemon"}`}
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent dark:from-surface dark:via-surface/45 dark:to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="text-xs font-medium uppercase tracking-wider text-ink-soft">
-                      {p.period}
-                    </p>
-                    <p className="mt-1 font-display text-lg font-semibold text-ink">{p.name}</p>
+                  <div className="relative aspect-[16/10]">
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      quality={90}
+                      sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, (min-width: 768px) 48vw, 96vw"
+                      className="object-cover transition duration-500 group-hover:scale-[1.02]"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent dark:from-surface dark:via-surface/45 dark:to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <p className="text-xs font-medium uppercase tracking-wider text-ink-soft">
+                        {p.period}
+                      </p>
+                      <p className="mt-1 font-display text-lg font-semibold text-ink">{p.name}</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
@@ -24,7 +25,9 @@ export function Nav() {
           className="group font-display text-[0.95rem] font-semibold tracking-tight text-ink transition hover:text-accent"
         >
           <span className="inline-block transition group-hover:-rotate-1">Anuraag</span>
-          <span className="font-quirk text-lg text-accent">~</span>
+          <span className="inline-block font-quirk text-lg text-accent group-hover:animate-wiggle">
+            ~
+          </span>
         </Link>
         <div className="flex items-center gap-1 sm:gap-2">
           <nav className="flex items-center gap-0.5 text-sm">
@@ -54,6 +57,7 @@ export function Nav() {
           <ThemeToggle />
         </div>
       </div>
+      <ScrollProgress />
     </header>
   );
 }

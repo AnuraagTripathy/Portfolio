@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { roles } from "@/content/experience";
+import { TimelineProgress } from "@/components/TimelineProgress";
 import { WavyRule } from "@/components/WavyRule";
+import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata = {
   title: "Experience",
@@ -30,7 +32,8 @@ export default function ExperiencePage() {
 
       <WavyRule className="mt-10" />
 
-      <ol className="relative mt-14 space-y-0 border-l border-line/15 pl-8 sm:pl-11">
+      <ol className="relative mt-14 space-y-0 pl-8 sm:pl-11">
+        <TimelineProgress />
         {roles.map((r, ri) => {
           const dot = dotStyles[ri % dotStyles.length];
           return (
@@ -39,7 +42,7 @@ export default function ExperiencePage() {
                 className={`absolute -left-[9px] top-2 size-[15px] rounded-full border-2 border-surface shadow-sm sm:-left-[11px] dark:border-surface ${dot}`}
                 aria-hidden
               />
-              <div className="rounded-2xl border border-line/15 bg-surface p-5 shadow-card sm:p-6 dark:shadow-none dark:ring-1 dark:ring-line/10">
+              <Reveal className="rounded-2xl border border-line/15 bg-surface p-5 shadow-card sm:p-6 dark:shadow-none dark:ring-1 dark:ring-line/10">
                 <div className="flex items-start gap-4 sm:gap-5">
                   <div className="relative size-12 shrink-0 overflow-hidden rounded-full border border-line/15 ring-1 ring-black/[0.04] dark:ring-line/10 sm:size-14">
                     <Image
@@ -79,7 +82,7 @@ export default function ExperiencePage() {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </li>
           );
         })}

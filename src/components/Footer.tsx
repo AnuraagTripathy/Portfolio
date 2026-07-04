@@ -25,7 +25,8 @@ export function Footer() {
           </div>
         </div>
         <p className="font-quirk text-center text-lg text-ink-soft sm:text-left">
-          P.S. yes, the tilde is on purpose ~
+          P.S. yes, the tilde is on purpose{" "}
+          <span className="inline-block origin-bottom animate-wiggle">~</span>
         </p>
       </div>
     </footer>
