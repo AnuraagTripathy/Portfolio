@@ -12,8 +12,39 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Parliavent",
+    period: "July 2026 · full-stack · deployed · most recent",
+    subtitle: "AI-refereed debate forum — every claim gets checked before it posts",
+    description:
+      "Debate forum where an AI judge flags unsupported claims, likely fallacies, and vague wording in drafts before they post; writers resolve each flag themselves, and anything unresolved ships as a visible public caveat. Orchestrated agents plan search queries, fetch and rank source passages, verify whether each source actually supports the claim, and escalate risky claims into a bounded deep-dive investigation. Evidence jobs run on a FastAPI + Redis queue with staged progress and a graceful sync fallback; every LLM output is schema-validated, and the AI never edits or posts for the writer.",
+    image: "/projects/Parliavent.png",
+    tech: [
+      "Multi-agent orchestration",
+      "LLM verification",
+      "Async job queues",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "Groq",
+      "Tavily",
+      "FastAPI",
+      "Redis",
+      "Framer Motion",
+      "Vercel",
+      "Neon",
+      "Render",
+    ],
+    links: [
+      { label: "Live", href: "https://parliavent.vercel.app" },
+      { label: "GitHub", href: "https://github.com/AnuraagTripathy/Parliavent" },
+    ],
+  },
+  {
     name: "Faultline",
-    period: "2025 – 2026 · most recent",
+    period: "2025 – 2026",
     subtitle: "ML training continuity & crash-to-resume",
     description:
       "Full-stack platform for ML engineers who lose GPU time to crashes and preemptions: Python SDK on PyPI (faultline-sdk), FastAPI cloud API, Next.js dashboard, Postgres + object storage on Vercel, Render, Neon, and Cloudflare R2. Same repo includes a Rust persistence runtime (async checkpoint queue, gRPC) wired to the SDK for local training and benchmarks.",
