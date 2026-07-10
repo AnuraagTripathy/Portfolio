@@ -13,7 +13,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "Parliavent",
-    period: "July 2026 · full-stack · deployed · most recent",
+    period: "July 2026 · full-stack · deployed",
     subtitle: "AI-refereed debate forum — every claim gets checked before it posts",
     description:
       "Debate forum where an AI judge flags unsupported claims, likely fallacies, and vague wording in drafts before they post; writers resolve each flag themselves, and anything unresolved ships as a visible public caveat. Orchestrated agents plan search queries, fetch and rank source passages, verify whether each source actually supports the claim, and escalate risky claims into a bounded deep-dive investigation. Evidence jobs run on a FastAPI + Redis queue with staged progress and a graceful sync fallback; every LLM output is schema-validated, and the AI never edits or posts for the writer.",
@@ -126,6 +126,30 @@ export const projects: Project[] = [
         label: "GitHub",
         href: "https://github.com/Abhyuday-Goyal/Terrapins-Planet-FWD",
       },
+    ],
+  },
+  {
+    name: "Outbreak",
+    period: "July 2026 · full-stack · deployed",
+    subtitle: "Patient-zero investigator for viral claims across the open web",
+    description:
+      "Paste a claim or URL; Outbreak crawls public posts across the open web (web search, Reddit, HN), builds a Neo4j lineage graph, and runs a RocketRide agent for patient zero and amplification waves. Case dashboard with cascade graph and findings—links reflect public corpus signals, not verified attribution.",
+    image: "/projects/Outbreak.png",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Butterbase",
+      "Neo4j",
+      "RocketRide",
+      "Tavily",
+      "Edge functions",
+      "Force-directed graph",
+    ],
+    links: [
+      { label: "Live", href: "https://outbreak.butterbase.dev" },
+      { label: "GitHub", href: "https://github.com/AnuraagTripathy/outbreak" },
     ],
   },
   {
