@@ -12,6 +12,35 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Stemline",
+    period: "July 2026 · full-stack · deployed",
+    subtitle: "Version control for unreleased music — stem-level commits, audio-aware diffs, E2E encryption",
+    description:
+      "Git for audio: commit individual stems, fork lineages without duplicating storage, and hear what changed with A/B crossfade and phase-cancellation diffs. Mixdowns split into stems on-device via HT-Demucs (onnxruntime-web / WebGPU→WASM) so audio never leaves the machine during inference. Content-addressed FastCDC uploads with AES-GCM per chunk; only changed stem bytes go up. Sample-locked multi-stem mixer, waveform comments, and RSA-OAEP wrapped project shares — storage only ever holds ciphertext.",
+    image: "/projects/Stemline.png",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "Web Audio API",
+      "Web Crypto",
+      "Web Workers",
+      "onnxruntime-web",
+      "HT-Demucs",
+      "FastCDC",
+      "AES-GCM",
+      "IndexedDB",
+      "Postgres RLS",
+      "Vercel",
+    ],
+    links: [
+      { label: "Live", href: "https://stemline-six.vercel.app/" },
+      { label: "GitHub", href: "https://github.com/AnuraagTripathy/Stemline" },
+    ],
+  },
+  {
     name: "Parliavent",
     period: "July 2026 · full-stack · deployed",
     subtitle: "AI-refereed debate forum — every claim gets checked before it posts",
@@ -44,7 +73,7 @@ export const projects: Project[] = [
   },
   {
     name: "Faultline",
-    period: "2025 – 2026",
+    period: "April 2026 · full-stack · deployed",
     subtitle: "ML training continuity & crash-to-resume",
     description:
       "Full-stack platform for ML engineers who lose GPU time to crashes and preemptions: Python SDK on PyPI (faultline-sdk), FastAPI cloud API, Next.js dashboard, Postgres + object storage on Vercel, Render, Neon, and Cloudflare R2. Same repo includes a Rust persistence runtime (async checkpoint queue, gRPC) wired to the SDK for local training and benchmarks.",
