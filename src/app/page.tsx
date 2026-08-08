@@ -10,6 +10,7 @@ import { WavyRule } from "@/components/WavyRule";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
+import { ContributionGraph } from "@/components/ContributionGraph";
 import { projects } from "@/content/projects";
 
 const fade = {
@@ -141,6 +142,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <WavyRule className="mx-auto max-w-6xl px-5 sm:px-8" />
+
+      <ContributionGraph />
     </main>
   );
 }
