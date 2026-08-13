@@ -132,6 +132,30 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "AutoQL",
+    period: "August 2026 · CLI + web demo · deployed",
+    subtitle: "Legacy Playwright/Selenium locators → semantic AgentQL queries",
+    description:
+      "Paste a Playwright or Selenium script; AutoQL statically parses brittle CSS/XPath call sites, names each control, and emits an AgentQL query_elements module. Same parse → translate → generate pipeline as the Python CLI, running instantly in the browser with an offline heuristic translator—or gpt-4o-mini when an API key is set.",
+    image: "/projects/AutoQL.png",
+    tech: [
+      "Python",
+      "AST",
+      "Playwright",
+      "Selenium",
+      "AgentQL",
+      "OpenAI",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vercel",
+    ],
+    links: [
+      { label: "Live Demo", href: "https://autoql-demo.vercel.app" },
+      { label: "GitHub", href: "https://github.com/AnuraagTripathy/autoql" },
+    ],
+  },
+  {
     name: "Ecosphere",
     period: "July 2024",
     description:
