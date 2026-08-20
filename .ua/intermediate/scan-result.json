@@ -1,0 +1,331 @@
+{
+  "scriptCompleted": true,
+  "contentDigest": "704aa86af7fe2e3a729283d47f423e92ec1fffe3c5f31cf19e149668452b4ddd",
+  "files": [
+    {
+      "path": "next-env.d.ts",
+      "language": "typescript",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "next.config.mjs",
+      "language": "javascript",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "sizeLines": 32,
+      "fileCategory": "config"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "language": "javascript",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/contact/page.tsx",
+      "language": "typescript",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/experience/page.tsx",
+      "language": "typescript",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/globals.css",
+      "language": "css",
+      "sizeLines": 118,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "language": "typescript",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "language": "typescript",
+      "sizeLines": 151,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/projects/page.tsx",
+      "language": "typescript",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/template.tsx",
+      "language": "typescript",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/AmbientBackdrop.tsx",
+      "language": "typescript",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ContributionGraph.tsx",
+      "language": "typescript",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/CursorGlow.tsx",
+      "language": "typescript",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/Footer.tsx",
+      "language": "typescript",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/HeroPortrait.tsx",
+      "language": "typescript",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/Nav.tsx",
+      "language": "typescript",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/RotatingHi.tsx",
+      "language": "typescript",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ScrollProgress.tsx",
+      "language": "typescript",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ThemeProvider.tsx",
+      "language": "typescript",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ThemeToggle.tsx",
+      "language": "typescript",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/TimelineProgress.tsx",
+      "language": "typescript",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/WavyRule.tsx",
+      "language": "typescript",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/motion/Magnetic.tsx",
+      "language": "typescript",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/motion/Reveal.tsx",
+      "language": "typescript",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/motion/SplitHeadline.tsx",
+      "language": "typescript",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/motion/TiltCard.tsx",
+      "language": "typescript",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/content/experience.ts",
+      "language": "typescript",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/content/projects.ts",
+      "language": "typescript",
+      "sizeLines": 253,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/lib/scheduledTheme.ts",
+      "language": "typescript",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "language": "typescript",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tailwind.config.ts",
+      "language": "typescript",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tsconfig.json",
+      "language": "json",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    }
+  ],
+  "totalFiles": 33,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "moderate",
+  "stats": {
+    "filesScanned": 33,
+    "byCategory": {
+      "code": 30,
+      "config": 2,
+      "markup": 1
+    },
+    "byLanguage": {
+      "typescript": 28,
+      "javascript": 2,
+      "json": 2,
+      "css": 1
+    }
+  },
+  "importMap": {
+    "next-env.d.ts": [],
+    "next.config.mjs": [],
+    "package.json": [],
+    "postcss.config.mjs": [],
+    "src/app/contact/page.tsx": [
+      "src/components/WavyRule.tsx",
+      "src/components/motion/Magnetic.tsx",
+      "src/components/motion/Reveal.tsx"
+    ],
+    "src/app/experience/page.tsx": [
+      "src/components/TimelineProgress.tsx",
+      "src/components/WavyRule.tsx",
+      "src/components/motion/Reveal.tsx",
+      "src/content/experience.ts"
+    ],
+    "src/app/globals.css": [],
+    "src/app/layout.tsx": [
+      "src/app/globals.css",
+      "src/components/AmbientBackdrop.tsx",
+      "src/components/CursorGlow.tsx",
+      "src/components/Footer.tsx",
+      "src/components/Nav.tsx",
+      "src/components/ThemeProvider.tsx"
+    ],
+    "src/app/page.tsx": [
+      "src/components/ContributionGraph.tsx",
+      "src/components/HeroPortrait.tsx",
+      "src/components/RotatingHi.tsx",
+      "src/components/WavyRule.tsx",
+      "src/components/motion/Magnetic.tsx",
+      "src/components/motion/Reveal.tsx",
+      "src/components/motion/SplitHeadline.tsx",
+      "src/content/projects.ts"
+    ],
+    "src/app/projects/page.tsx": [
+      "src/components/WavyRule.tsx",
+      "src/components/motion/Reveal.tsx",
+      "src/components/motion/TiltCard.tsx",
+      "src/content/projects.ts"
+    ],
+    "src/app/template.tsx": [],
+    "src/components/AmbientBackdrop.tsx": [],
+    "src/components/ContributionGraph.tsx": [
+      "src/components/ThemeProvider.tsx",
+      "src/components/motion/Reveal.tsx"
+    ],
+    "src/components/CursorGlow.tsx": [],
+    "src/components/Footer.tsx": [],
+    "src/components/HeroPortrait.tsx": [],
+    "src/components/Nav.tsx": [
+      "src/components/ScrollProgress.tsx",
+      "src/components/ThemeToggle.tsx",
+      "src/lib/utils.ts"
+    ],
+    "src/components/RotatingHi.tsx": [],
+    "src/components/ScrollProgress.tsx": [],
+    "src/components/ThemeProvider.tsx": [
+      "src/lib/scheduledTheme.ts"
+    ],
+    "src/components/ThemeToggle.tsx": [
+      "src/components/ThemeProvider.tsx"
+    ],
+    "src/components/TimelineProgress.tsx": [],
+    "src/components/WavyRule.tsx": [],
+    "src/components/motion/Magnetic.tsx": [],
+    "src/components/motion/Reveal.tsx": [],
+    "src/components/motion/SplitHeadline.tsx": [],
+    "src/components/motion/TiltCard.tsx": [],
+    "src/content/experience.ts": [],
+    "src/content/projects.ts": [],
+    "src/lib/scheduledTheme.ts": [],
+    "src/lib/utils.ts": [],
+    "tailwind.config.ts": [],
+    "tsconfig.json": []
+  },
+  "projectName": "anuraag-web",
+  "projectDescription": "Personal portfolio site for Anuraag Tripathy, built with Next.js 14 App Router, React 18, TypeScript and Tailwind CSS, featuring animated hero, project/experience pages and a scheduled light/dark theme system.",
+  "languages": [
+    "typescript",
+    "javascript",
+    "css",
+    "json"
+  ],
+  "frameworks": [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Framer Motion",
+    "PostCSS",
+    "ESLint"
+  ],
+  "project": {
+    "name": "anuraag-web",
+    "description": "Personal portfolio site for Anuraag Tripathy, built with Next.js 14 App Router, React 18, TypeScript and Tailwind CSS, featuring animated hero, project/experience pages and a scheduled light/dark theme system.",
+    "languages": [
+      "typescript",
+      "javascript",
+      "css",
+      "json"
+    ],
+    "frameworks": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "PostCSS",
+      "ESLint"
+    ]
+  }
+}

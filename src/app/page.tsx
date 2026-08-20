@@ -11,6 +11,7 @@ import { Magnetic } from "@/components/motion/Magnetic";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { ContributionGraph } from "@/components/ContributionGraph";
+import { WhyHireMe } from "@/components/WhyHireMe";
 import { projects } from "@/content/projects";
 
 const fade = {
@@ -86,6 +87,10 @@ export default function HomePage() {
         </div>
         <HeroPortrait />
       </section>
+
+      <WavyRule className="mx-auto max-w-6xl px-5 sm:px-8" />
+
+      <WhyHireMe />
 
       <WavyRule className="mx-auto max-w-6xl px-5 sm:px-8" />
 

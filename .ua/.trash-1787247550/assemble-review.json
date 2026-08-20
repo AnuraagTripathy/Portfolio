@@ -1,0 +1,24 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 0,
+  "crossBatchEdgesAdded": 4,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "edgesRemoved": 4,
+  "edgeTypesRemapped": 7,
+  "notes": [
+    "Merge report was clean and verified clean: 58 nodes / 122 edges in, same out; 0 dangling refs, 0 self-loops, 0 duplicate (source,target,type) triples. No node IDs required normalization, so no upstream ID-quality concern.",
+    "File coverage complete: all 33 scanned paths in scan-result.json have exactly one file/config node, and there are no node filePaths outside the scan set.",
+    "importMap parity is exact: all 32 resolved internal import relationships have a matching `imports` edge in the correct direction, and the graph contains no `imports` edge that is not backed by importMap. Cross-batch imports (WavyRule, Reveal, ThemeProvider, projects.ts) all verified present and correctly oriented.",
+    "MEDIUM: removed 3 inverted `related` edges that duplicated an existing `imports` edge pointing the other way - Reveal.tsx->experience/page.tsx, Reveal.tsx->projects/page.tsx, globals.css->layout.tsx. In each case the importer is the page/layout, so the `related` edge reversed the real dependency direction.",
+    "LOW: removed 1 `depends_on` ThemeToggle.tsx->ThemeProvider.tsx that duplicated the existing `imports` edge with identical direction (same relationship encoded under two edge types).",
+    "MEDIUM: remapped 7 cross-file function->function `contains` edges to `calls` (weight 0.8). Batch 1 modelled JSX composition as `contains` (RootLayout->ThemeProvider/AmbientBackdrop/CursorGlow/Nav/Footer, Nav->ThemeToggle/ScrollProgress) while batches 2/4/5 modelled the same relationship as `calls`. `contains` also wrongly implied those components live inside layout.tsx/Nav.tsx. Verified against source JSX before remapping.",
+    "MEDIUM: added 4 missing JSX-composition `calls` edges the batch analyzers skipped, each verified in source and backed by importMap - HomePage->WavyRule, HomePage->Magnetic, HomePage->Reveal, ContactPage->WavyRule. src/app/page.tsx imported and rendered 7 components but only 4 had function-level edges.",
+    "LOW (not changed): config-file typing is inconsistent - package.json and tsconfig.json are type `config`, while tailwind.config.ts, next.config.mjs and postcss.config.mjs are type `file`. Both are valid types; retyping would change node IDs and require rewriting edge refs, so left as-is.",
+    "LOW (not changed): `configures` edges from tsconfig.json/package.json/next.config.mjs target an arbitrary 1-4 file subset (e.g. tsconfig.json->template.tsx and ->layout.tsx but none of the other 29 TS files). Semantically defensible but an incomplete, sampled relation rather than a real one.",
+    "LOW (not changed): src/content/projects.ts and src/content/experience.ts have no member nodes or `exports` edges - the analyzers emitted symbol nodes only for functions, not exported const data. Their file-level imports edges are intact.",
+    "INFO: every file->function pair carries both a `contains` (1.0) and an `exports` (0.8) edge (26 pairs). This is consistent across all batches and reads as intentional structure-vs-public-API modelling, not accidental duplication.",
+    "INFO: postcss.config.mjs->tailwind.config.ts `depends_on` is not importMap-backed but is correct - postcss.config.mjs registers the tailwindcss plugin. Kept."
+  ]
+}

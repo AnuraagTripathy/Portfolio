@@ -1,0 +1,603 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 10,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 10,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/app/layout.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "RootLayout",
+          "startLine": 47,
+          "endLine": 63,
+          "params": [
+            "{ children }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "RootLayout",
+          "line": 47,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/AmbientBackdrop.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "AmbientBackdrop",
+          "startLine": 1,
+          "endLine": 31,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AmbientBackdrop",
+          "line": 1,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/CursorGlow.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "CursorGlow",
+          "startLine": 16,
+          "endLine": 58,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CursorGlow",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CursorGlow",
+          "callee": "useReducedMotion",
+          "lineNumber": 17
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "useState",
+          "lineNumber": 18
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "useMotionValue",
+          "lineNumber": 19
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "useMotionValue",
+          "lineNumber": 20
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "useSpring",
+          "lineNumber": 22
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "useSpring",
+          "lineNumber": 23
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "useMotionTemplate",
+          "lineNumber": 25
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "useMotionTemplate",
+          "lineNumber": 26
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "useEffect",
+          "lineNumber": 28
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "window.matchMedia",
+          "lineNumber": 30
+        },
+        {
+          "caller": "onMove",
+          "callee": "x.set",
+          "lineNumber": 34
+        },
+        {
+          "caller": "onMove",
+          "callee": "y.set",
+          "lineNumber": 35
+        },
+        {
+          "caller": "onMove",
+          "callee": "setActive",
+          "lineNumber": 36
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "window.addEventListener",
+          "lineNumber": 38
+        },
+        {
+          "caller": "CursorGlow",
+          "callee": "window.removeEventListener",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/Footer.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "Footer",
+          "startLine": 6,
+          "endLine": 34,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Footer",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Footer",
+          "callee": "new Date().getFullYear",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/Nav.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "Nav",
+          "startLine": 17,
+          "endLine": 63,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Nav",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Nav",
+          "callee": "usePathname",
+          "lineNumber": 18
+        },
+        {
+          "caller": "Nav",
+          "callee": "links.map",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Nav",
+          "callee": "cn",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/ScrollProgress.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 14,
+      "functions": [
+        {
+          "name": "ScrollProgress",
+          "startLine": 6,
+          "endLine": 17,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ScrollProgress",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ScrollProgress",
+          "callee": "useScroll",
+          "lineNumber": 7
+        },
+        {
+          "caller": "ScrollProgress",
+          "callee": "useSpring",
+          "lineNumber": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/ThemeProvider.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 103,
+      "functions": [
+        {
+          "name": "useThemePreference",
+          "startLine": 31,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "ThemeProvider",
+          "startLine": 43,
+          "endLine": 118,
+          "params": [
+            "{ children }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "useThemePreference",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "ThemeProvider",
+          "line": 43,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useThemePreference",
+          "callee": "useContext",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useState",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useState",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useState",
+          "lineNumber": 46
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useLayoutEffect",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "localStorage.getItem",
+          "lineNumber": 50
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "setPref",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "setReady",
+          "lineNumber": 57
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useLayoutEffect",
+          "lineNumber": 60
+        },
+        {
+          "caller": "tick",
+          "callee": "setAutoTick",
+          "lineNumber": 63
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "tick",
+          "lineNumber": 65
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "window.setInterval",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "document.addEventListener",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "window.clearInterval",
+          "lineNumber": 69
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "document.removeEventListener",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useMemo",
+          "lineNumber": 74
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "getScheduledTheme",
+          "lineNumber": 77
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useCallback",
+          "lineNumber": 80
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "setPref",
+          "lineNumber": 81
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "localStorage.setItem",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useCallback",
+          "lineNumber": 89
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "persistPref",
+          "lineNumber": 91
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useCallback",
+          "lineNumber": 96
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "persistPref",
+          "lineNumber": 97
+        },
+        {
+          "caller": "ThemeProvider",
+          "callee": "useMemo",
+          "lineNumber": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/ThemeToggle.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "ThemeToggle",
+          "startLine": 6,
+          "endLine": 49,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ThemeToggle",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ThemeToggle",
+          "callee": "useThemePreference",
+          "lineNumber": 7
+        },
+        {
+          "caller": "ThemeToggle",
+          "callee": "resetToClock",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ThemeToggle",
+          "callee": "setManual",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/lib/scheduledTheme.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "functions": [
+        {
+          "name": "getScheduledTheme",
+          "startLine": 2,
+          "endLine": 7,
+          "params": [
+            "now"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getScheduledTheme",
+          "line": 2,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getScheduledTheme",
+          "callee": "now.getHours",
+          "lineNumber": 3
+        },
+        {
+          "caller": "getScheduledTheme",
+          "callee": "now.getMinutes",
+          "lineNumber": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "functions": [
+        {
+          "name": "cn",
+          "startLine": 4,
+          "endLine": 6,
+          "params": [
+            "...inputs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "cn",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cn",
+          "callee": "twMerge",
+          "lineNumber": 5
+        },
+        {
+          "caller": "cn",
+          "callee": "clsx",
+          "lineNumber": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

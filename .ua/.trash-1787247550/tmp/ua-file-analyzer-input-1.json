@@ -1,0 +1,16 @@
+{
+  "projectRoot": "D:/projects/Portfolio",
+  "batchFiles": [
+    {"path": "src/app/layout.tsx", "language": "typescript", "sizeLines": 63, "fileCategory": "code"},
+    {"path": "src/components/AmbientBackdrop.tsx", "language": "typescript", "sizeLines": 31, "fileCategory": "code"},
+    {"path": "src/components/CursorGlow.tsx", "language": "typescript", "sizeLines": 58, "fileCategory": "code"},
+    {"path": "src/components/Footer.tsx", "language": "typescript", "sizeLines": 34, "fileCategory": "code"},
+    {"path": "src/components/Nav.tsx", "language": "typescript", "sizeLines": 63, "fileCategory": "code"},
+    {"path": "src/components/ScrollProgress.tsx", "language": "typescript", "sizeLines": 17, "fileCategory": "code"},
+    {"path": "src/components/ThemeProvider.tsx", "language": "typescript", "sizeLines": 118, "fileCategory": "code"},
+    {"path": "src/components/ThemeToggle.tsx", "language": "typescript", "sizeLines": 49, "fileCategory": "code"},
+    {"path": "src/lib/scheduledTheme.ts", "language": "typescript", "sizeLines": 7, "fileCategory": "code"},
+    {"path": "src/lib/utils.ts", "language": "typescript", "sizeLines": 6, "fileCategory": "code"}
+  ],
+  "batchImportData": {"src/app/layout.tsx":["src/app/globals.css","src/components/AmbientBackdrop.tsx","src/components/CursorGlow.tsx","src/components/Footer.tsx","src/components/Nav.tsx","src/components/ThemeProvider.tsx"],"src/components/AmbientBackdrop.tsx":[],"src/components/CursorGlow.tsx":[],"src/components/Footer.tsx":[],"src/components/Nav.tsx":["src/components/ScrollProgress.tsx","src/components/ThemeToggle.tsx","src/lib/utils.ts"],"src/components/ScrollProgress.tsx":[],"src/components/ThemeProvider.tsx":["src/lib/scheduledTheme.ts"],"src/components/ThemeToggle.tsx":["src/components/ThemeProvider.tsx"],"src/lib/scheduledTheme.ts":[],"src/lib/utils.ts":[]}
+}

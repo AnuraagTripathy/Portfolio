@@ -1,0 +1,133 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/app/experience/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/experience/page.tsx",
+      "summary": "Next.js App Router server page for the /experience route that renders the career timeline by mapping over the typed `roles` content array into logo, title, date-range and highlight cards. Composes WavyRule, Reveal and TimelineProgress with a rotating pastel dot palette for each timeline entry.",
+      "tags": ["page", "app-router", "timeline", "server-component", "presentation"],
+      "complexity": "moderate",
+      "languageNotes": "A Next.js App Router page: the exported `metadata` object supplies the route title, and the default export is a server component that renders no client hooks itself — interactivity is delegated to the imported client components."
+    },
+    {
+      "id": "function:src/app/experience/page.tsx:ExperiencePage",
+      "type": "function",
+      "name": "ExperiencePage",
+      "filePath": "src/app/experience/page.tsx",
+      "lineRange": [19, 98],
+      "summary": "Default-exported page component rendering the experience header, a wavy divider, and an ordered list of role cards built from `roles`, each with a company logo, metadata row, summary and bulleted highlights.",
+      "tags": ["page-component", "list-rendering", "layout", "server-component"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/TimelineProgress.tsx",
+      "type": "file",
+      "name": "TimelineProgress.tsx",
+      "filePath": "src/components/TimelineProgress.tsx",
+      "summary": "Client component providing the vertical timeline rail that fills with an accent gradient as the user scrolls past the role list it sits beside. Respects the user's reduced-motion preference by omitting the animated fill entirely.",
+      "tags": ["component", "scroll-animation", "client-component", "accessibility", "framer-motion"],
+      "complexity": "simple",
+      "languageNotes": "Uses framer-motion's `useScroll` with an element target and offset window, smoothed through `useSpring`, to drive a CSS `scaleY` transform rather than re-rendering on every scroll frame."
+    },
+    {
+      "id": "function:src/components/TimelineProgress.tsx:TimelineProgress",
+      "type": "function",
+      "name": "TimelineProgress",
+      "filePath": "src/components/TimelineProgress.tsx",
+      "lineRange": [11, 31],
+      "summary": "Renders an absolutely-positioned one-pixel rail whose gradient overlay is scaled vertically by a spring-smoothed scroll progress value, and is skipped when reduced motion is requested.",
+      "tags": ["component", "hook-usage", "scroll-progress", "accessibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/content/experience.ts",
+      "type": "file",
+      "name": "experience.ts",
+      "filePath": "src/content/experience.ts",
+      "summary": "Typed content module defining the `Role` shape and exporting the `roles` array — the newest-first list of jobs with company, location, date range, summary, highlight bullets and logo path — that drives the experience timeline UI.",
+      "tags": ["content", "data-model", "type-definition", "static-data"],
+      "complexity": "moderate",
+      "languageNotes": "Content-as-code pattern: a plain TypeScript module annotated with an exported `Role` type gives the page compile-time safety over the data without a CMS or runtime validation layer."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "file:src/components/TimelineProgress.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "file:src/components/WavyRule.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "file:src/content/experience.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "function:src/app/experience/page.tsx:ExperiencePage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "function:src/app/experience/page.tsx:ExperiencePage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/TimelineProgress.tsx",
+      "target": "function:src/components/TimelineProgress.tsx:TimelineProgress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/TimelineProgress.tsx",
+      "target": "function:src/components/TimelineProgress.tsx:TimelineProgress",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/experience/page.tsx:ExperiencePage",
+      "target": "function:src/components/TimelineProgress.tsx:TimelineProgress",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/experience/page.tsx:ExperiencePage",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/experience/page.tsx:ExperiencePage",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "projectRoot": "D:/projects/Portfolio",
+  "files": [
+    {
+      "path": ".ua/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "next-env.d.ts",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "next.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/contact/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/experience/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/globals.css",
+      "language": "css",
+      "fileCategory": "markup"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/projects/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/app/template.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/AmbientBackdrop.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ContributionGraph.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/CursorGlow.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/Footer.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/HeroPortrait.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/Nav.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/RotatingHi.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ScrollProgress.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ThemeProvider.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/ThemeToggle.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/TimelineProgress.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/WavyRule.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/motion/Magnetic.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/motion/Reveal.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/motion/SplitHeadline.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/components/motion/TiltCard.tsx",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/content/experience.ts",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/content/projects.ts",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/lib/scheduledTheme.ts",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tailwind.config.ts",
+      "language": "typescript",
+      "fileCategory": "code"
+    },
+    {
+      "path": "tsconfig.json",
+      "language": "json",
+      "fileCategory": "config"
+    }
+  ]
+}

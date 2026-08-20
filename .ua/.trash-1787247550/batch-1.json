@@ -1,0 +1,261 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/app/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "src/app/layout.tsx",
+      "summary": "Next.js App Router root layout that loads the three Google fonts as CSS variables, declares site-wide SEO/OpenGraph metadata, and wraps every page in the theme provider along with the persistent nav, footer and ambient visual layers.",
+      "tags": ["entry-point", "layout", "metadata", "app-router", "component"],
+      "complexity": "moderate",
+      "languageNotes": "Uses `next/font/google` to self-host fonts and expose them as CSS custom properties, plus `suppressHydrationWarning` on <html> because the theme class is applied on the client."
+    },
+    {
+      "id": "function:src/app/layout.tsx:RootLayout",
+      "type": "function",
+      "name": "RootLayout",
+      "filePath": "src/app/layout.tsx",
+      "lineRange": [47, 63],
+      "summary": "Default-exported root layout component that renders the html/body shell with font variables and composes ThemeProvider, AmbientBackdrop, CursorGlow, Nav, page children and Footer.",
+      "tags": ["entry-point", "layout", "component", "composition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/AmbientBackdrop.tsx",
+      "type": "file",
+      "name": "AmbientBackdrop.tsx",
+      "filePath": "src/components/AmbientBackdrop.tsx",
+      "summary": "Purely decorative fixed background layer that paints four blurred pastel blobs and a masked dot grid behind all page content, with separate opacities for light and dark mode.",
+      "tags": ["component", "presentational", "background", "styling", "animation"],
+      "complexity": "simple",
+      "languageNotes": "A server component by default (no \"use client\"), since it holds no state and renders only static markup."
+    },
+    {
+      "id": "function:src/components/AmbientBackdrop.tsx:AmbientBackdrop",
+      "type": "function",
+      "name": "AmbientBackdrop",
+      "filePath": "src/components/AmbientBackdrop.tsx",
+      "lineRange": [1, 31],
+      "summary": "Renders the aria-hidden ambient background: floating pastel gradient blobs plus radial dot-grid overlays masked toward the top of the viewport.",
+      "tags": ["component", "presentational", "background", "styling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/CursorGlow.tsx",
+      "type": "file",
+      "name": "CursorGlow.tsx",
+      "filePath": "src/components/CursorGlow.tsx",
+      "summary": "Client component that renders a soft pastel radial glow which lazily trails the pointer across the page, with separate light and dark gradients, and disables itself for reduced-motion users and non-fine pointers.",
+      "tags": ["component", "animation", "event-handler", "accessibility", "effect"],
+      "complexity": "moderate",
+      "languageNotes": "Uses Framer Motion's `useMotionValue`/`useSpring`/`useMotionTemplate` so pointer updates drive the gradient without triggering React re-renders."
+    },
+    {
+      "id": "function:src/components/CursorGlow.tsx:CursorGlow",
+      "type": "function",
+      "name": "CursorGlow",
+      "filePath": "src/components/CursorGlow.tsx",
+      "lineRange": [16, 58],
+      "summary": "Tracks pointermove events into spring-damped motion values and renders two fixed overlay divs whose radial-gradient background follows the cursor, returning null when reduced motion is preferred.",
+      "tags": ["component", "animation", "event-handler", "accessibility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/Footer.tsx",
+      "type": "file",
+      "name": "Footer.tsx",
+      "filePath": "src/components/Footer.tsx",
+      "summary": "Site footer showing the current-year copyright, external links to GitHub, LinkedIn and the hosted résumé, and a playful sign-off line with an animated tilde.",
+      "tags": ["component", "layout", "presentational", "navigation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/Footer.tsx:Footer",
+      "type": "function",
+      "name": "Footer",
+      "filePath": "src/components/Footer.tsx",
+      "lineRange": [6, 34],
+      "summary": "Renders the footer bar with dynamic copyright year and a row of outbound profile and résumé links.",
+      "tags": ["component", "presentational", "navigation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/Nav.tsx",
+      "type": "file",
+      "name": "Nav.tsx",
+      "filePath": "src/components/Nav.tsx",
+      "summary": "Fixed, blurred top navigation bar with the wordmark, four route links whose active item is highlighted by a shared-layout animated pill, the theme toggle, and the scroll progress hairline.",
+      "tags": ["component", "navigation", "layout", "animation", "entry-point"],
+      "complexity": "moderate",
+      "languageNotes": "The active-link pill uses Framer Motion's `layoutId` so the highlight animates smoothly between routes instead of re-mounting."
+    },
+    {
+      "id": "function:src/components/Nav.tsx:Nav",
+      "type": "function",
+      "name": "Nav",
+      "filePath": "src/components/Nav.tsx",
+      "lineRange": [17, 63],
+      "summary": "Reads the current pathname to mark the active route, maps the link table into styled Next.js Links, and mounts ThemeToggle and ScrollProgress inside the sticky header.",
+      "tags": ["component", "navigation", "animation", "routing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/ScrollProgress.tsx",
+      "type": "file",
+      "name": "ScrollProgress.tsx",
+      "filePath": "src/components/ScrollProgress.tsx",
+      "summary": "Two-pixel gradient bar pinned to the bottom edge of the nav that scales horizontally with the page's scroll progress, smoothed by a spring.",
+      "tags": ["component", "animation", "presentational", "scroll"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/ScrollProgress.tsx:ScrollProgress",
+      "type": "function",
+      "name": "ScrollProgress",
+      "filePath": "src/components/ScrollProgress.tsx",
+      "lineRange": [6, 17],
+      "summary": "Derives a spring-damped scaleX from Framer Motion's useScroll progress and applies it to a left-origin pastel gradient hairline.",
+      "tags": ["component", "animation", "scroll"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/ThemeProvider.tsx",
+      "type": "file",
+      "name": "ThemeProvider.tsx",
+      "filePath": "src/components/ThemeProvider.tsx",
+      "summary": "Custom theme layer that owns an auto/light/dark preference persisted to localStorage, re-evaluates the clock-scheduled theme on a timer and on tab visibility changes, and feeds the resolved theme into next-themes as a forced theme.",
+      "tags": ["component", "context-provider", "theme", "state-management", "hook"],
+      "complexity": "moderate",
+      "languageNotes": "Wraps next-themes with `forcedTheme` and `enableSystem: false`, so this provider — not the OS setting — is the single source of truth; `useLayoutEffect` reads localStorage before paint to limit theme flash."
+    },
+    {
+      "id": "function:src/components/ThemeProvider.tsx:useThemePreference",
+      "type": "function",
+      "name": "useThemePreference",
+      "filePath": "src/components/ThemeProvider.tsx",
+      "lineRange": [31, 37],
+      "summary": "Context hook returning the theme preference state and mutators, throwing a descriptive error when called outside a ThemeProvider.",
+      "tags": ["hook", "context", "theme", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/ThemeProvider.tsx:ThemeProvider",
+      "type": "function",
+      "name": "ThemeProvider",
+      "filePath": "src/components/ThemeProvider.tsx",
+      "lineRange": [43, 118],
+      "summary": "Provider component that hydrates the stored auto/light/dark preference, ticks every 30 seconds (and on visibilitychange) while in auto mode to follow the local clock, and exposes setManual/resetToClock through context while forcing the resolved theme on next-themes.",
+      "tags": ["context-provider", "theme", "state-management", "persistence", "component"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/ThemeToggle.tsx",
+      "type": "file",
+      "name": "ThemeToggle.tsx",
+      "filePath": "src/components/ThemeToggle.tsx",
+      "summary": "Round sun/moon button in the nav that pins light or dark on click and returns to clock-scheduled auto mode on Alt+click, rendering a neutral placeholder until the theme preference has hydrated.",
+      "tags": ["component", "theme", "event-handler", "accessibility", "ui-control"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/ThemeToggle.tsx:ThemeToggle",
+      "type": "function",
+      "name": "ThemeToggle",
+      "filePath": "src/components/ThemeToggle.tsx",
+      "lineRange": [6, 49],
+      "summary": "Consumes useThemePreference to render the toggle icon and to switch between pinned light/dark and Alt+click reset-to-clock, with aria-labels and titles that reflect the current preference mode.",
+      "tags": ["component", "theme", "event-handler", "accessibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/scheduledTheme.ts",
+      "type": "file",
+      "name": "scheduledTheme.ts",
+      "filePath": "src/lib/scheduledTheme.ts",
+      "summary": "Single-function module encoding the site's time-of-day theme schedule: light between 06:00 and 19:00 local time, dark otherwise.",
+      "tags": ["utility", "theme", "pure-function", "business-logic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/scheduledTheme.ts:getScheduledTheme",
+      "type": "function",
+      "name": "getScheduledTheme",
+      "filePath": "src/lib/scheduledTheme.ts",
+      "lineRange": [2, 7],
+      "summary": "Converts a Date (defaulting to now) into minutes-since-midnight and returns \"light\" inside the 06:00–19:00 window, otherwise \"dark\".",
+      "tags": ["utility", "theme", "pure-function"],
+      "complexity": "simple",
+      "languageNotes": "The injectable `now` parameter keeps this pure and directly testable despite depending on the clock."
+    },
+    {
+      "id": "file:src/lib/utils.ts",
+      "type": "file",
+      "name": "utils.ts",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Shared class-name helper module exposing the `cn` utility used across every component for conditional Tailwind styling.",
+      "tags": ["utility", "styling", "helper", "shared"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:cn",
+      "type": "function",
+      "name": "cn",
+      "filePath": "src/lib/utils.ts",
+      "lineRange": [4, 6],
+      "summary": "Combines conditional class values via clsx and resolves conflicting Tailwind utilities with tailwind-merge.",
+      "tags": ["utility", "styling", "helper"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:src/app/layout.tsx", "target": "file:src/app/globals.css", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/app/layout.tsx", "target": "file:src/components/AmbientBackdrop.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/app/layout.tsx", "target": "file:src/components/CursorGlow.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/app/layout.tsx", "target": "file:src/components/Footer.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/app/layout.tsx", "target": "file:src/components/Nav.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/app/layout.tsx", "target": "file:src/components/ThemeProvider.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/components/Nav.tsx", "target": "file:src/components/ScrollProgress.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/components/Nav.tsx", "target": "file:src/components/ThemeToggle.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/components/Nav.tsx", "target": "file:src/lib/utils.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/components/ThemeProvider.tsx", "target": "file:src/lib/scheduledTheme.ts", "type": "imports", "direction": "forward", "weight": 0.7},
+    {"source": "file:src/components/ThemeToggle.tsx", "target": "file:src/components/ThemeProvider.tsx", "type": "imports", "direction": "forward", "weight": 0.7},
+
+    {"source": "file:src/app/layout.tsx", "target": "function:src/app/layout.tsx:RootLayout", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/components/AmbientBackdrop.tsx", "target": "function:src/components/AmbientBackdrop.tsx:AmbientBackdrop", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/components/CursorGlow.tsx", "target": "function:src/components/CursorGlow.tsx:CursorGlow", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/components/Footer.tsx", "target": "function:src/components/Footer.tsx:Footer", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/components/Nav.tsx", "target": "function:src/components/Nav.tsx:Nav", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/components/ScrollProgress.tsx", "target": "function:src/components/ScrollProgress.tsx:ScrollProgress", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/components/ThemeProvider.tsx", "target": "function:src/components/ThemeProvider.tsx:useThemePreference", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/components/ThemeProvider.tsx", "target": "function:src/components/ThemeProvider.tsx:ThemeProvider", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/components/ThemeToggle.tsx", "target": "function:src/components/ThemeToggle.tsx:ThemeToggle", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/lib/scheduledTheme.ts", "target": "function:src/lib/scheduledTheme.ts:getScheduledTheme", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:src/lib/utils.ts", "target": "function:src/lib/utils.ts:cn", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:src/app/layout.tsx", "target": "function:src/app/layout.tsx:RootLayout", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/components/AmbientBackdrop.tsx", "target": "function:src/components/AmbientBackdrop.tsx:AmbientBackdrop", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/components/CursorGlow.tsx", "target": "function:src/components/CursorGlow.tsx:CursorGlow", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/components/Footer.tsx", "target": "function:src/components/Footer.tsx:Footer", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/components/Nav.tsx", "target": "function:src/components/Nav.tsx:Nav", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/components/ScrollProgress.tsx", "target": "function:src/components/ScrollProgress.tsx:ScrollProgress", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/components/ThemeProvider.tsx", "target": "function:src/components/ThemeProvider.tsx:useThemePreference", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/components/ThemeProvider.tsx", "target": "function:src/components/ThemeProvider.tsx:ThemeProvider", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/components/ThemeToggle.tsx", "target": "function:src/components/ThemeToggle.tsx:ThemeToggle", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/lib/scheduledTheme.ts", "target": "function:src/lib/scheduledTheme.ts:getScheduledTheme", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:src/lib/utils.ts", "target": "function:src/lib/utils.ts:cn", "type": "exports", "direction": "forward", "weight": 0.8},
+
+    {"source": "function:src/app/layout.tsx:RootLayout", "target": "function:src/components/ThemeProvider.tsx:ThemeProvider", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:src/app/layout.tsx:RootLayout", "target": "function:src/components/AmbientBackdrop.tsx:AmbientBackdrop", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:src/app/layout.tsx:RootLayout", "target": "function:src/components/CursorGlow.tsx:CursorGlow", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:src/app/layout.tsx:RootLayout", "target": "function:src/components/Nav.tsx:Nav", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:src/app/layout.tsx:RootLayout", "target": "function:src/components/Footer.tsx:Footer", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:src/components/Nav.tsx:Nav", "target": "function:src/components/ThemeToggle.tsx:ThemeToggle", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "function:src/components/Nav.tsx:Nav", "target": "function:src/components/ScrollProgress.tsx:ScrollProgress", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "function:src/components/Nav.tsx:Nav", "target": "function:src/lib/utils.ts:cn", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:src/components/ThemeProvider.tsx:ThemeProvider", "target": "function:src/lib/scheduledTheme.ts:getScheduledTheme", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:src/components/ThemeToggle.tsx:ThemeToggle", "target": "function:src/components/ThemeProvider.tsx:useThemePreference", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:src/components/ThemeToggle.tsx", "target": "file:src/components/ThemeProvider.tsx", "type": "depends_on", "direction": "forward", "weight": 0.6}
+  ]
+}

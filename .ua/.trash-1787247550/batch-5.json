@@ -1,0 +1,198 @@
+{
+  "nodes": [
+    {
+      "id": "file:next-env.d.ts",
+      "type": "file",
+      "name": "next-env.d.ts",
+      "filePath": "next-env.d.ts",
+      "summary": "Auto-generated Next.js ambient type declaration file that pulls in the `next` and `next/image-types/global` type references so TypeScript understands framework globals and image imports. Not meant to be hand-edited.",
+      "tags": ["type-definition", "configuration", "nextjs", "generated"],
+      "complexity": "simple",
+      "languageNotes": "Triple-slash `/// <reference types=\"...\" />` directives are the TypeScript mechanism for injecting ambient declarations without an import statement."
+    },
+    {
+      "id": "file:next.config.mjs",
+      "type": "file",
+      "name": "next.config.mjs",
+      "filePath": "next.config.mjs",
+      "summary": "Next.js framework configuration that tunes the built-in image optimizer, preferring WebP over AVIF (AVIF softens JPEG portraits at default quality) and declaring a custom device-size breakpoint ladder up to 3840px.",
+      "tags": ["configuration", "nextjs", "build-system", "image-optimization"],
+      "complexity": "simple",
+      "languageNotes": "The `/** @type {import('next').NextConfig} */` JSDoc annotation gives a plain `.mjs` file full TypeScript autocompletion and checking without converting it to TypeScript."
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Package manifest for the private `anuraag-web` portfolio, declaring the standard Next.js dev/build/start/lint scripts and pinning the runtime stack: Next 14.2, React 18, framer-motion, next-themes, lucide-react, react-github-calendar and the Tailwind class utilities (clsx, tailwind-merge).",
+      "tags": ["configuration", "build-system", "dependencies", "manifest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:postcss.config.mjs",
+      "type": "file",
+      "name": "postcss.config.mjs",
+      "filePath": "postcss.config.mjs",
+      "summary": "Minimal PostCSS configuration registering Tailwind CSS as the sole plugin, which is what expands the `@tailwind` directives and `@apply` rules in the global stylesheet during the build.",
+      "tags": ["configuration", "build-system", "postcss", "tailwind"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/globals.css",
+      "type": "file",
+      "name": "globals.css",
+      "filePath": "src/app/globals.css",
+      "summary": "Global stylesheet that loads the three Tailwind layers and defines the site's light/dark design tokens as raw RGB channel triples (`--tw-canvas`, `--tw-ink`, `--tw-line`, ...) on `:root` and `.dark`. Also supplies the decorative `.grain` SVG-noise and `.wash` gradient overlays, wavy-underline treatment, custom selection colors and theming for the GitHub contribution-calendar tooltips.",
+      "tags": ["styling", "design-tokens", "theming", "tailwind", "dark-mode"],
+      "complexity": "moderate",
+      "languageNotes": "Storing colors as space-separated RGB channels (`45 42 51`) rather than full `rgb()` values is what lets Tailwind's `<alpha-value>` placeholder compose opacity modifiers like `bg-canvas/50` on top of CSS-variable-driven themes."
+    },
+    {
+      "id": "file:src/app/template.tsx",
+      "type": "file",
+      "name": "template.tsx",
+      "filePath": "src/app/template.tsx",
+      "summary": "App Router `template.tsx` client component that wraps every routed page in a framer-motion fade-and-rise transition. Unlike a layout, a template remounts on each navigation, so the animation replays on every route change.",
+      "tags": ["component", "animation", "page-transition", "client-component", "accessibility"],
+      "complexity": "simple",
+      "languageNotes": "In the Next.js App Router, `layout.tsx` persists across navigations while `template.tsx` creates a fresh instance per route — the standard place to hang enter animations."
+    },
+    {
+      "id": "function:src/app/template.tsx:Template",
+      "type": "function",
+      "name": "Template",
+      "filePath": "src/app/template.tsx",
+      "lineRange": [6, 18],
+      "summary": "Default-exported wrapper component that animates its children from transparent/offset/blurred to fully visible over 0.45s with a custom ease curve, collapsing to a plain opacity fade when `useReducedMotion` reports a user preference for reduced motion.",
+      "tags": ["component", "animation", "accessibility", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tailwind.config.ts",
+      "type": "file",
+      "name": "tailwind.config.ts",
+      "filePath": "tailwind.config.ts",
+      "summary": "Tailwind design-system configuration: enables class-based dark mode, scopes content scanning to src/app, src/components and src/pages, and extends the theme with CSS-variable-backed semantic colors (canvas, surface, ink, line), a pastel and accent palette, three font families, soft/card/lift shadows, and float/wiggle keyframe animations.",
+      "tags": ["configuration", "design-tokens", "tailwind", "theming", "styling"],
+      "complexity": "moderate",
+      "languageNotes": "Typing the export as `Config` from `tailwindcss` gives compile-time validation of the whole theme object; the `rgb(var(--token) / <alpha-value>)` pattern bridges CSS custom properties into Tailwind's opacity modifier system."
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "TypeScript compiler configuration for the Next.js project: strict mode with `noEmit` (Next handles transpilation), bundler module resolution, preserved JSX, incremental builds, the `next` language-service plugin, and the `@/*` path alias mapping to `./src/*`.",
+      "tags": ["configuration", "typescript", "build-system", "path-aliases"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/template.tsx",
+      "target": "function:src/app/template.tsx:Template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/app/template.tsx",
+      "target": "function:src/app/template.tsx:Template",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tailwind.config.ts",
+      "target": "file:src/app/globals.css",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:tailwind.config.ts",
+      "target": "file:src/app/template.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:tailwind.config.ts",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:postcss.config.mjs",
+      "target": "file:src/app/globals.css",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:postcss.config.mjs",
+      "target": "file:tailwind.config.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:next-env.d.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/app/template.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:tailwind.config.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:next.config.mjs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:postcss.config.mjs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:next.config.mjs",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/globals.css",
+      "target": "file:src/app/layout.tsx",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

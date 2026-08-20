@@ -1,0 +1,9 @@
+{
+  "projectRoot": "D:/projects/Portfolio",
+  "batchFiles": [
+    {"path": "src/app/experience/page.tsx", "language": "typescript", "sizeLines": 98, "fileCategory": "code"},
+    {"path": "src/components/TimelineProgress.tsx", "language": "typescript", "sizeLines": 31, "fileCategory": "code"},
+    {"path": "src/content/experience.ts", "language": "typescript", "sizeLines": 128, "fileCategory": "code"}
+  ],
+  "batchImportData": {"src/app/experience/page.tsx":["src/components/TimelineProgress.tsx","src/components/WavyRule.tsx","src/components/motion/Reveal.tsx","src/content/experience.ts"],"src/components/TimelineProgress.tsx":[],"src/content/experience.ts":[]}
+}

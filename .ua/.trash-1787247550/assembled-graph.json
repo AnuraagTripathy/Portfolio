@@ -1,0 +1,2052 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "anuraag-web",
+    "languages": [
+      "typescript",
+      "javascript",
+      "css",
+      "json"
+    ],
+    "frameworks": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "PostCSS",
+      "ESLint"
+    ],
+    "description": "Personal portfolio site for Anuraag Tripathy, built with Next.js 14 App Router, React 18, TypeScript and Tailwind CSS, featuring animated hero, project/experience pages and a scheduled light/dark theme system.",
+    "analyzedAt": "2026-08-20T17:38:11.247Z",
+    "gitCommitHash": "dc2ea8806805d93550179eb7e10928f408cbcd58"
+  },
+  "nodes": [
+    {
+      "id": "file:src/app/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "src/app/layout.tsx",
+      "summary": "Next.js App Router root layout that loads the three Google fonts as CSS variables, declares site-wide SEO/OpenGraph metadata, and wraps every page in the theme provider along with the persistent nav, footer and ambient visual layers.",
+      "tags": [
+        "entry-point",
+        "layout",
+        "metadata",
+        "app-router",
+        "component"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses `next/font/google` to self-host fonts and expose them as CSS custom properties, plus `suppressHydrationWarning` on <html> because the theme class is applied on the client."
+    },
+    {
+      "id": "function:src/app/layout.tsx:RootLayout",
+      "type": "function",
+      "name": "RootLayout",
+      "filePath": "src/app/layout.tsx",
+      "lineRange": [
+        47,
+        63
+      ],
+      "summary": "Default-exported root layout component that renders the html/body shell with font variables and composes ThemeProvider, AmbientBackdrop, CursorGlow, Nav, page children and Footer.",
+      "tags": [
+        "entry-point",
+        "layout",
+        "component",
+        "composition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/AmbientBackdrop.tsx",
+      "type": "file",
+      "name": "AmbientBackdrop.tsx",
+      "filePath": "src/components/AmbientBackdrop.tsx",
+      "summary": "Purely decorative fixed background layer that paints four blurred pastel blobs and a masked dot grid behind all page content, with separate opacities for light and dark mode.",
+      "tags": [
+        "component",
+        "presentational",
+        "background",
+        "styling",
+        "animation"
+      ],
+      "complexity": "simple",
+      "languageNotes": "A server component by default (no \"use client\"), since it holds no state and renders only static markup."
+    },
+    {
+      "id": "function:src/components/AmbientBackdrop.tsx:AmbientBackdrop",
+      "type": "function",
+      "name": "AmbientBackdrop",
+      "filePath": "src/components/AmbientBackdrop.tsx",
+      "lineRange": [
+        1,
+        31
+      ],
+      "summary": "Renders the aria-hidden ambient background: floating pastel gradient blobs plus radial dot-grid overlays masked toward the top of the viewport.",
+      "tags": [
+        "component",
+        "presentational",
+        "background",
+        "styling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/CursorGlow.tsx",
+      "type": "file",
+      "name": "CursorGlow.tsx",
+      "filePath": "src/components/CursorGlow.tsx",
+      "summary": "Client component that renders a soft pastel radial glow which lazily trails the pointer across the page, with separate light and dark gradients, and disables itself for reduced-motion users and non-fine pointers.",
+      "tags": [
+        "component",
+        "animation",
+        "event-handler",
+        "accessibility",
+        "effect"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses Framer Motion's `useMotionValue`/`useSpring`/`useMotionTemplate` so pointer updates drive the gradient without triggering React re-renders."
+    },
+    {
+      "id": "function:src/components/CursorGlow.tsx:CursorGlow",
+      "type": "function",
+      "name": "CursorGlow",
+      "filePath": "src/components/CursorGlow.tsx",
+      "lineRange": [
+        16,
+        58
+      ],
+      "summary": "Tracks pointermove events into spring-damped motion values and renders two fixed overlay divs whose radial-gradient background follows the cursor, returning null when reduced motion is preferred.",
+      "tags": [
+        "component",
+        "animation",
+        "event-handler",
+        "accessibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/Footer.tsx",
+      "type": "file",
+      "name": "Footer.tsx",
+      "filePath": "src/components/Footer.tsx",
+      "summary": "Site footer showing the current-year copyright, external links to GitHub, LinkedIn and the hosted résumé, and a playful sign-off line with an animated tilde.",
+      "tags": [
+        "component",
+        "layout",
+        "presentational",
+        "navigation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/Footer.tsx:Footer",
+      "type": "function",
+      "name": "Footer",
+      "filePath": "src/components/Footer.tsx",
+      "lineRange": [
+        6,
+        34
+      ],
+      "summary": "Renders the footer bar with dynamic copyright year and a row of outbound profile and résumé links.",
+      "tags": [
+        "component",
+        "presentational",
+        "navigation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/Nav.tsx",
+      "type": "file",
+      "name": "Nav.tsx",
+      "filePath": "src/components/Nav.tsx",
+      "summary": "Fixed, blurred top navigation bar with the wordmark, four route links whose active item is highlighted by a shared-layout animated pill, the theme toggle, and the scroll progress hairline.",
+      "tags": [
+        "component",
+        "navigation",
+        "layout",
+        "animation",
+        "entry-point"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "The active-link pill uses Framer Motion's `layoutId` so the highlight animates smoothly between routes instead of re-mounting."
+    },
+    {
+      "id": "function:src/components/Nav.tsx:Nav",
+      "type": "function",
+      "name": "Nav",
+      "filePath": "src/components/Nav.tsx",
+      "lineRange": [
+        17,
+        63
+      ],
+      "summary": "Reads the current pathname to mark the active route, maps the link table into styled Next.js Links, and mounts ThemeToggle and ScrollProgress inside the sticky header.",
+      "tags": [
+        "component",
+        "navigation",
+        "animation",
+        "routing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/ScrollProgress.tsx",
+      "type": "file",
+      "name": "ScrollProgress.tsx",
+      "filePath": "src/components/ScrollProgress.tsx",
+      "summary": "Two-pixel gradient bar pinned to the bottom edge of the nav that scales horizontally with the page's scroll progress, smoothed by a spring.",
+      "tags": [
+        "component",
+        "animation",
+        "presentational",
+        "scroll"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/ScrollProgress.tsx:ScrollProgress",
+      "type": "function",
+      "name": "ScrollProgress",
+      "filePath": "src/components/ScrollProgress.tsx",
+      "lineRange": [
+        6,
+        17
+      ],
+      "summary": "Derives a spring-damped scaleX from Framer Motion's useScroll progress and applies it to a left-origin pastel gradient hairline.",
+      "tags": [
+        "component",
+        "animation",
+        "scroll"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/ThemeProvider.tsx",
+      "type": "file",
+      "name": "ThemeProvider.tsx",
+      "filePath": "src/components/ThemeProvider.tsx",
+      "summary": "Custom theme layer that owns an auto/light/dark preference persisted to localStorage, re-evaluates the clock-scheduled theme on a timer and on tab visibility changes, and feeds the resolved theme into next-themes as a forced theme.",
+      "tags": [
+        "component",
+        "context-provider",
+        "theme",
+        "state-management",
+        "hook"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Wraps next-themes with `forcedTheme` and `enableSystem: false`, so this provider — not the OS setting — is the single source of truth; `useLayoutEffect` reads localStorage before paint to limit theme flash."
+    },
+    {
+      "id": "function:src/components/ThemeProvider.tsx:useThemePreference",
+      "type": "function",
+      "name": "useThemePreference",
+      "filePath": "src/components/ThemeProvider.tsx",
+      "lineRange": [
+        31,
+        37
+      ],
+      "summary": "Context hook returning the theme preference state and mutators, throwing a descriptive error when called outside a ThemeProvider.",
+      "tags": [
+        "hook",
+        "context",
+        "theme",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/ThemeProvider.tsx:ThemeProvider",
+      "type": "function",
+      "name": "ThemeProvider",
+      "filePath": "src/components/ThemeProvider.tsx",
+      "lineRange": [
+        43,
+        118
+      ],
+      "summary": "Provider component that hydrates the stored auto/light/dark preference, ticks every 30 seconds (and on visibilitychange) while in auto mode to follow the local clock, and exposes setManual/resetToClock through context while forcing the resolved theme on next-themes.",
+      "tags": [
+        "context-provider",
+        "theme",
+        "state-management",
+        "persistence",
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/ThemeToggle.tsx",
+      "type": "file",
+      "name": "ThemeToggle.tsx",
+      "filePath": "src/components/ThemeToggle.tsx",
+      "summary": "Round sun/moon button in the nav that pins light or dark on click and returns to clock-scheduled auto mode on Alt+click, rendering a neutral placeholder until the theme preference has hydrated.",
+      "tags": [
+        "component",
+        "theme",
+        "event-handler",
+        "accessibility",
+        "ui-control"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/ThemeToggle.tsx:ThemeToggle",
+      "type": "function",
+      "name": "ThemeToggle",
+      "filePath": "src/components/ThemeToggle.tsx",
+      "lineRange": [
+        6,
+        49
+      ],
+      "summary": "Consumes useThemePreference to render the toggle icon and to switch between pinned light/dark and Alt+click reset-to-clock, with aria-labels and titles that reflect the current preference mode.",
+      "tags": [
+        "component",
+        "theme",
+        "event-handler",
+        "accessibility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/scheduledTheme.ts",
+      "type": "file",
+      "name": "scheduledTheme.ts",
+      "filePath": "src/lib/scheduledTheme.ts",
+      "summary": "Single-function module encoding the site's time-of-day theme schedule: light between 06:00 and 19:00 local time, dark otherwise.",
+      "tags": [
+        "utility",
+        "theme",
+        "pure-function",
+        "business-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/scheduledTheme.ts:getScheduledTheme",
+      "type": "function",
+      "name": "getScheduledTheme",
+      "filePath": "src/lib/scheduledTheme.ts",
+      "lineRange": [
+        2,
+        7
+      ],
+      "summary": "Converts a Date (defaulting to now) into minutes-since-midnight and returns \"light\" inside the 06:00–19:00 window, otherwise \"dark\".",
+      "tags": [
+        "utility",
+        "theme",
+        "pure-function"
+      ],
+      "complexity": "simple",
+      "languageNotes": "The injectable `now` parameter keeps this pure and directly testable despite depending on the clock."
+    },
+    {
+      "id": "file:src/lib/utils.ts",
+      "type": "file",
+      "name": "utils.ts",
+      "filePath": "src/lib/utils.ts",
+      "summary": "Shared class-name helper module exposing the `cn` utility used across every component for conditional Tailwind styling.",
+      "tags": [
+        "utility",
+        "styling",
+        "helper",
+        "shared"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/utils.ts:cn",
+      "type": "function",
+      "name": "cn",
+      "filePath": "src/lib/utils.ts",
+      "lineRange": [
+        4,
+        6
+      ],
+      "summary": "Combines conditional class values via clsx and resolves conflicting Tailwind utilities with tailwind-merge.",
+      "tags": [
+        "utility",
+        "styling",
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/contact/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/contact/page.tsx",
+      "summary": "Next.js App Router route for /contact, rendering a mailto card plus magnetic GitHub, LinkedIn and résumé links wrapped in scroll reveal animations.",
+      "tags": [
+        "page",
+        "route",
+        "contact",
+        "server-component",
+        "app-router"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Server component (no \"use client\") that exports a static `metadata` object for the route title while still composing client-only motion primitives as children."
+    },
+    {
+      "id": "function:src/app/contact/page.tsx:ContactPage",
+      "type": "function",
+      "name": "ContactPage",
+      "filePath": "src/app/contact/page.tsx",
+      "lineRange": [
+        14,
+        84
+      ],
+      "summary": "Default-exported page component that lays out the contact heading, email card and social/résumé link row using Reveal and Magnetic wrappers.",
+      "tags": [
+        "page-component",
+        "jsx",
+        "layout",
+        "contact"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/page.tsx",
+      "summary": "Home page of the portfolio, composing the animated hero (rotating greeting, split headline, tilting portrait), a two-project 'Selected work' grid and the GitHub contribution graph.",
+      "tags": [
+        "entry-point",
+        "page",
+        "route",
+        "hero",
+        "client-component"
+      ],
+      "complexity": "complex",
+      "languageNotes": "Client component that spreads a shared `fade` variant object into multiple `motion.p` elements and uses `next/image` with explicit `sizes` for responsive art direction."
+    },
+    {
+      "id": "function:src/app/page.tsx:HomePage",
+      "type": "function",
+      "name": "HomePage",
+      "filePath": "src/app/page.tsx",
+      "lineRange": [
+        21,
+        151
+      ],
+      "summary": "Default-exported home page component that slices the first two projects for the featured grid and stitches together hero, work and contribution sections.",
+      "tags": [
+        "page-component",
+        "hero",
+        "jsx",
+        "composition"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/components/ContributionGraph.tsx",
+      "type": "file",
+      "name": "ContributionGraph.tsx",
+      "filePath": "src/components/ContributionGraph.tsx",
+      "summary": "Renders the author's last-year GitHub contribution calendar in the site's lilac palette, scaling the fixed-width calendar to exactly fill its container.",
+      "tags": [
+        "component",
+        "client-component",
+        "github",
+        "responsive",
+        "theming"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Uses `useLayoutEffect` with a `ResizeObserver` to measure the calendar's natural width before paint, then applies a CSS transform scale so the third-party widget stretches without a gutter."
+    },
+    {
+      "id": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "type": "function",
+      "name": "ContributionGraph",
+      "filePath": "src/components/ContributionGraph.tsx",
+      "lineRange": [
+        17,
+        103
+      ],
+      "summary": "Component that reads the effective theme, measures and scales the GitHubCalendar canvas to the frame width, and shows a pulsing skeleton until the theme is resolved.",
+      "tags": [
+        "component",
+        "resize-observer",
+        "theming",
+        "skeleton"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/HeroPortrait.tsx",
+      "type": "file",
+      "name": "HeroPortrait.tsx",
+      "filePath": "src/components/HeroPortrait.tsx",
+      "summary": "Hero photo card with offset pastel backing layers and a cursor-tracked radial shine highlight that springs toward the pointer on hover.",
+      "tags": [
+        "component",
+        "client-component",
+        "animation",
+        "hero",
+        "image"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Combines Framer Motion `useMotionValue`/`useSpring` with `useMotionTemplate` to build a CSS radial-gradient string that updates without React re-renders."
+    },
+    {
+      "id": "function:src/components/HeroPortrait.tsx:HeroPortrait",
+      "type": "function",
+      "name": "HeroPortrait",
+      "filePath": "src/components/HeroPortrait.tsx",
+      "lineRange": [
+        7,
+        67
+      ],
+      "summary": "Component that tracks pointer position over the portrait card as normalized percentages and drives a spring-smoothed shine gradient overlay.",
+      "tags": [
+        "component",
+        "motion-values",
+        "pointer-tracking",
+        "jsx"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/RotatingHi.tsx",
+      "type": "file",
+      "name": "RotatingHi.tsx",
+      "filePath": "src/components/RotatingHi.tsx",
+      "summary": "Small hero greeting that cycles through four intro lines every 4.2 seconds with an animated enter/exit transition.",
+      "tags": [
+        "component",
+        "client-component",
+        "animation",
+        "hero",
+        "accessibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses `AnimatePresence mode=\"wait\"` keyed on the line text so the outgoing phrase finishes exiting before the next enters; `aria-live=\"polite\"` announces changes."
+    },
+    {
+      "id": "function:src/components/RotatingHi.tsx:RotatingHi",
+      "type": "function",
+      "name": "RotatingHi",
+      "filePath": "src/components/RotatingHi.tsx",
+      "lineRange": [
+        8,
+        37
+      ],
+      "summary": "Component that advances an index on a cleaned-up interval timer and animates the corresponding greeting line in and out.",
+      "tags": [
+        "component",
+        "interval",
+        "state",
+        "animation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/motion/Magnetic.tsx",
+      "type": "file",
+      "name": "Magnetic.tsx",
+      "filePath": "src/components/motion/Magnetic.tsx",
+      "summary": "Reusable motion primitive that makes its children drift toward the cursor while hovered and spring back on leave, used for buttons and pill links across the site.",
+      "tags": [
+        "component",
+        "motion-primitive",
+        "animation",
+        "reusable",
+        "accessibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Respects `useReducedMotion` by short-circuiting the pointer handler, so the wrapper stays inert for users who prefer reduced motion."
+    },
+    {
+      "id": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "function",
+      "name": "Magnetic",
+      "filePath": "src/components/motion/Magnetic.tsx",
+      "lineRange": [
+        14,
+        46
+      ],
+      "summary": "Wrapper component that converts cursor offset from the element center into spring-damped x/y motion values scaled by a configurable strength.",
+      "tags": [
+        "component",
+        "wrapper",
+        "spring",
+        "pointer-tracking"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/motion/Reveal.tsx",
+      "type": "file",
+      "name": "Reveal.tsx",
+      "filePath": "src/components/motion/Reveal.tsx",
+      "summary": "Reusable scroll-reveal primitive that fades and lifts its children into place as they enter the viewport; the most widely reused animation wrapper in the site.",
+      "tags": [
+        "component",
+        "motion-primitive",
+        "scroll-animation",
+        "reusable",
+        "accessibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses Framer Motion's `whileInView` with a negative viewport margin and an `once` flag, and drops the y-offset entirely under reduced-motion preferences."
+    },
+    {
+      "id": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "function",
+      "name": "Reveal",
+      "filePath": "src/components/motion/Reveal.tsx",
+      "lineRange": [
+        15,
+        29
+      ],
+      "summary": "Wrapper component that applies a delayed fade-and-rise in-view transition to its children, with configurable delay, offset and replay behavior.",
+      "tags": [
+        "component",
+        "wrapper",
+        "in-view",
+        "transition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/motion/SplitHeadline.tsx",
+      "type": "file",
+      "name": "SplitHeadline.tsx",
+      "filePath": "src/components/motion/SplitHeadline.tsx",
+      "summary": "Headline primitive that splits text into individual characters and staggers each one rising into place, with a per-letter hover lift.",
+      "tags": [
+        "component",
+        "motion-primitive",
+        "typography",
+        "stagger",
+        "accessibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Splits with `Array.from` for correct code-point handling and hides the per-character spans from assistive tech via `aria-hidden`, exposing the full string through `aria-label` instead."
+    },
+    {
+      "id": "function:src/components/motion/SplitHeadline.tsx:SplitHeadline",
+      "type": "function",
+      "name": "SplitHeadline",
+      "filePath": "src/components/motion/SplitHeadline.tsx",
+      "lineRange": [
+        12,
+        51
+      ],
+      "summary": "Component that renders a per-character staggered h1 animation, falling back to a plain fade-in heading when reduced motion is requested.",
+      "tags": [
+        "component",
+        "stagger",
+        "heading",
+        "reduced-motion"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/projects/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/projects/page.tsx",
+      "summary": "App Router page for the /projects route that renders every entry from the shared projects content module as a responsive two-column grid of image-led cards with tech-stack stickers and external links. Composes the Reveal, TiltCard and WavyRule motion primitives around otherwise static server-rendered markup.",
+      "tags": [
+        "entry-point",
+        "page",
+        "app-router",
+        "component",
+        "presentation"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Next.js App Router server component: it exports a `metadata` object for per-route SEO and stays server-rendered while delegating all interactivity to the imported \"use client\" motion wrappers."
+    },
+    {
+      "id": "function:src/app/projects/page.tsx:ProjectsPage",
+      "type": "function",
+      "name": "ProjectsPage",
+      "filePath": "src/app/projects/page.tsx",
+      "lineRange": [
+        15,
+        95
+      ],
+      "summary": "Default-exported page component that maps over the projects array to emit one card per project, alternating reveal delays by column and cycling a rotation class across tech tags to give them a hand-placed sticker look.",
+      "tags": [
+        "component",
+        "page",
+        "list-rendering",
+        "server-component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/WavyRule.tsx",
+      "type": "file",
+      "name": "WavyRule.tsx",
+      "filePath": "src/components/WavyRule.tsx",
+      "summary": "Client component providing a decorative horizontal divider drawn as a soft SVG wave that animates its stroke into view on scroll. Used as a section separator across the home, contact, experience and projects pages.",
+      "tags": [
+        "component",
+        "animation",
+        "svg",
+        "presentation",
+        "utility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses framer-motion's `pathLength` with `whileInView` and `viewport.once` so the stroke draws itself exactly once; `useReducedMotion` short-circuits to a fully drawn path for accessibility."
+    },
+    {
+      "id": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "function",
+      "name": "WavyRule",
+      "filePath": "src/components/WavyRule.tsx",
+      "lineRange": [
+        6,
+        30
+      ],
+      "summary": "Renders an aria-hidden SVG quadratic-curve path whose stroke animates from zero to full length when scrolled into view, respecting the user's reduced-motion preference.",
+      "tags": [
+        "component",
+        "animation",
+        "svg",
+        "accessibility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/motion/TiltCard.tsx",
+      "type": "file",
+      "name": "TiltCard.tsx",
+      "filePath": "src/components/motion/TiltCard.tsx",
+      "summary": "Client-side motion wrapper that applies a subtle spring-damped 3D tilt to its children as the cursor moves across them. Used to add depth to project and experience cards.",
+      "tags": [
+        "component",
+        "animation",
+        "motion",
+        "wrapper",
+        "event-handler"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Drives rotation through framer-motion `useMotionValue` piped into `useSpring`, keeping the tilt off the React render path so pointer moves never trigger re-renders."
+    },
+    {
+      "id": "function:src/components/motion/TiltCard.tsx:TiltCard",
+      "type": "function",
+      "name": "TiltCard",
+      "filePath": "src/components/motion/TiltCard.tsx",
+      "lineRange": [
+        14,
+        48
+      ],
+      "summary": "Wraps children in a motion.div that converts cursor position within the element's bounding box into clamped rotateX/rotateY motion values, easing them back to zero on mouse leave and disabling the effect under reduced motion.",
+      "tags": [
+        "component",
+        "animation",
+        "event-handler",
+        "hook",
+        "accessibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/content/projects.ts",
+      "type": "file",
+      "name": "projects.ts",
+      "filePath": "src/content/projects.ts",
+      "summary": "Single source of truth for portfolio project entries, exporting a typed `Project[]` array with name, period, subtitle, description, cover image, tech stack and external links for each project. Consumed by both the projects page and the home page.",
+      "tags": [
+        "data-model",
+        "content",
+        "type-definition",
+        "utility"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Content-as-code pattern: the `Project` and `ProjectLink` types are declared alongside the data and the array is annotated `Project[]`, so schema drift in any entry surfaces as a compile-time error rather than a runtime render bug."
+    },
+    {
+      "id": "file:src/app/experience/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/experience/page.tsx",
+      "summary": "Next.js App Router server page for the /experience route that renders the career timeline by mapping over the typed `roles` content array into logo, title, date-range and highlight cards. Composes WavyRule, Reveal and TimelineProgress with a rotating pastel dot palette for each timeline entry.",
+      "tags": [
+        "page",
+        "app-router",
+        "timeline",
+        "server-component",
+        "presentation"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "A Next.js App Router page: the exported `metadata` object supplies the route title, and the default export is a server component that renders no client hooks itself — interactivity is delegated to the imported client components."
+    },
+    {
+      "id": "function:src/app/experience/page.tsx:ExperiencePage",
+      "type": "function",
+      "name": "ExperiencePage",
+      "filePath": "src/app/experience/page.tsx",
+      "lineRange": [
+        19,
+        98
+      ],
+      "summary": "Default-exported page component rendering the experience header, a wavy divider, and an ordered list of role cards built from `roles`, each with a company logo, metadata row, summary and bulleted highlights.",
+      "tags": [
+        "page-component",
+        "list-rendering",
+        "layout",
+        "server-component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/TimelineProgress.tsx",
+      "type": "file",
+      "name": "TimelineProgress.tsx",
+      "filePath": "src/components/TimelineProgress.tsx",
+      "summary": "Client component providing the vertical timeline rail that fills with an accent gradient as the user scrolls past the role list it sits beside. Respects the user's reduced-motion preference by omitting the animated fill entirely.",
+      "tags": [
+        "component",
+        "scroll-animation",
+        "client-component",
+        "accessibility",
+        "framer-motion"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Uses framer-motion's `useScroll` with an element target and offset window, smoothed through `useSpring`, to drive a CSS `scaleY` transform rather than re-rendering on every scroll frame."
+    },
+    {
+      "id": "function:src/components/TimelineProgress.tsx:TimelineProgress",
+      "type": "function",
+      "name": "TimelineProgress",
+      "filePath": "src/components/TimelineProgress.tsx",
+      "lineRange": [
+        11,
+        31
+      ],
+      "summary": "Renders an absolutely-positioned one-pixel rail whose gradient overlay is scaled vertically by a spring-smoothed scroll progress value, and is skipped when reduced motion is requested.",
+      "tags": [
+        "component",
+        "hook-usage",
+        "scroll-progress",
+        "accessibility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/content/experience.ts",
+      "type": "file",
+      "name": "experience.ts",
+      "filePath": "src/content/experience.ts",
+      "summary": "Typed content module defining the `Role` shape and exporting the `roles` array — the newest-first list of jobs with company, location, date range, summary, highlight bullets and logo path — that drives the experience timeline UI.",
+      "tags": [
+        "content",
+        "data-model",
+        "type-definition",
+        "static-data"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Content-as-code pattern: a plain TypeScript module annotated with an exported `Role` type gives the page compile-time safety over the data without a CMS or runtime validation layer."
+    },
+    {
+      "id": "file:next-env.d.ts",
+      "type": "file",
+      "name": "next-env.d.ts",
+      "filePath": "next-env.d.ts",
+      "summary": "Auto-generated Next.js ambient type declaration file that pulls in the `next` and `next/image-types/global` type references so TypeScript understands framework globals and image imports. Not meant to be hand-edited.",
+      "tags": [
+        "type-definition",
+        "configuration",
+        "nextjs",
+        "generated"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Triple-slash `/// <reference types=\"...\" />` directives are the TypeScript mechanism for injecting ambient declarations without an import statement."
+    },
+    {
+      "id": "file:next.config.mjs",
+      "type": "file",
+      "name": "next.config.mjs",
+      "filePath": "next.config.mjs",
+      "summary": "Next.js framework configuration that tunes the built-in image optimizer, preferring WebP over AVIF (AVIF softens JPEG portraits at default quality) and declaring a custom device-size breakpoint ladder up to 3840px.",
+      "tags": [
+        "configuration",
+        "nextjs",
+        "build-system",
+        "image-optimization"
+      ],
+      "complexity": "simple",
+      "languageNotes": "The `/** @type {import('next').NextConfig} */` JSDoc annotation gives a plain `.mjs` file full TypeScript autocompletion and checking without converting it to TypeScript."
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Package manifest for the private `anuraag-web` portfolio, declaring the standard Next.js dev/build/start/lint scripts and pinning the runtime stack: Next 14.2, React 18, framer-motion, next-themes, lucide-react, react-github-calendar and the Tailwind class utilities (clsx, tailwind-merge).",
+      "tags": [
+        "configuration",
+        "build-system",
+        "dependencies",
+        "manifest"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:postcss.config.mjs",
+      "type": "file",
+      "name": "postcss.config.mjs",
+      "filePath": "postcss.config.mjs",
+      "summary": "Minimal PostCSS configuration registering Tailwind CSS as the sole plugin, which is what expands the `@tailwind` directives and `@apply` rules in the global stylesheet during the build.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "postcss",
+        "tailwind"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/globals.css",
+      "type": "file",
+      "name": "globals.css",
+      "filePath": "src/app/globals.css",
+      "summary": "Global stylesheet that loads the three Tailwind layers and defines the site's light/dark design tokens as raw RGB channel triples (`--tw-canvas`, `--tw-ink`, `--tw-line`, ...) on `:root` and `.dark`. Also supplies the decorative `.grain` SVG-noise and `.wash` gradient overlays, wavy-underline treatment, custom selection colors and theming for the GitHub contribution-calendar tooltips.",
+      "tags": [
+        "styling",
+        "design-tokens",
+        "theming",
+        "tailwind",
+        "dark-mode"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Storing colors as space-separated RGB channels (`45 42 51`) rather than full `rgb()` values is what lets Tailwind's `<alpha-value>` placeholder compose opacity modifiers like `bg-canvas/50` on top of CSS-variable-driven themes."
+    },
+    {
+      "id": "file:src/app/template.tsx",
+      "type": "file",
+      "name": "template.tsx",
+      "filePath": "src/app/template.tsx",
+      "summary": "App Router `template.tsx` client component that wraps every routed page in a framer-motion fade-and-rise transition. Unlike a layout, a template remounts on each navigation, so the animation replays on every route change.",
+      "tags": [
+        "component",
+        "animation",
+        "page-transition",
+        "client-component",
+        "accessibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "In the Next.js App Router, `layout.tsx` persists across navigations while `template.tsx` creates a fresh instance per route — the standard place to hang enter animations."
+    },
+    {
+      "id": "function:src/app/template.tsx:Template",
+      "type": "function",
+      "name": "Template",
+      "filePath": "src/app/template.tsx",
+      "lineRange": [
+        6,
+        18
+      ],
+      "summary": "Default-exported wrapper component that animates its children from transparent/offset/blurred to fully visible over 0.45s with a custom ease curve, collapsing to a plain opacity fade when `useReducedMotion` reports a user preference for reduced motion.",
+      "tags": [
+        "component",
+        "animation",
+        "accessibility",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tailwind.config.ts",
+      "type": "file",
+      "name": "tailwind.config.ts",
+      "filePath": "tailwind.config.ts",
+      "summary": "Tailwind design-system configuration: enables class-based dark mode, scopes content scanning to src/app, src/components and src/pages, and extends the theme with CSS-variable-backed semantic colors (canvas, surface, ink, line), a pastel and accent palette, three font families, soft/card/lift shadows, and float/wiggle keyframe animations.",
+      "tags": [
+        "configuration",
+        "design-tokens",
+        "tailwind",
+        "theming",
+        "styling"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Typing the export as `Config` from `tailwindcss` gives compile-time validation of the whole theme object; the `rgb(var(--token) / <alpha-value>)` pattern bridges CSS custom properties into Tailwind's opacity modifier system."
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "TypeScript compiler configuration for the Next.js project: strict mode with `noEmit` (Next handles transpilation), bundler module resolution, preserved JSX, incremental builds, the `next` language-service plugin, and the `@/*` path alias mapping to `./src/*`.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system",
+        "path-aliases"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:src/app/globals.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:src/components/AmbientBackdrop.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:src/components/CursorGlow.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:src/components/Footer.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:src/components/Nav.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:src/components/ThemeProvider.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/Nav.tsx",
+      "target": "file:src/components/ScrollProgress.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/Nav.tsx",
+      "target": "file:src/components/ThemeToggle.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/Nav.tsx",
+      "target": "file:src/lib/utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/ThemeProvider.tsx",
+      "target": "file:src/lib/scheduledTheme.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/ThemeToggle.tsx",
+      "target": "file:src/components/ThemeProvider.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "function:src/app/layout.tsx:RootLayout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/AmbientBackdrop.tsx",
+      "target": "function:src/components/AmbientBackdrop.tsx:AmbientBackdrop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/CursorGlow.tsx",
+      "target": "function:src/components/CursorGlow.tsx:CursorGlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/Footer.tsx",
+      "target": "function:src/components/Footer.tsx:Footer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/Nav.tsx",
+      "target": "function:src/components/Nav.tsx:Nav",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/ScrollProgress.tsx",
+      "target": "function:src/components/ScrollProgress.tsx:ScrollProgress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/ThemeProvider.tsx",
+      "target": "function:src/components/ThemeProvider.tsx:useThemePreference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/ThemeProvider.tsx",
+      "target": "function:src/components/ThemeProvider.tsx:ThemeProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/ThemeToggle.tsx",
+      "target": "function:src/components/ThemeToggle.tsx:ThemeToggle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/scheduledTheme.ts",
+      "target": "function:src/lib/scheduledTheme.ts:getScheduledTheme",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "function:src/app/layout.tsx:RootLayout",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/AmbientBackdrop.tsx",
+      "target": "function:src/components/AmbientBackdrop.tsx:AmbientBackdrop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/CursorGlow.tsx",
+      "target": "function:src/components/CursorGlow.tsx:CursorGlow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/Footer.tsx",
+      "target": "function:src/components/Footer.tsx:Footer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/Nav.tsx",
+      "target": "function:src/components/Nav.tsx:Nav",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/ScrollProgress.tsx",
+      "target": "function:src/components/ScrollProgress.tsx:ScrollProgress",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/ThemeProvider.tsx",
+      "target": "function:src/components/ThemeProvider.tsx:useThemePreference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/ThemeProvider.tsx",
+      "target": "function:src/components/ThemeProvider.tsx:ThemeProvider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/ThemeToggle.tsx",
+      "target": "function:src/components/ThemeToggle.tsx:ThemeToggle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/scheduledTheme.ts",
+      "target": "function:src/lib/scheduledTheme.ts:getScheduledTheme",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/layout.tsx:RootLayout",
+      "target": "function:src/components/ThemeProvider.tsx:ThemeProvider",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/layout.tsx:RootLayout",
+      "target": "function:src/components/AmbientBackdrop.tsx:AmbientBackdrop",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/layout.tsx:RootLayout",
+      "target": "function:src/components/CursorGlow.tsx:CursorGlow",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/layout.tsx:RootLayout",
+      "target": "function:src/components/Nav.tsx:Nav",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/layout.tsx:RootLayout",
+      "target": "function:src/components/Footer.tsx:Footer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/Nav.tsx:Nav",
+      "target": "function:src/components/ThemeToggle.tsx:ThemeToggle",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/Nav.tsx:Nav",
+      "target": "function:src/components/ScrollProgress.tsx:ScrollProgress",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/Nav.tsx:Nav",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/ThemeProvider.tsx:ThemeProvider",
+      "target": "function:src/lib/scheduledTheme.ts:getScheduledTheme",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/ThemeToggle.tsx:ThemeToggle",
+      "target": "function:src/components/ThemeProvider.tsx:useThemePreference",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "function:src/app/contact/page.tsx:ContactPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "function:src/app/contact/page.tsx:ContactPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "function:src/app/page.tsx:HomePage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "function:src/app/page.tsx:HomePage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/ContributionGraph.tsx",
+      "target": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/ContributionGraph.tsx",
+      "target": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/HeroPortrait.tsx",
+      "target": "function:src/components/HeroPortrait.tsx:HeroPortrait",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/HeroPortrait.tsx",
+      "target": "function:src/components/HeroPortrait.tsx:HeroPortrait",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/RotatingHi.tsx",
+      "target": "function:src/components/RotatingHi.tsx:RotatingHi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/RotatingHi.tsx",
+      "target": "function:src/components/RotatingHi.tsx:RotatingHi",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/Magnetic.tsx",
+      "target": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/motion/Magnetic.tsx",
+      "target": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/Reveal.tsx",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/motion/Reveal.tsx",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/SplitHeadline.tsx",
+      "target": "function:src/components/motion/SplitHeadline.tsx:SplitHeadline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/motion/SplitHeadline.tsx",
+      "target": "function:src/components/motion/SplitHeadline.tsx:SplitHeadline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "file:src/components/WavyRule.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "file:src/components/motion/Magnetic.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/ContributionGraph.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/HeroPortrait.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/RotatingHi.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/WavyRule.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/motion/Magnetic.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/motion/SplitHeadline.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/content/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/ContributionGraph.tsx",
+      "target": "file:src/components/ThemeProvider.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/ContributionGraph.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "target": "function:src/components/ThemeProvider.tsx:useThemePreference",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/motion/SplitHeadline.tsx:SplitHeadline",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/HeroPortrait.tsx:HeroPortrait",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/RotatingHi.tsx:RotatingHi",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/contact/page.tsx:ContactPage",
+      "target": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/contact/page.tsx:ContactPage",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "file:src/components/WavyRule.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "file:src/components/motion/TiltCard.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "file:src/content/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "function:src/app/projects/page.tsx:ProjectsPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/WavyRule.tsx",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/motion/TiltCard.tsx",
+      "target": "function:src/components/motion/TiltCard.tsx:TiltCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "function:src/app/projects/page.tsx:ProjectsPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/WavyRule.tsx",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/TiltCard.tsx",
+      "target": "function:src/components/motion/TiltCard.tsx:TiltCard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/projects/page.tsx:ProjectsPage",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/projects/page.tsx:ProjectsPage",
+      "target": "function:src/components/motion/TiltCard.tsx:TiltCard",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/projects/page.tsx:ProjectsPage",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "file:src/components/TimelineProgress.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "file:src/components/WavyRule.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "file:src/content/experience.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "function:src/app/experience/page.tsx:ExperiencePage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/experience/page.tsx",
+      "target": "function:src/app/experience/page.tsx:ExperiencePage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/TimelineProgress.tsx",
+      "target": "function:src/components/TimelineProgress.tsx:TimelineProgress",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/TimelineProgress.tsx",
+      "target": "function:src/components/TimelineProgress.tsx:TimelineProgress",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/experience/page.tsx:ExperiencePage",
+      "target": "function:src/components/TimelineProgress.tsx:TimelineProgress",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/experience/page.tsx:ExperiencePage",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/experience/page.tsx:ExperiencePage",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/template.tsx",
+      "target": "function:src/app/template.tsx:Template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/template.tsx",
+      "target": "function:src/app/template.tsx:Template",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tailwind.config.ts",
+      "target": "file:src/app/globals.css",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:tailwind.config.ts",
+      "target": "file:src/app/template.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:tailwind.config.ts",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:postcss.config.mjs",
+      "target": "file:src/app/globals.css",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:postcss.config.mjs",
+      "target": "file:tailwind.config.ts",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:next-env.d.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/app/template.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:tailwind.config.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:next.config.mjs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:postcss.config.mjs",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:next.config.mjs",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/contact/page.tsx:ContactPage",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:routing",
+      "name": "Routing & Pages",
+      "description": "Next.js App Router route segments — the home/hero page plus the contact, projects and experience pages that compose components and read typed content data to render each URL.",
+      "nodeIds": [
+        "file:src/app/page.tsx",
+        "file:src/app/contact/page.tsx",
+        "file:src/app/projects/page.tsx",
+        "file:src/app/experience/page.tsx"
+      ]
+    },
+    {
+      "id": "layer:app-shell",
+      "name": "Application Shell & Chrome",
+      "description": "The persistent frame wrapped around every route: the root layout and page-transition template, plus global navigation, footer, theme context/toggle, scroll progress and the ambient backdrop and cursor glow effects.",
+      "nodeIds": [
+        "file:src/app/layout.tsx",
+        "file:src/app/template.tsx",
+        "file:src/components/Nav.tsx",
+        "file:src/components/Footer.tsx",
+        "file:src/components/ThemeProvider.tsx",
+        "file:src/components/ThemeToggle.tsx",
+        "file:src/components/ScrollProgress.tsx",
+        "file:src/components/AmbientBackdrop.tsx",
+        "file:src/components/CursorGlow.tsx"
+      ]
+    },
+    {
+      "id": "layer:motion",
+      "name": "Motion Primitives",
+      "description": "Generic, content-agnostic Framer Motion wrappers under src/components/motion — reveal-on-scroll, magnetic hover, tilt cards and staggered split headlines — reused across pages and feature components.",
+      "nodeIds": [
+        "file:src/components/motion/Reveal.tsx",
+        "file:src/components/motion/Magnetic.tsx",
+        "file:src/components/motion/TiltCard.tsx",
+        "file:src/components/motion/SplitHeadline.tsx"
+      ]
+    },
+    {
+      "id": "layer:ui",
+      "name": "Presentational Components",
+      "description": "Portfolio-specific display widgets built on the motion primitives — the hero portrait, rotating greeting, GitHub contribution graph, experience timeline progress indicator and decorative wavy rule.",
+      "nodeIds": [
+        "file:src/components/HeroPortrait.tsx",
+        "file:src/components/RotatingHi.tsx",
+        "file:src/components/ContributionGraph.tsx",
+        "file:src/components/TimelineProgress.tsx",
+        "file:src/components/WavyRule.tsx"
+      ]
+    },
+    {
+      "id": "layer:content",
+      "name": "Content Data",
+      "description": "Typed, statically-authored site content in src/content — the project catalogue and work-experience entries that stand in for a CMS or database in this static portfolio.",
+      "nodeIds": [
+        "file:src/content/projects.ts",
+        "file:src/content/experience.ts"
+      ]
+    },
+    {
+      "id": "layer:utility",
+      "name": "Shared Utilities",
+      "description": "Dependency-free helpers in src/lib: the Tailwind class-merging utility and the scheduled light/dark theme calculation consumed by the theme provider.",
+      "nodeIds": [
+        "file:src/lib/utils.ts",
+        "file:src/lib/scheduledTheme.ts"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "Build & Styling Configuration",
+      "description": "Project-level toolchain and design-token setup — Next.js, PostCSS, Tailwind and TypeScript configuration, the dependency manifest, generated Next type declarations, and the global stylesheet defining theme CSS variables.",
+      "nodeIds": [
+        "file:next.config.mjs",
+        "file:postcss.config.mjs",
+        "file:tailwind.config.ts",
+        "file:next-env.d.ts",
+        "config:package.json",
+        "config:tsconfig.json",
+        "file:src/app/globals.css"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "The Stack and Conventions",
+      "description": "This project has no README, so start where the toolchain declares itself. `package.json` pins the runtime stack — Next.js 14.2 with React 18, framer-motion for animation, next-themes for dark mode, plus clsx and tailwind-merge for class handling — and exposes the standard dev/build/start/lint scripts. `tsconfig.json` sets strict mode with `noEmit` (Next does the transpiling) and, most importantly for reading the rest of the tour, maps the `@/*` path alias to `./src/*`, which is the import prefix you will see in every file from here on.",
+      "nodeIds": [
+        "config:package.json",
+        "config:tsconfig.json"
+      ],
+      "languageLesson": "TypeScript `paths` aliases live in tsconfig.json but are only a compile-time mapping — the bundler must be taught the same rule. Next.js reads tsconfig automatically, which is why `@/components/Nav` resolves without any extra webpack configuration."
+    },
+    {
+      "order": 2,
+      "title": "The Root Layout",
+      "description": "`src/app/layout.tsx` is the true structural root of the site: every URL renders inside it. It loads three Google fonts as CSS variables, declares the site-wide SEO and OpenGraph metadata, and then assembles the persistent frame — the theme provider wrapping the nav, footer and the ambient visual layers. Read this file as the site's table of contents; almost every subsystem covered later in this tour is first mounted here.",
+      "nodeIds": [
+        "file:src/app/layout.tsx"
+      ],
+      "languageLesson": "In the Next.js App Router, `layout.tsx` is a server component by default and does NOT remount between navigations. That persistence is what lets the nav bar, footer and theme state survive route changes without re-initialising."
+    },
+    {
+      "order": 3,
+      "title": "Why template.tsx, Not layout.tsx",
+      "description": "Sitting alongside the root layout is `template.tsx`, a client component that wraps each routed page in a framer-motion fade-and-rise transition. The file name is a deliberate architectural choice rather than a stylistic one: a template remounts on every navigation while a layout does not, so the entry animation replays each time you move between routes. If this animation code lived in `layout.tsx` from Step 2, it would play exactly once per session.",
+      "nodeIds": [
+        "file:src/app/template.tsx"
+      ],
+      "languageLesson": "App Router special files: `layout.tsx` persists across navigations within its segment; `template.tsx` creates a fresh instance per navigation, resetting state and re-firing effects and mount animations. Reach for a template only when you actually need that remount."
+    },
+    {
+      "order": 4,
+      "title": "The Home Page",
+      "description": "`src/app/page.tsx` is the home route and the busiest composition point in the codebase — it has the highest fan-out of any file, importing eight modules directly. It stitches together the animated hero (rotating greeting, split headline, tilting portrait), a two-project 'Selected work' grid read from the shared content module, and the GitHub contribution graph. Every dependency it pulls in is the subject of one of the next three steps, so treat this file as the map for Steps 5 through 7.",
+      "nodeIds": [
+        "file:src/app/page.tsx"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "The Motion Vocabulary",
+      "description": "Under `src/components/motion` live four content-agnostic framer-motion wrappers that form the site's shared animation language: `Reveal` fades and lifts children as they scroll into view, `Magnetic` makes buttons drift toward the cursor, `SplitHeadline` staggers a headline character by character, and `TiltCard` applies a spring-damped 3D tilt to cards. `Reveal` is the single most reused component in the project (fan-in of 5), which is why the whole site feels visually consistent — pages compose these primitives rather than writing bespoke animations. Crucially, each one gates its effect on `useReducedMotion`, a discipline repeated in `WavyRule` and `TimelineProgress` too.",
+      "nodeIds": [
+        "file:src/components/motion/Reveal.tsx",
+        "file:src/components/motion/Magnetic.tsx",
+        "file:src/components/motion/SplitHeadline.tsx",
+        "file:src/components/motion/TiltCard.tsx"
+      ],
+      "languageLesson": "These are wrapper components built on the `children` prop — the React composition pattern that keeps behaviour (animation) separate from content. Combined with framer-motion's `useReducedMotion` hook, each primitive can honour the OS-level `prefers-reduced-motion` setting in exactly one place instead of at every call site."
+    },
+    {
+      "order": 6,
+      "title": "Hero and Display Widgets",
+      "description": "One level up from the generic primitives sit the portfolio-specific widgets that the home page renders. `HeroPortrait` is a photo card with offset pastel backing layers and a cursor-tracked radial shine, `RotatingHi` cycles four intro lines every 4.2 seconds, and `ContributionGraph` renders a year of GitHub activity recoloured into the site's lilac palette and scaled to fill its container. `WavyRule` — the second most reused component in the project — is the soft SVG wave that separates sections on the home, projects, experience and contact pages.",
+      "nodeIds": [
+        "file:src/components/HeroPortrait.tsx",
+        "file:src/components/RotatingHi.tsx",
+        "file:src/components/ContributionGraph.tsx",
+        "file:src/components/WavyRule.tsx"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Content as Code",
+      "description": "This portfolio has no CMS and no database. Instead, `src/content/projects.ts` exports a typed `Project[]` array and `src/content/experience.ts` defines a `Role` shape and exports a newest-first `roles` array. Editing the site's substance means editing these two files, and because the shapes are TypeScript types, a missing field or a typo becomes a build error rather than a blank space in production. The home page from Step 4 already consumes `projects.ts` for its two-item 'Selected work' grid.",
+      "nodeIds": [
+        "file:src/content/projects.ts",
+        "file:src/content/experience.ts"
+      ],
+      "languageLesson": "Typing a data module as `const projects: Project[] = [...]` gives you compile-time validation of content plus editor autocomplete at every consumption site — a lightweight substitute for schema validation when the data ships in the bundle rather than arriving over the network."
+    },
+    {
+      "order": 8,
+      "title": "Data-Driven Routes",
+      "description": "The `/projects` and `/experience` pages show the payoff of Step 7: both are thin server components that map over the content arrays. The projects page renders each entry as an image-led card in a two-column grid with tech-stack stickers, wrapped in `Reveal` and `TiltCard`; the experience page renders the career timeline with a rotating pastel dot palette per role, beside `TimelineProgress` — the vertical rail whose accent gradient fills as you scroll. Notice the layering the whole codebase follows: routes compose components, components use primitives, and nothing points back upward.",
+      "nodeIds": [
+        "file:src/app/projects/page.tsx",
+        "file:src/app/experience/page.tsx",
+        "file:src/components/TimelineProgress.tsx"
+      ],
+      "languageLesson": "App Router pages are server components unless marked `'use client'`, so the `.map()` over content here runs at build time and ships as static HTML. Only the animation wrappers inside are client components — the client/server boundary is drawn as deep in the tree as possible."
+    },
+    {
+      "order": 9,
+      "title": "Contact Route and Site Chrome",
+      "description": "The last route, `/contact`, is the simplest: a mailto card plus magnetic GitHub, LinkedIn and résumé links inside scroll reveals. Around all four routes sits the chrome mounted back in Step 2's layout — `Nav`, a fixed blurred bar whose active route link is highlighted by a shared-layout animated pill; `Footer`, with the current-year copyright and external links; and `ScrollProgress`, the two-pixel spring-smoothed gradient hairline pinned to the bottom of the nav.",
+      "nodeIds": [
+        "file:src/app/contact/page.tsx",
+        "file:src/components/Nav.tsx",
+        "file:src/components/Footer.tsx",
+        "file:src/components/ScrollProgress.tsx"
+      ],
+      "languageLesson": "The nav's sliding pill uses framer-motion's shared `layoutId`: render an element with the same `layoutId` in a different position and framer-motion animates between the two automatically, no manual coordinate maths required."
+    },
+    {
+      "order": 10,
+      "title": "The Scheduled Theme System",
+      "description": "This is the most non-obvious subsystem in the project, and worth reading carefully. `ThemeProvider` does not delegate resolution to `next-themes`; it owns an `auto`/`light`/`dark` preference in localStorage and computes the effective theme itself by calling `getScheduledTheme()` from `src/lib/scheduledTheme.ts` — light between 06:00 and 19:00 local time, dark otherwise — re-evaluating on a timer and whenever the tab regains visibility. The result is handed down to next-themes as `forcedTheme` with `enableSystem={false}`, so next-themes is reduced to a class-applying mechanism. `ThemeToggle` pins light or dark on click and, on Alt+click, returns to clock-scheduled auto mode, rendering a neutral placeholder until the preference has hydrated.",
+      "nodeIds": [
+        "file:src/components/ThemeProvider.tsx",
+        "file:src/lib/scheduledTheme.ts",
+        "file:src/components/ThemeToggle.tsx"
+      ],
+      "languageLesson": "Anything derived from `localStorage` or `Date.now()` differs between server render and first client render, which React flags as a hydration mismatch. The fix used here is the standard one: render a neutral placeholder on the first pass and only reveal the real state after an effect has run."
+    },
+    {
+      "order": 11,
+      "title": "Design Tokens Across the CSS/JS Boundary",
+      "description": "Step 10 flips a `.dark` class on the document — this step explains why that single class restyles the entire site. `globals.css` defines the design tokens as raw RGB channel triples (`--tw-canvas`, `--tw-ink`, `--tw-line`, …) on `:root` and again on `.dark`, and `tailwind.config.ts` consumes them as `rgb(var(--token) / <alpha-value>)` semantic colours, alongside the pastel palette, three font families, soft/card/lift shadows and float/wiggle keyframes. `postcss.config.mjs` is the small piece that wires Tailwind into the build so the `@tailwind` directives and `@apply` rules actually expand. Understanding this handshake explains the whole palette.",
+      "nodeIds": [
+        "file:src/app/globals.css",
+        "file:tailwind.config.ts",
+        "file:postcss.config.mjs"
+      ],
+      "languageLesson": "Storing a colour as bare channels (`--tw-ink: 24 24 27`) rather than a finished `rgb()` string is what makes Tailwind's `<alpha-value>` placeholder work. The config expands `text-ink/60` into `rgb(var(--tw-ink) / 0.6)`, so every opacity modifier keeps working through the CSS variable indirection."
+    },
+    {
+      "order": 12,
+      "title": "Ambient Layers and Build Edges",
+      "description": "Two purely decorative client components close out the visual story: `AmbientBackdrop` paints four blurred pastel blobs and a masked dot grid behind all content with separate light and dark opacities, while `CursorGlow` trails a soft radial glow after the pointer and disables itself entirely for reduced-motion users and non-fine pointers. Rounding out the codebase, `src/lib/utils.ts` exports the `cn` class-merging helper used by essentially every component, `next.config.mjs` tunes the image optimizer to prefer WebP over AVIF (AVIF softens the JPEG portraits) with a custom device-size ladder, and `next-env.d.ts` is generated by Next and should never be hand-edited.",
+      "nodeIds": [
+        "file:src/components/AmbientBackdrop.tsx",
+        "file:src/components/CursorGlow.tsx",
+        "file:src/lib/utils.ts",
+        "file:next.config.mjs",
+        "file:next-env.d.ts"
+      ],
+      "languageLesson": "`cn` is the conventional `clsx` + `tailwind-merge` pairing: clsx flattens conditional class expressions, then tailwind-merge resolves conflicts so a later `px-6` correctly overrides an earlier `px-4` instead of both landing in the class list and letting CSS source order decide."
+    }
+  ]
+}

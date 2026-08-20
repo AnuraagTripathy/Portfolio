@@ -1,0 +1,492 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 8,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/app/contact/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "ContactPage",
+          "startLine": 14,
+          "endLine": 84,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "ContactPage",
+          "line": 14,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/app/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 151,
+      "nonEmptyLines": 143,
+      "functions": [
+        {
+          "name": "HomePage",
+          "startLine": 21,
+          "endLine": 151,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "HomePage",
+          "line": 21,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "HomePage",
+          "callee": "projects.slice",
+          "lineNumber": 22
+        },
+        {
+          "caller": "HomePage",
+          "callee": "featured.map",
+          "lineNumber": 113
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/ContributionGraph.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "ContributionGraph",
+          "startLine": 17,
+          "endLine": 103,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ContributionGraph",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ContributionGraph",
+          "callee": "useThemePreference",
+          "lineNumber": 18
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "useRef",
+          "lineNumber": 19
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "useRef",
+          "lineNumber": 20
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "useState",
+          "lineNumber": 21
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "useState",
+          "lineNumber": 22
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "useLayoutEffect",
+          "lineNumber": 24
+        },
+        {
+          "caller": "measure",
+          "callee": "setScale",
+          "lineNumber": 34
+        },
+        {
+          "caller": "measure",
+          "callee": "setCanvasHeight",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "measure",
+          "lineNumber": 38
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "ro.observe",
+          "lineNumber": 40
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "ro.observe",
+          "lineNumber": 41
+        },
+        {
+          "caller": "ContributionGraph",
+          "callee": "ro.disconnect",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/HeroPortrait.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 60,
+      "functions": [
+        {
+          "name": "HeroPortrait",
+          "startLine": 7,
+          "endLine": 67,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "HeroPortrait",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "HeroPortrait",
+          "callee": "useRef",
+          "lineNumber": 8
+        },
+        {
+          "caller": "HeroPortrait",
+          "callee": "useMotionValue",
+          "lineNumber": 9
+        },
+        {
+          "caller": "HeroPortrait",
+          "callee": "useMotionValue",
+          "lineNumber": 10
+        },
+        {
+          "caller": "HeroPortrait",
+          "callee": "useSpring",
+          "lineNumber": 11
+        },
+        {
+          "caller": "HeroPortrait",
+          "callee": "useSpring",
+          "lineNumber": 12
+        },
+        {
+          "caller": "HeroPortrait",
+          "callee": "useMotionTemplate",
+          "lineNumber": 14
+        },
+        {
+          "caller": "onMove",
+          "callee": "el.getBoundingClientRect",
+          "lineNumber": 19
+        },
+        {
+          "caller": "onMove",
+          "callee": "mx.set",
+          "lineNumber": 20
+        },
+        {
+          "caller": "onMove",
+          "callee": "my.set",
+          "lineNumber": 21
+        },
+        {
+          "caller": "onLeave",
+          "callee": "mx.set",
+          "lineNumber": 25
+        },
+        {
+          "caller": "onLeave",
+          "callee": "my.set",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/RotatingHi.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "RotatingHi",
+          "startLine": 8,
+          "endLine": 37,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RotatingHi",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RotatingHi",
+          "callee": "useState",
+          "lineNumber": 9
+        },
+        {
+          "caller": "RotatingHi",
+          "callee": "useEffect",
+          "lineNumber": 11
+        },
+        {
+          "caller": "RotatingHi",
+          "callee": "window.setInterval",
+          "lineNumber": 12
+        },
+        {
+          "caller": "RotatingHi",
+          "callee": "setI",
+          "lineNumber": 13
+        },
+        {
+          "caller": "RotatingHi",
+          "callee": "window.clearInterval",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/motion/Magnetic.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "Magnetic",
+          "startLine": 14,
+          "endLine": 46,
+          "params": [
+            "{ children, className, strength = 0.22 }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Magnetic",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Magnetic",
+          "callee": "useRef",
+          "lineNumber": 15
+        },
+        {
+          "caller": "Magnetic",
+          "callee": "useReducedMotion",
+          "lineNumber": 16
+        },
+        {
+          "caller": "Magnetic",
+          "callee": "useMotionValue",
+          "lineNumber": 17
+        },
+        {
+          "caller": "Magnetic",
+          "callee": "useMotionValue",
+          "lineNumber": 18
+        },
+        {
+          "caller": "Magnetic",
+          "callee": "useSpring",
+          "lineNumber": 19
+        },
+        {
+          "caller": "Magnetic",
+          "callee": "useSpring",
+          "lineNumber": 20
+        },
+        {
+          "caller": "onMove",
+          "callee": "el.getBoundingClientRect",
+          "lineNumber": 25
+        },
+        {
+          "caller": "onMove",
+          "callee": "x.set",
+          "lineNumber": 26
+        },
+        {
+          "caller": "onMove",
+          "callee": "y.set",
+          "lineNumber": 27
+        },
+        {
+          "caller": "onLeave",
+          "callee": "x.set",
+          "lineNumber": 31
+        },
+        {
+          "caller": "onLeave",
+          "callee": "y.set",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/motion/Reveal.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "Reveal",
+          "startLine": 15,
+          "endLine": 29,
+          "params": [
+            "{ children, className, delay = 0, y = 18, once = true }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Reveal",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Reveal",
+          "callee": "useReducedMotion",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/motion/SplitHeadline.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "SplitHeadline",
+          "startLine": 12,
+          "endLine": 51,
+          "params": [
+            "{ text, className, delay = 0 }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SplitHeadline",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SplitHeadline",
+          "callee": "useReducedMotion",
+          "lineNumber": 13
+        },
+        {
+          "caller": "SplitHeadline",
+          "callee": "Array.from",
+          "lineNumber": 14
+        },
+        {
+          "caller": "SplitHeadline",
+          "callee": "chars.map",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

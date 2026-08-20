@@ -1,0 +1,167 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/app/projects/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/projects/page.tsx",
+      "summary": "App Router page for the /projects route that renders every entry from the shared projects content module as a responsive two-column grid of image-led cards with tech-stack stickers and external links. Composes the Reveal, TiltCard and WavyRule motion primitives around otherwise static server-rendered markup.",
+      "tags": ["entry-point", "page", "app-router", "component", "presentation"],
+      "complexity": "moderate",
+      "languageNotes": "Next.js App Router server component: it exports a `metadata` object for per-route SEO and stays server-rendered while delegating all interactivity to the imported \"use client\" motion wrappers."
+    },
+    {
+      "id": "function:src/app/projects/page.tsx:ProjectsPage",
+      "type": "function",
+      "name": "ProjectsPage",
+      "filePath": "src/app/projects/page.tsx",
+      "lineRange": [15, 95],
+      "summary": "Default-exported page component that maps over the projects array to emit one card per project, alternating reveal delays by column and cycling a rotation class across tech tags to give them a hand-placed sticker look.",
+      "tags": ["component", "page", "list-rendering", "server-component"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/WavyRule.tsx",
+      "type": "file",
+      "name": "WavyRule.tsx",
+      "filePath": "src/components/WavyRule.tsx",
+      "summary": "Client component providing a decorative horizontal divider drawn as a soft SVG wave that animates its stroke into view on scroll. Used as a section separator across the home, contact, experience and projects pages.",
+      "tags": ["component", "animation", "svg", "presentation", "utility"],
+      "complexity": "simple",
+      "languageNotes": "Uses framer-motion's `pathLength` with `whileInView` and `viewport.once` so the stroke draws itself exactly once; `useReducedMotion` short-circuits to a fully drawn path for accessibility."
+    },
+    {
+      "id": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "function",
+      "name": "WavyRule",
+      "filePath": "src/components/WavyRule.tsx",
+      "lineRange": [6, 30],
+      "summary": "Renders an aria-hidden SVG quadratic-curve path whose stroke animates from zero to full length when scrolled into view, respecting the user's reduced-motion preference.",
+      "tags": ["component", "animation", "svg", "accessibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/motion/TiltCard.tsx",
+      "type": "file",
+      "name": "TiltCard.tsx",
+      "filePath": "src/components/motion/TiltCard.tsx",
+      "summary": "Client-side motion wrapper that applies a subtle spring-damped 3D tilt to its children as the cursor moves across them. Used to add depth to project and experience cards.",
+      "tags": ["component", "animation", "motion", "wrapper", "event-handler"],
+      "complexity": "simple",
+      "languageNotes": "Drives rotation through framer-motion `useMotionValue` piped into `useSpring`, keeping the tilt off the React render path so pointer moves never trigger re-renders."
+    },
+    {
+      "id": "function:src/components/motion/TiltCard.tsx:TiltCard",
+      "type": "function",
+      "name": "TiltCard",
+      "filePath": "src/components/motion/TiltCard.tsx",
+      "lineRange": [14, 48],
+      "summary": "Wraps children in a motion.div that converts cursor position within the element's bounding box into clamped rotateX/rotateY motion values, easing them back to zero on mouse leave and disabling the effect under reduced motion.",
+      "tags": ["component", "animation", "event-handler", "hook", "accessibility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/content/projects.ts",
+      "type": "file",
+      "name": "projects.ts",
+      "filePath": "src/content/projects.ts",
+      "summary": "Single source of truth for portfolio project entries, exporting a typed `Project[]` array with name, period, subtitle, description, cover image, tech stack and external links for each project. Consumed by both the projects page and the home page.",
+      "tags": ["data-model", "content", "type-definition", "utility"],
+      "complexity": "moderate",
+      "languageNotes": "Content-as-code pattern: the `Project` and `ProjectLink` types are declared alongside the data and the array is annotated `Project[]`, so schema drift in any entry surfaces as a compile-time error rather than a runtime render bug."
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "file:src/components/WavyRule.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "file:src/components/motion/TiltCard.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "file:src/content/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "function:src/app/projects/page.tsx:ProjectsPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/WavyRule.tsx",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/motion/TiltCard.tsx",
+      "target": "function:src/components/motion/TiltCard.tsx:TiltCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/app/projects/page.tsx",
+      "target": "function:src/app/projects/page.tsx:ProjectsPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/WavyRule.tsx",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/TiltCard.tsx",
+      "target": "function:src/components/motion/TiltCard.tsx:TiltCard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/projects/page.tsx:ProjectsPage",
+      "target": "function:src/components/WavyRule.tsx:WavyRule",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/projects/page.tsx:ProjectsPage",
+      "target": "function:src/components/motion/TiltCard.tsx:TiltCard",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/projects/page.tsx:ProjectsPage",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

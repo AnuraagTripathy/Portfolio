@@ -1,0 +1,212 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/app/projects/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "ProjectsPage",
+          "startLine": 15,
+          "endLine": 95,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "ProjectsPage",
+          "line": 15,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ProjectsPage",
+          "callee": "projects.map",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ProjectsPage",
+          "callee": "p.tech.map",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ProjectsPage",
+          "callee": "p.links.map",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/WavyRule.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "WavyRule",
+          "startLine": 6,
+          "endLine": 30,
+          "params": [
+            "{ className = \"\" }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WavyRule",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "WavyRule",
+          "callee": "useReducedMotion",
+          "lineNumber": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/motion/TiltCard.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "TiltCard",
+          "startLine": 14,
+          "endLine": 48,
+          "params": [
+            "{ children, className, max = 4 }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TiltCard",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TiltCard",
+          "callee": "useRef",
+          "lineNumber": 15
+        },
+        {
+          "caller": "TiltCard",
+          "callee": "useReducedMotion",
+          "lineNumber": 16
+        },
+        {
+          "caller": "TiltCard",
+          "callee": "useMotionValue",
+          "lineNumber": 17
+        },
+        {
+          "caller": "TiltCard",
+          "callee": "useMotionValue",
+          "lineNumber": 18
+        },
+        {
+          "caller": "TiltCard",
+          "callee": "useSpring",
+          "lineNumber": 19
+        },
+        {
+          "caller": "TiltCard",
+          "callee": "useSpring",
+          "lineNumber": 20
+        },
+        {
+          "caller": "onMove",
+          "callee": "el.getBoundingClientRect",
+          "lineNumber": 25
+        },
+        {
+          "caller": "onMove",
+          "callee": "rx.set",
+          "lineNumber": 28
+        },
+        {
+          "caller": "onMove",
+          "callee": "ry.set",
+          "lineNumber": 29
+        },
+        {
+          "caller": "onLeave",
+          "callee": "rx.set",
+          "lineNumber": 33
+        },
+        {
+          "caller": "onLeave",
+          "callee": "ry.set",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/content/projects.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 253,
+      "nonEmptyLines": 251,
+      "exports": [
+        {
+          "name": "projects",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

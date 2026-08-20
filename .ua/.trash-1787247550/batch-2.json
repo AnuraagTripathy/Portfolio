@@ -1,0 +1,439 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/app/contact/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/contact/page.tsx",
+      "summary": "Next.js App Router route for /contact, rendering a mailto card plus magnetic GitHub, LinkedIn and résumé links wrapped in scroll reveal animations.",
+      "tags": ["page", "route", "contact", "server-component", "app-router"],
+      "complexity": "moderate",
+      "languageNotes": "Server component (no \"use client\") that exports a static `metadata` object for the route title while still composing client-only motion primitives as children."
+    },
+    {
+      "id": "function:src/app/contact/page.tsx:ContactPage",
+      "type": "function",
+      "name": "ContactPage",
+      "filePath": "src/app/contact/page.tsx",
+      "lineRange": [14, 84],
+      "summary": "Default-exported page component that lays out the contact heading, email card and social/résumé link row using Reveal and Magnetic wrappers.",
+      "tags": ["page-component", "jsx", "layout", "contact"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/page.tsx",
+      "summary": "Home page of the portfolio, composing the animated hero (rotating greeting, split headline, tilting portrait), a two-project 'Selected work' grid and the GitHub contribution graph.",
+      "tags": ["entry-point", "page", "route", "hero", "client-component"],
+      "complexity": "complex",
+      "languageNotes": "Client component that spreads a shared `fade` variant object into multiple `motion.p` elements and uses `next/image` with explicit `sizes` for responsive art direction."
+    },
+    {
+      "id": "function:src/app/page.tsx:HomePage",
+      "type": "function",
+      "name": "HomePage",
+      "filePath": "src/app/page.tsx",
+      "lineRange": [21, 151],
+      "summary": "Default-exported home page component that slices the first two projects for the featured grid and stitches together hero, work and contribution sections.",
+      "tags": ["page-component", "hero", "jsx", "composition"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/components/ContributionGraph.tsx",
+      "type": "file",
+      "name": "ContributionGraph.tsx",
+      "filePath": "src/components/ContributionGraph.tsx",
+      "summary": "Renders the author's last-year GitHub contribution calendar in the site's lilac palette, scaling the fixed-width calendar to exactly fill its container.",
+      "tags": ["component", "client-component", "github", "responsive", "theming"],
+      "complexity": "moderate",
+      "languageNotes": "Uses `useLayoutEffect` with a `ResizeObserver` to measure the calendar's natural width before paint, then applies a CSS transform scale so the third-party widget stretches without a gutter."
+    },
+    {
+      "id": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "type": "function",
+      "name": "ContributionGraph",
+      "filePath": "src/components/ContributionGraph.tsx",
+      "lineRange": [17, 103],
+      "summary": "Component that reads the effective theme, measures and scales the GitHubCalendar canvas to the frame width, and shows a pulsing skeleton until the theme is resolved.",
+      "tags": ["component", "resize-observer", "theming", "skeleton"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/HeroPortrait.tsx",
+      "type": "file",
+      "name": "HeroPortrait.tsx",
+      "filePath": "src/components/HeroPortrait.tsx",
+      "summary": "Hero photo card with offset pastel backing layers and a cursor-tracked radial shine highlight that springs toward the pointer on hover.",
+      "tags": ["component", "client-component", "animation", "hero", "image"],
+      "complexity": "moderate",
+      "languageNotes": "Combines Framer Motion `useMotionValue`/`useSpring` with `useMotionTemplate` to build a CSS radial-gradient string that updates without React re-renders."
+    },
+    {
+      "id": "function:src/components/HeroPortrait.tsx:HeroPortrait",
+      "type": "function",
+      "name": "HeroPortrait",
+      "filePath": "src/components/HeroPortrait.tsx",
+      "lineRange": [7, 67],
+      "summary": "Component that tracks pointer position over the portrait card as normalized percentages and drives a spring-smoothed shine gradient overlay.",
+      "tags": ["component", "motion-values", "pointer-tracking", "jsx"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/RotatingHi.tsx",
+      "type": "file",
+      "name": "RotatingHi.tsx",
+      "filePath": "src/components/RotatingHi.tsx",
+      "summary": "Small hero greeting that cycles through four intro lines every 4.2 seconds with an animated enter/exit transition.",
+      "tags": ["component", "client-component", "animation", "hero", "accessibility"],
+      "complexity": "simple",
+      "languageNotes": "Uses `AnimatePresence mode=\"wait\"` keyed on the line text so the outgoing phrase finishes exiting before the next enters; `aria-live=\"polite\"` announces changes."
+    },
+    {
+      "id": "function:src/components/RotatingHi.tsx:RotatingHi",
+      "type": "function",
+      "name": "RotatingHi",
+      "filePath": "src/components/RotatingHi.tsx",
+      "lineRange": [8, 37],
+      "summary": "Component that advances an index on a cleaned-up interval timer and animates the corresponding greeting line in and out.",
+      "tags": ["component", "interval", "state", "animation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/motion/Magnetic.tsx",
+      "type": "file",
+      "name": "Magnetic.tsx",
+      "filePath": "src/components/motion/Magnetic.tsx",
+      "summary": "Reusable motion primitive that makes its children drift toward the cursor while hovered and spring back on leave, used for buttons and pill links across the site.",
+      "tags": ["component", "motion-primitive", "animation", "reusable", "accessibility"],
+      "complexity": "simple",
+      "languageNotes": "Respects `useReducedMotion` by short-circuiting the pointer handler, so the wrapper stays inert for users who prefer reduced motion."
+    },
+    {
+      "id": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "function",
+      "name": "Magnetic",
+      "filePath": "src/components/motion/Magnetic.tsx",
+      "lineRange": [14, 46],
+      "summary": "Wrapper component that converts cursor offset from the element center into spring-damped x/y motion values scaled by a configurable strength.",
+      "tags": ["component", "wrapper", "spring", "pointer-tracking"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/motion/Reveal.tsx",
+      "type": "file",
+      "name": "Reveal.tsx",
+      "filePath": "src/components/motion/Reveal.tsx",
+      "summary": "Reusable scroll-reveal primitive that fades and lifts its children into place as they enter the viewport; the most widely reused animation wrapper in the site.",
+      "tags": ["component", "motion-primitive", "scroll-animation", "reusable", "accessibility"],
+      "complexity": "simple",
+      "languageNotes": "Uses Framer Motion's `whileInView` with a negative viewport margin and an `once` flag, and drops the y-offset entirely under reduced-motion preferences."
+    },
+    {
+      "id": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "function",
+      "name": "Reveal",
+      "filePath": "src/components/motion/Reveal.tsx",
+      "lineRange": [15, 29],
+      "summary": "Wrapper component that applies a delayed fade-and-rise in-view transition to its children, with configurable delay, offset and replay behavior.",
+      "tags": ["component", "wrapper", "in-view", "transition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/motion/SplitHeadline.tsx",
+      "type": "file",
+      "name": "SplitHeadline.tsx",
+      "filePath": "src/components/motion/SplitHeadline.tsx",
+      "summary": "Headline primitive that splits text into individual characters and staggers each one rising into place, with a per-letter hover lift.",
+      "tags": ["component", "motion-primitive", "typography", "stagger", "accessibility"],
+      "complexity": "simple",
+      "languageNotes": "Splits with `Array.from` for correct code-point handling and hides the per-character spans from assistive tech via `aria-hidden`, exposing the full string through `aria-label` instead."
+    },
+    {
+      "id": "function:src/components/motion/SplitHeadline.tsx:SplitHeadline",
+      "type": "function",
+      "name": "SplitHeadline",
+      "filePath": "src/components/motion/SplitHeadline.tsx",
+      "lineRange": [12, 51],
+      "summary": "Component that renders a per-character staggered h1 animation, falling back to a plain fade-in heading when reduced motion is requested.",
+      "tags": ["component", "stagger", "heading", "reduced-motion"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "function:src/app/contact/page.tsx:ContactPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "function:src/app/contact/page.tsx:ContactPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "function:src/app/page.tsx:HomePage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "function:src/app/page.tsx:HomePage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/ContributionGraph.tsx",
+      "target": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/ContributionGraph.tsx",
+      "target": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/HeroPortrait.tsx",
+      "target": "function:src/components/HeroPortrait.tsx:HeroPortrait",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/HeroPortrait.tsx",
+      "target": "function:src/components/HeroPortrait.tsx:HeroPortrait",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/RotatingHi.tsx",
+      "target": "function:src/components/RotatingHi.tsx:RotatingHi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/RotatingHi.tsx",
+      "target": "function:src/components/RotatingHi.tsx:RotatingHi",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/Magnetic.tsx",
+      "target": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/motion/Magnetic.tsx",
+      "target": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/Reveal.tsx",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/motion/Reveal.tsx",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/SplitHeadline.tsx",
+      "target": "function:src/components/motion/SplitHeadline.tsx:SplitHeadline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/components/motion/SplitHeadline.tsx",
+      "target": "function:src/components/motion/SplitHeadline.tsx:SplitHeadline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "file:src/components/WavyRule.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "file:src/components/motion/Magnetic.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/contact/page.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/ContributionGraph.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/HeroPortrait.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/RotatingHi.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/WavyRule.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/motion/Magnetic.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/components/motion/SplitHeadline.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/page.tsx",
+      "target": "file:src/content/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/ContributionGraph.tsx",
+      "target": "file:src/components/ThemeProvider.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/ContributionGraph.tsx",
+      "target": "file:src/components/motion/Reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "target": "function:src/components/ThemeProvider.tsx:useThemePreference",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/motion/SplitHeadline.tsx:SplitHeadline",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/HeroPortrait.tsx:HeroPortrait",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/RotatingHi.tsx:RotatingHi",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/page.tsx:HomePage",
+      "target": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/contact/page.tsx:ContactPage",
+      "target": "function:src/components/motion/Magnetic.tsx:Magnetic",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/contact/page.tsx:ContactPage",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/ContributionGraph.tsx:ContributionGraph",
+      "target": "function:src/components/motion/Reveal.tsx:Reveal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/motion/Reveal.tsx",
+      "target": "file:src/app/experience/page.tsx",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/components/motion/Reveal.tsx",
+      "target": "file:src/app/projects/page.tsx",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 33,
+  "totalBatches": 5,
+  "exportsByPath": {
+    "next-env.d.ts": [],
+    "next.config.mjs": [],
+    "postcss.config.mjs": [],
+    "src/app/contact/page.tsx": [
+      "metadata",
+      "ContactPage"
+    ],
+    "src/app/experience/page.tsx": [
+      "metadata",
+      "ExperiencePage"
+    ],
+    "src/app/layout.tsx": [
+      "metadata",
+      "RootLayout"
+    ],
+    "src/app/page.tsx": [
+      "HomePage"
+    ],
+    "src/app/projects/page.tsx": [
+      "metadata",
+      "ProjectsPage"
+    ],
+    "src/app/template.tsx": [
+      "Template"
+    ],
+    "src/components/AmbientBackdrop.tsx": [
+      "AmbientBackdrop"
+    ],
+    "src/components/ContributionGraph.tsx": [
+      "ContributionGraph"
+    ],
+    "src/components/CursorGlow.tsx": [
+      "CursorGlow"
+    ],
+    "src/components/Footer.tsx": [
+      "Footer"
+    ],
+    "src/components/HeroPortrait.tsx": [
+      "HeroPortrait"
+    ],
+    "src/components/Nav.tsx": [
+      "Nav"
+    ],
+    "src/components/RotatingHi.tsx": [
+      "RotatingHi"
+    ],
+    "src/components/ScrollProgress.tsx": [
+      "ScrollProgress"
+    ],
+    "src/components/ThemeProvider.tsx": [
+      "useThemePreference",
+      "ThemeProvider"
+    ],
+    "src/components/ThemeToggle.tsx": [
+      "ThemeToggle"
+    ],
+    "src/components/TimelineProgress.tsx": [
+      "TimelineProgress"
+    ],
+    "src/components/WavyRule.tsx": [
+      "WavyRule"
+    ],
+    "src/components/motion/Magnetic.tsx": [
+      "Magnetic"
+    ],
+    "src/components/motion/Reveal.tsx": [
+      "Reveal"
+    ],
+    "src/components/motion/SplitHeadline.tsx": [
+      "SplitHeadline"
+    ],
+    "src/components/motion/TiltCard.tsx": [
+      "TiltCard"
+    ],
+    "src/content/experience.ts": [
+      "roles"
+    ],
+    "src/content/projects.ts": [
+      "projects"
+    ],
+    "src/lib/scheduledTheme.ts": [
+      "getScheduledTheme"
+    ],
+    "src/lib/utils.ts": [
+      "cn"
+    ],
+    "tailwind.config.ts": []
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "src/app/layout.tsx",
+          "language": "typescript",
+          "sizeLines": 63,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/AmbientBackdrop.tsx",
+          "language": "typescript",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/CursorGlow.tsx",
+          "language": "typescript",
+          "sizeLines": 58,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/Footer.tsx",
+          "language": "typescript",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/Nav.tsx",
+          "language": "typescript",
+          "sizeLines": 63,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/ScrollProgress.tsx",
+          "language": "typescript",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/ThemeProvider.tsx",
+          "language": "typescript",
+          "sizeLines": 118,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/ThemeToggle.tsx",
+          "language": "typescript",
+          "sizeLines": 49,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/lib/scheduledTheme.ts",
+          "language": "typescript",
+          "sizeLines": 7,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "language": "typescript",
+          "sizeLines": 6,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/app/layout.tsx": [
+          "src/app/globals.css",
+          "src/components/AmbientBackdrop.tsx",
+          "src/components/CursorGlow.tsx",
+          "src/components/Footer.tsx",
+          "src/components/Nav.tsx",
+          "src/components/ThemeProvider.tsx"
+        ],
+        "src/components/AmbientBackdrop.tsx": [],
+        "src/components/CursorGlow.tsx": [],
+        "src/components/Footer.tsx": [],
+        "src/components/Nav.tsx": [
+          "src/components/ScrollProgress.tsx",
+          "src/components/ThemeToggle.tsx",
+          "src/lib/utils.ts"
+        ],
+        "src/components/ScrollProgress.tsx": [],
+        "src/components/ThemeProvider.tsx": [
+          "src/lib/scheduledTheme.ts"
+        ],
+        "src/components/ThemeToggle.tsx": [
+          "src/components/ThemeProvider.tsx"
+        ],
+        "src/lib/scheduledTheme.ts": [],
+        "src/lib/utils.ts": []
+      },
+      "neighborMap": {
+        "src/app/layout.tsx": [
+          {
+            "path": "src/app/globals.css",
+            "batchIndex": 5,
+            "symbols": []
+          }
+        ],
+        "src/components/ThemeProvider.tsx": [
+          {
+            "path": "src/components/ContributionGraph.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "ContributionGraph"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "src/app/contact/page.tsx",
+          "language": "typescript",
+          "sizeLines": 84,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/app/page.tsx",
+          "language": "typescript",
+          "sizeLines": 151,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/ContributionGraph.tsx",
+          "language": "typescript",
+          "sizeLines": 103,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/HeroPortrait.tsx",
+          "language": "typescript",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/RotatingHi.tsx",
+          "language": "typescript",
+          "sizeLines": 37,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/motion/Magnetic.tsx",
+          "language": "typescript",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/motion/Reveal.tsx",
+          "language": "typescript",
+          "sizeLines": 29,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/motion/SplitHeadline.tsx",
+          "language": "typescript",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/app/contact/page.tsx": [
+          "src/components/WavyRule.tsx",
+          "src/components/motion/Magnetic.tsx",
+          "src/components/motion/Reveal.tsx"
+        ],
+        "src/app/page.tsx": [
+          "src/components/ContributionGraph.tsx",
+          "src/components/HeroPortrait.tsx",
+          "src/components/RotatingHi.tsx",
+          "src/components/WavyRule.tsx",
+          "src/components/motion/Magnetic.tsx",
+          "src/components/motion/Reveal.tsx",
+          "src/components/motion/SplitHeadline.tsx",
+          "src/content/projects.ts"
+        ],
+        "src/components/ContributionGraph.tsx": [
+          "src/components/ThemeProvider.tsx",
+          "src/components/motion/Reveal.tsx"
+        ],
+        "src/components/HeroPortrait.tsx": [],
+        "src/components/RotatingHi.tsx": [],
+        "src/components/motion/Magnetic.tsx": [],
+        "src/components/motion/Reveal.tsx": [],
+        "src/components/motion/SplitHeadline.tsx": []
+      },
+      "neighborMap": {
+        "src/app/contact/page.tsx": [
+          {
+            "path": "src/components/WavyRule.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WavyRule"
+            ]
+          }
+        ],
+        "src/app/page.tsx": [
+          {
+            "path": "src/components/WavyRule.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WavyRule"
+            ]
+          },
+          {
+            "path": "src/content/projects.ts",
+            "batchIndex": 3,
+            "symbols": [
+              "projects"
+            ]
+          }
+        ],
+        "src/components/ContributionGraph.tsx": [
+          {
+            "path": "src/components/ThemeProvider.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "useThemePreference",
+              "ThemeProvider"
+            ]
+          }
+        ],
+        "src/components/motion/Reveal.tsx": [
+          {
+            "path": "src/app/experience/page.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "metadata",
+              "ExperiencePage"
+            ]
+          },
+          {
+            "path": "src/app/projects/page.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "metadata",
+              "ProjectsPage"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "src/app/projects/page.tsx",
+          "language": "typescript",
+          "sizeLines": 95,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/WavyRule.tsx",
+          "language": "typescript",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/motion/TiltCard.tsx",
+          "language": "typescript",
+          "sizeLines": 48,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/content/projects.ts",
+          "language": "typescript",
+          "sizeLines": 253,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/app/projects/page.tsx": [
+          "src/components/WavyRule.tsx",
+          "src/components/motion/Reveal.tsx",
+          "src/components/motion/TiltCard.tsx",
+          "src/content/projects.ts"
+        ],
+        "src/components/WavyRule.tsx": [],
+        "src/components/motion/TiltCard.tsx": [],
+        "src/content/projects.ts": []
+      },
+      "neighborMap": {
+        "src/app/projects/page.tsx": [
+          {
+            "path": "src/components/motion/Reveal.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "Reveal"
+            ]
+          }
+        ],
+        "src/components/WavyRule.tsx": [
+          {
+            "path": "src/app/contact/page.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "metadata",
+              "ContactPage"
+            ]
+          },
+          {
+            "path": "src/app/experience/page.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "metadata",
+              "ExperiencePage"
+            ]
+          },
+          {
+            "path": "src/app/page.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "HomePage"
+            ]
+          }
+        ],
+        "src/content/projects.ts": [
+          {
+            "path": "src/app/page.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "HomePage"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "src/app/experience/page.tsx",
+          "language": "typescript",
+          "sizeLines": 98,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/components/TimelineProgress.tsx",
+          "language": "typescript",
+          "sizeLines": 31,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/content/experience.ts",
+          "language": "typescript",
+          "sizeLines": 128,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "src/app/experience/page.tsx": [
+          "src/components/TimelineProgress.tsx",
+          "src/components/WavyRule.tsx",
+          "src/components/motion/Reveal.tsx",
+          "src/content/experience.ts"
+        ],
+        "src/components/TimelineProgress.tsx": [],
+        "src/content/experience.ts": []
+      },
+      "neighborMap": {
+        "src/app/experience/page.tsx": [
+          {
+            "path": "src/components/WavyRule.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "WavyRule"
+            ]
+          },
+          {
+            "path": "src/components/motion/Reveal.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "Reveal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": "next-env.d.ts",
+          "language": "typescript",
+          "sizeLines": 5,
+          "fileCategory": "code"
+        },
+        {
+          "path": "next.config.mjs",
+          "language": "javascript",
+          "sizeLines": 10,
+          "fileCategory": "code"
+        },
+        {
+          "path": "package.json",
+          "language": "json",
+          "sizeLines": 32,
+          "fileCategory": "config"
+        },
+        {
+          "path": "postcss.config.mjs",
+          "language": "javascript",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "src/app/globals.css",
+          "language": "css",
+          "sizeLines": 118,
+          "fileCategory": "markup"
+        },
+        {
+          "path": "src/app/template.tsx",
+          "language": "typescript",
+          "sizeLines": 18,
+          "fileCategory": "code"
+        },
+        {
+          "path": "tailwind.config.ts",
+          "language": "typescript",
+          "sizeLines": 67,
+          "fileCategory": "code"
+        },
+        {
+          "path": "tsconfig.json",
+          "language": "json",
+          "sizeLines": 20,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "next-env.d.ts": [],
+        "next.config.mjs": [],
+        "package.json": [],
+        "postcss.config.mjs": [],
+        "src/app/globals.css": [],
+        "src/app/template.tsx": [],
+        "tailwind.config.ts": [],
+        "tsconfig.json": []
+      },
+      "neighborMap": {
+        "src/app/globals.css": [
+          {
+            "path": "src/app/layout.tsx",
+            "batchIndex": 1,
+            "symbols": [
+              "metadata",
+              "RootLayout"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

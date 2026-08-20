@@ -1,0 +1,84 @@
+{
+  "scriptCompleted": true,
+  "stats": {
+    "filesScanned": 33,
+    "filesWithImports": 9,
+    "totalEdges": 32
+  },
+  "importMap": {
+    "next-env.d.ts": [],
+    "next.config.mjs": [],
+    "package.json": [],
+    "postcss.config.mjs": [],
+    "src/app/contact/page.tsx": [
+      "src/components/WavyRule.tsx",
+      "src/components/motion/Magnetic.tsx",
+      "src/components/motion/Reveal.tsx"
+    ],
+    "src/app/experience/page.tsx": [
+      "src/components/TimelineProgress.tsx",
+      "src/components/WavyRule.tsx",
+      "src/components/motion/Reveal.tsx",
+      "src/content/experience.ts"
+    ],
+    "src/app/globals.css": [],
+    "src/app/layout.tsx": [
+      "src/app/globals.css",
+      "src/components/AmbientBackdrop.tsx",
+      "src/components/CursorGlow.tsx",
+      "src/components/Footer.tsx",
+      "src/components/Nav.tsx",
+      "src/components/ThemeProvider.tsx"
+    ],
+    "src/app/page.tsx": [
+      "src/components/ContributionGraph.tsx",
+      "src/components/HeroPortrait.tsx",
+      "src/components/RotatingHi.tsx",
+      "src/components/WavyRule.tsx",
+      "src/components/motion/Magnetic.tsx",
+      "src/components/motion/Reveal.tsx",
+      "src/components/motion/SplitHeadline.tsx",
+      "src/content/projects.ts"
+    ],
+    "src/app/projects/page.tsx": [
+      "src/components/WavyRule.tsx",
+      "src/components/motion/Reveal.tsx",
+      "src/components/motion/TiltCard.tsx",
+      "src/content/projects.ts"
+    ],
+    "src/app/template.tsx": [],
+    "src/components/AmbientBackdrop.tsx": [],
+    "src/components/ContributionGraph.tsx": [
+      "src/components/ThemeProvider.tsx",
+      "src/components/motion/Reveal.tsx"
+    ],
+    "src/components/CursorGlow.tsx": [],
+    "src/components/Footer.tsx": [],
+    "src/components/HeroPortrait.tsx": [],
+    "src/components/Nav.tsx": [
+      "src/components/ScrollProgress.tsx",
+      "src/components/ThemeToggle.tsx",
+      "src/lib/utils.ts"
+    ],
+    "src/components/RotatingHi.tsx": [],
+    "src/components/ScrollProgress.tsx": [],
+    "src/components/ThemeProvider.tsx": [
+      "src/lib/scheduledTheme.ts"
+    ],
+    "src/components/ThemeToggle.tsx": [
+      "src/components/ThemeProvider.tsx"
+    ],
+    "src/components/TimelineProgress.tsx": [],
+    "src/components/WavyRule.tsx": [],
+    "src/components/motion/Magnetic.tsx": [],
+    "src/components/motion/Reveal.tsx": [],
+    "src/components/motion/SplitHeadline.tsx": [],
+    "src/components/motion/TiltCard.tsx": [],
+    "src/content/experience.ts": [],
+    "src/content/projects.ts": [],
+    "src/lib/scheduledTheme.ts": [],
+    "src/lib/utils.ts": [],
+    "tailwind.config.ts": [],
+    "tsconfig.json": []
+  }
+}

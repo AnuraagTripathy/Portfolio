@@ -1,0 +1,14 @@
+{
+  "projectRoot": "D:/projects/Portfolio",
+  "batchFiles": [
+    {"path": "src/app/contact/page.tsx", "language": "typescript", "sizeLines": 84, "fileCategory": "code"},
+    {"path": "src/app/page.tsx", "language": "typescript", "sizeLines": 151, "fileCategory": "code"},
+    {"path": "src/components/ContributionGraph.tsx", "language": "typescript", "sizeLines": 103, "fileCategory": "code"},
+    {"path": "src/components/HeroPortrait.tsx", "language": "typescript", "sizeLines": 67, "fileCategory": "code"},
+    {"path": "src/components/RotatingHi.tsx", "language": "typescript", "sizeLines": 37, "fileCategory": "code"},
+    {"path": "src/components/motion/Magnetic.tsx", "language": "typescript", "sizeLines": 46, "fileCategory": "code"},
+    {"path": "src/components/motion/Reveal.tsx", "language": "typescript", "sizeLines": 29, "fileCategory": "code"},
+    {"path": "src/components/motion/SplitHeadline.tsx", "language": "typescript", "sizeLines": 51, "fileCategory": "code"}
+  ],
+  "batchImportData": {"src/app/contact/page.tsx":["src/components/WavyRule.tsx","src/components/motion/Magnetic.tsx","src/components/motion/Reveal.tsx"],"src/app/page.tsx":["src/components/ContributionGraph.tsx","src/components/HeroPortrait.tsx","src/components/RotatingHi.tsx","src/components/WavyRule.tsx","src/components/motion/Magnetic.tsx","src/components/motion/Reveal.tsx","src/components/motion/SplitHeadline.tsx","src/content/projects.ts"],"src/components/ContributionGraph.tsx":["src/components/ThemeProvider.tsx","src/components/motion/Reveal.tsx"],"src/components/HeroPortrait.tsx":[],"src/components/RotatingHi.tsx":[],"src/components/motion/Magnetic.tsx":[],"src/components/motion/Reveal.tsx":[],"src/components/motion/SplitHeadline.tsx":[]}
+}

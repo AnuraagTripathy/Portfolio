@@ -1,0 +1,133 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "src/app/experience/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 92,
+      "functions": [
+        {
+          "name": "ExperiencePage",
+          "startLine": 19,
+          "endLine": 98,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "ExperiencePage",
+          "line": 19,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ExperiencePage",
+          "callee": "roles.map",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ExperiencePage",
+          "callee": "r.highlights.map",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/components/TimelineProgress.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "TimelineProgress",
+          "startLine": 11,
+          "endLine": 31,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TimelineProgress",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TimelineProgress",
+          "callee": "useRef",
+          "lineNumber": 12
+        },
+        {
+          "caller": "TimelineProgress",
+          "callee": "useReducedMotion",
+          "lineNumber": 13
+        },
+        {
+          "caller": "TimelineProgress",
+          "callee": "useScroll",
+          "lineNumber": 14
+        },
+        {
+          "caller": "TimelineProgress",
+          "callee": "useSpring",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/content/experience.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 128,
+      "nonEmptyLines": 127,
+      "exports": [
+        {
+          "name": "roles",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

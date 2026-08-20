@@ -1,0 +1,117 @@
+[
+  {
+    "order": 1,
+    "title": "The Stack and Conventions",
+    "description": "This project has no README, so start where the toolchain declares itself. `package.json` pins the runtime stack — Next.js 14.2 with React 18, framer-motion for animation, next-themes for dark mode, plus clsx and tailwind-merge for class handling — and exposes the standard dev/build/start/lint scripts. `tsconfig.json` sets strict mode with `noEmit` (Next does the transpiling) and, most importantly for reading the rest of the tour, maps the `@/*` path alias to `./src/*`, which is the import prefix you will see in every file from here on.",
+    "nodeIds": ["config:package.json", "config:tsconfig.json"],
+    "languageLesson": "TypeScript `paths` aliases live in tsconfig.json but are only a compile-time mapping — the bundler must be taught the same rule. Next.js reads tsconfig automatically, which is why `@/components/Nav` resolves without any extra webpack configuration."
+  },
+  {
+    "order": 2,
+    "title": "The Root Layout",
+    "description": "`src/app/layout.tsx` is the true structural root of the site: every URL renders inside it. It loads three Google fonts as CSS variables, declares the site-wide SEO and OpenGraph metadata, and then assembles the persistent frame — the theme provider wrapping the nav, footer and the ambient visual layers. Read this file as the site's table of contents; almost every subsystem covered later in this tour is first mounted here.",
+    "nodeIds": ["file:src/app/layout.tsx"],
+    "languageLesson": "In the Next.js App Router, `layout.tsx` is a server component by default and does NOT remount between navigations. That persistence is what lets the nav bar, footer and theme state survive route changes without re-initialising."
+  },
+  {
+    "order": 3,
+    "title": "Why template.tsx, Not layout.tsx",
+    "description": "Sitting alongside the root layout is `template.tsx`, a client component that wraps each routed page in a framer-motion fade-and-rise transition. The file name is a deliberate architectural choice rather than a stylistic one: a template remounts on every navigation while a layout does not, so the entry animation replays each time you move between routes. If this animation code lived in `layout.tsx` from Step 2, it would play exactly once per session.",
+    "nodeIds": ["file:src/app/template.tsx"],
+    "languageLesson": "App Router special files: `layout.tsx` persists across navigations within its segment; `template.tsx` creates a fresh instance per navigation, resetting state and re-firing effects and mount animations. Reach for a template only when you actually need that remount."
+  },
+  {
+    "order": 4,
+    "title": "The Home Page",
+    "description": "`src/app/page.tsx` is the home route and the busiest composition point in the codebase — it has the highest fan-out of any file, importing eight modules directly. It stitches together the animated hero (rotating greeting, split headline, tilting portrait), a two-project 'Selected work' grid read from the shared content module, and the GitHub contribution graph. Every dependency it pulls in is the subject of one of the next three steps, so treat this file as the map for Steps 5 through 7.",
+    "nodeIds": ["file:src/app/page.tsx"]
+  },
+  {
+    "order": 5,
+    "title": "The Motion Vocabulary",
+    "description": "Under `src/components/motion` live four content-agnostic framer-motion wrappers that form the site's shared animation language: `Reveal` fades and lifts children as they scroll into view, `Magnetic` makes buttons drift toward the cursor, `SplitHeadline` staggers a headline character by character, and `TiltCard` applies a spring-damped 3D tilt to cards. `Reveal` is the single most reused component in the project (fan-in of 5), which is why the whole site feels visually consistent — pages compose these primitives rather than writing bespoke animations. Crucially, each one gates its effect on `useReducedMotion`, a discipline repeated in `WavyRule` and `TimelineProgress` too.",
+    "nodeIds": [
+      "file:src/components/motion/Reveal.tsx",
+      "file:src/components/motion/Magnetic.tsx",
+      "file:src/components/motion/SplitHeadline.tsx",
+      "file:src/components/motion/TiltCard.tsx"
+    ],
+    "languageLesson": "These are wrapper components built on the `children` prop — the React composition pattern that keeps behaviour (animation) separate from content. Combined with framer-motion's `useReducedMotion` hook, each primitive can honour the OS-level `prefers-reduced-motion` setting in exactly one place instead of at every call site."
+  },
+  {
+    "order": 6,
+    "title": "Hero and Display Widgets",
+    "description": "One level up from the generic primitives sit the portfolio-specific widgets that the home page renders. `HeroPortrait` is a photo card with offset pastel backing layers and a cursor-tracked radial shine, `RotatingHi` cycles four intro lines every 4.2 seconds, and `ContributionGraph` renders a year of GitHub activity recoloured into the site's lilac palette and scaled to fill its container. `WavyRule` — the second most reused component in the project — is the soft SVG wave that separates sections on the home, projects, experience and contact pages.",
+    "nodeIds": [
+      "file:src/components/HeroPortrait.tsx",
+      "file:src/components/RotatingHi.tsx",
+      "file:src/components/ContributionGraph.tsx",
+      "file:src/components/WavyRule.tsx"
+    ]
+  },
+  {
+    "order": 7,
+    "title": "Content as Code",
+    "description": "This portfolio has no CMS and no database. Instead, `src/content/projects.ts` exports a typed `Project[]` array and `src/content/experience.ts` defines a `Role` shape and exports a newest-first `roles` array. Editing the site's substance means editing these two files, and because the shapes are TypeScript types, a missing field or a typo becomes a build error rather than a blank space in production. The home page from Step 4 already consumes `projects.ts` for its two-item 'Selected work' grid.",
+    "nodeIds": ["file:src/content/projects.ts", "file:src/content/experience.ts"],
+    "languageLesson": "Typing a data module as `const projects: Project[] = [...]` gives you compile-time validation of content plus editor autocomplete at every consumption site — a lightweight substitute for schema validation when the data ships in the bundle rather than arriving over the network."
+  },
+  {
+    "order": 8,
+    "title": "Data-Driven Routes",
+    "description": "The `/projects` and `/experience` pages show the payoff of Step 7: both are thin server components that map over the content arrays. The projects page renders each entry as an image-led card in a two-column grid with tech-stack stickers, wrapped in `Reveal` and `TiltCard`; the experience page renders the career timeline with a rotating pastel dot palette per role, beside `TimelineProgress` — the vertical rail whose accent gradient fills as you scroll. Notice the layering the whole codebase follows: routes compose components, components use primitives, and nothing points back upward.",
+    "nodeIds": [
+      "file:src/app/projects/page.tsx",
+      "file:src/app/experience/page.tsx",
+      "file:src/components/TimelineProgress.tsx"
+    ],
+    "languageLesson": "App Router pages are server components unless marked `'use client'`, so the `.map()` over content here runs at build time and ships as static HTML. Only the animation wrappers inside are client components — the client/server boundary is drawn as deep in the tree as possible."
+  },
+  {
+    "order": 9,
+    "title": "Contact Route and Site Chrome",
+    "description": "The last route, `/contact`, is the simplest: a mailto card plus magnetic GitHub, LinkedIn and résumé links inside scroll reveals. Around all four routes sits the chrome mounted back in Step 2's layout — `Nav`, a fixed blurred bar whose active route link is highlighted by a shared-layout animated pill; `Footer`, with the current-year copyright and external links; and `ScrollProgress`, the two-pixel spring-smoothed gradient hairline pinned to the bottom of the nav.",
+    "nodeIds": [
+      "file:src/app/contact/page.tsx",
+      "file:src/components/Nav.tsx",
+      "file:src/components/Footer.tsx",
+      "file:src/components/ScrollProgress.tsx"
+    ],
+    "languageLesson": "The nav's sliding pill uses framer-motion's shared `layoutId`: render an element with the same `layoutId` in a different position and framer-motion animates between the two automatically, no manual coordinate maths required."
+  },
+  {
+    "order": 10,
+    "title": "The Scheduled Theme System",
+    "description": "This is the most non-obvious subsystem in the project, and worth reading carefully. `ThemeProvider` does not delegate resolution to `next-themes`; it owns an `auto`/`light`/`dark` preference in localStorage and computes the effective theme itself by calling `getScheduledTheme()` from `src/lib/scheduledTheme.ts` — light between 06:00 and 19:00 local time, dark otherwise — re-evaluating on a timer and whenever the tab regains visibility. The result is handed down to next-themes as `forcedTheme` with `enableSystem={false}`, so next-themes is reduced to a class-applying mechanism. `ThemeToggle` pins light or dark on click and, on Alt+click, returns to clock-scheduled auto mode, rendering a neutral placeholder until the preference has hydrated.",
+    "nodeIds": [
+      "file:src/components/ThemeProvider.tsx",
+      "file:src/lib/scheduledTheme.ts",
+      "file:src/components/ThemeToggle.tsx"
+    ],
+    "languageLesson": "Anything derived from `localStorage` or `Date.now()` differs between server render and first client render, which React flags as a hydration mismatch. The fix used here is the standard one: render a neutral placeholder on the first pass and only reveal the real state after an effect has run."
+  },
+  {
+    "order": 11,
+    "title": "Design Tokens Across the CSS/JS Boundary",
+    "description": "Step 10 flips a `.dark` class on the document — this step explains why that single class restyles the entire site. `globals.css` defines the design tokens as raw RGB channel triples (`--tw-canvas`, `--tw-ink`, `--tw-line`, …) on `:root` and again on `.dark`, and `tailwind.config.ts` consumes them as `rgb(var(--token) / <alpha-value>)` semantic colours, alongside the pastel palette, three font families, soft/card/lift shadows and float/wiggle keyframes. `postcss.config.mjs` is the small piece that wires Tailwind into the build so the `@tailwind` directives and `@apply` rules actually expand. Understanding this handshake explains the whole palette.",
+    "nodeIds": [
+      "file:src/app/globals.css",
+      "file:tailwind.config.ts",
+      "file:postcss.config.mjs"
+    ],
+    "languageLesson": "Storing a colour as bare channels (`--tw-ink: 24 24 27`) rather than a finished `rgb()` string is what makes Tailwind's `<alpha-value>` placeholder work. The config expands `text-ink/60` into `rgb(var(--tw-ink) / 0.6)`, so every opacity modifier keeps working through the CSS variable indirection."
+  },
+  {
+    "order": 12,
+    "title": "Ambient Layers and Build Edges",
+    "description": "Two purely decorative client components close out the visual story: `AmbientBackdrop` paints four blurred pastel blobs and a masked dot grid behind all content with separate light and dark opacities, while `CursorGlow` trails a soft radial glow after the pointer and disables itself entirely for reduced-motion users and non-fine pointers. Rounding out the codebase, `src/lib/utils.ts` exports the `cn` class-merging helper used by essentially every component, `next.config.mjs` tunes the image optimizer to prefer WebP over AVIF (AVIF softens the JPEG portraits) with a custom device-size ladder, and `next-env.d.ts` is generated by Next and should never be hand-edited.",
+    "nodeIds": [
+      "file:src/components/AmbientBackdrop.tsx",
+      "file:src/components/CursorGlow.tsx",
+      "file:src/lib/utils.ts",
+      "file:next.config.mjs",
+      "file:next-env.d.ts"
+    ],
+    "languageLesson": "`cn` is the conventional `clsx` + `tailwind-merge` pairing: clsx flattens conditional class expressions, then tailwind-merge resolves conflicts so a later `px-6` correctly overrides an earlier `px-4` instead of both landing in the class list and letting CSS source order decide."
+  }
+]

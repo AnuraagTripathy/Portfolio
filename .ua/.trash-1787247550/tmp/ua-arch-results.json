@@ -1,0 +1,295 @@
+{
+  "scriptCompleted": true,
+  "commonPrefix": "",
+  "directoryGroups": {
+    "src/app": [
+      "file:src/app/layout.tsx",
+      "file:src/app/contact/page.tsx",
+      "file:src/app/page.tsx",
+      "file:src/app/projects/page.tsx",
+      "file:src/app/experience/page.tsx",
+      "file:src/app/globals.css",
+      "file:src/app/template.tsx"
+    ],
+    "src/components": [
+      "file:src/components/AmbientBackdrop.tsx",
+      "file:src/components/CursorGlow.tsx",
+      "file:src/components/Footer.tsx",
+      "file:src/components/Nav.tsx",
+      "file:src/components/ScrollProgress.tsx",
+      "file:src/components/ThemeProvider.tsx",
+      "file:src/components/ThemeToggle.tsx",
+      "file:src/components/ContributionGraph.tsx",
+      "file:src/components/HeroPortrait.tsx",
+      "file:src/components/RotatingHi.tsx",
+      "file:src/components/motion/Magnetic.tsx",
+      "file:src/components/motion/Reveal.tsx",
+      "file:src/components/motion/SplitHeadline.tsx",
+      "file:src/components/WavyRule.tsx",
+      "file:src/components/motion/TiltCard.tsx",
+      "file:src/components/TimelineProgress.tsx"
+    ],
+    "src/lib": [
+      "file:src/lib/scheduledTheme.ts",
+      "file:src/lib/utils.ts"
+    ],
+    "src/content": [
+      "file:src/content/projects.ts",
+      "file:src/content/experience.ts"
+    ],
+    "(root)": [
+      "file:next-env.d.ts",
+      "file:next.config.mjs",
+      "config:package.json",
+      "file:postcss.config.mjs",
+      "file:tailwind.config.ts",
+      "config:tsconfig.json"
+    ]
+  },
+  "nodeTypeGroups": {
+    "file": [
+      "file:src/app/layout.tsx",
+      "file:src/components/AmbientBackdrop.tsx",
+      "file:src/components/CursorGlow.tsx",
+      "file:src/components/Footer.tsx",
+      "file:src/components/Nav.tsx",
+      "file:src/components/ScrollProgress.tsx",
+      "file:src/components/ThemeProvider.tsx",
+      "file:src/components/ThemeToggle.tsx",
+      "file:src/lib/scheduledTheme.ts",
+      "file:src/lib/utils.ts",
+      "file:src/app/contact/page.tsx",
+      "file:src/app/page.tsx",
+      "file:src/components/ContributionGraph.tsx",
+      "file:src/components/HeroPortrait.tsx",
+      "file:src/components/RotatingHi.tsx",
+      "file:src/components/motion/Magnetic.tsx",
+      "file:src/components/motion/Reveal.tsx",
+      "file:src/components/motion/SplitHeadline.tsx",
+      "file:src/app/projects/page.tsx",
+      "file:src/components/WavyRule.tsx",
+      "file:src/components/motion/TiltCard.tsx",
+      "file:src/content/projects.ts",
+      "file:src/app/experience/page.tsx",
+      "file:src/components/TimelineProgress.tsx",
+      "file:src/content/experience.ts",
+      "file:next-env.d.ts",
+      "file:next.config.mjs",
+      "file:postcss.config.mjs",
+      "file:src/app/globals.css",
+      "file:src/app/template.tsx",
+      "file:tailwind.config.ts"
+    ],
+    "config": [
+      "config:package.json",
+      "config:tsconfig.json"
+    ]
+  },
+  "crossCategoryEdges": [
+    {
+      "fromType": "config",
+      "toType": "file",
+      "edgeType": "configures",
+      "count": 6
+    }
+  ],
+  "interGroupImports": [
+    {
+      "from": "src/app",
+      "to": "src/components",
+      "count": 21
+    },
+    {
+      "from": "src/app",
+      "to": "src/content",
+      "count": 3
+    },
+    {
+      "from": "src/components",
+      "to": "src/lib",
+      "count": 2
+    }
+  ],
+  "intraGroupDensity": {
+    "src/app": {
+      "internalEdges": 1,
+      "totalEdges": 25,
+      "density": 0.04
+    },
+    "src/components": {
+      "internalEdges": 5,
+      "totalEdges": 28,
+      "density": 0.179
+    },
+    "src/lib": {
+      "internalEdges": 0,
+      "totalEdges": 2,
+      "density": 0
+    },
+    "src/content": {
+      "internalEdges": 0,
+      "totalEdges": 3,
+      "density": 0
+    },
+    "(root)": {
+      "internalEdges": 0,
+      "totalEdges": 0,
+      "density": 0
+    }
+  },
+  "patternMatches": {
+    "src/app": "ui",
+    "src/components": "ui",
+    "src/lib": "service",
+    "src/content": "data",
+    "(root)": null
+  },
+  "filePatterns": {
+    "file:src/app/layout.tsx": "shell",
+    "file:src/app/contact/page.tsx": "route-page",
+    "file:src/app/page.tsx": "route-page",
+    "file:src/app/projects/page.tsx": "route-page",
+    "file:src/app/experience/page.tsx": "route-page",
+    "file:next-env.d.ts": "types",
+    "file:next.config.mjs": "config",
+    "config:package.json": "config",
+    "file:postcss.config.mjs": "config",
+    "file:src/app/globals.css": "styling",
+    "file:src/app/template.tsx": "shell",
+    "file:tailwind.config.ts": "config",
+    "config:tsconfig.json": "config"
+  },
+  "deploymentTopology": {
+    "hasDockerfile": false,
+    "hasCompose": false,
+    "hasK8s": false,
+    "hasTerraform": false,
+    "hasCI": false,
+    "infraFiles": []
+  },
+  "dataPipeline": {
+    "schemaFiles": [],
+    "migrationFiles": [],
+    "dataModelFiles": [
+      "src/content/projects.ts",
+      "src/content/experience.ts"
+    ],
+    "apiHandlerFiles": []
+  },
+  "docCoverage": {
+    "groupsWithDocs": 0,
+    "totalGroups": 5,
+    "coverageRatio": 0,
+    "undocumentedGroups": [
+      "src/app",
+      "src/components",
+      "src/lib",
+      "src/content",
+      "(root)"
+    ]
+  },
+  "dependencyDirection": [
+    {
+      "dependent": "src/app",
+      "dependsOn": "src/components",
+      "count": 21,
+      "reverseCount": 0
+    },
+    {
+      "dependent": "src/app",
+      "dependsOn": "src/content",
+      "count": 3,
+      "reverseCount": 0
+    },
+    {
+      "dependent": "src/components",
+      "dependsOn": "src/lib",
+      "count": 2,
+      "reverseCount": 0
+    }
+  ],
+  "fileStats": {
+    "totalFileNodes": 33,
+    "filesPerGroup": {
+      "src/app": 7,
+      "src/components": 16,
+      "src/lib": 2,
+      "src/content": 2,
+      "(root)": 6
+    },
+    "nodeTypeCounts": {
+      "file": 31,
+      "config": 2
+    }
+  },
+  "fileFanIn": {
+    "file:src/app/layout.tsx": 0,
+    "file:src/components/AmbientBackdrop.tsx": 1,
+    "file:src/components/CursorGlow.tsx": 1,
+    "file:src/components/Footer.tsx": 1,
+    "file:src/components/Nav.tsx": 1,
+    "file:src/components/ScrollProgress.tsx": 1,
+    "file:src/components/ThemeProvider.tsx": 3,
+    "file:src/components/ThemeToggle.tsx": 1,
+    "file:src/lib/scheduledTheme.ts": 1,
+    "file:src/lib/utils.ts": 1,
+    "file:src/app/contact/page.tsx": 0,
+    "file:src/app/page.tsx": 0,
+    "file:src/components/ContributionGraph.tsx": 1,
+    "file:src/components/HeroPortrait.tsx": 1,
+    "file:src/components/RotatingHi.tsx": 1,
+    "file:src/components/motion/Magnetic.tsx": 2,
+    "file:src/components/motion/Reveal.tsx": 5,
+    "file:src/components/motion/SplitHeadline.tsx": 1,
+    "file:src/app/projects/page.tsx": 0,
+    "file:src/components/WavyRule.tsx": 4,
+    "file:src/components/motion/TiltCard.tsx": 1,
+    "file:src/content/projects.ts": 2,
+    "file:src/app/experience/page.tsx": 0,
+    "file:src/components/TimelineProgress.tsx": 1,
+    "file:src/content/experience.ts": 1,
+    "file:next-env.d.ts": 0,
+    "file:next.config.mjs": 0,
+    "config:package.json": 0,
+    "file:postcss.config.mjs": 0,
+    "file:src/app/globals.css": 1,
+    "file:src/app/template.tsx": 0,
+    "file:tailwind.config.ts": 0,
+    "config:tsconfig.json": 0
+  },
+  "fileFanOut": {
+    "file:src/app/layout.tsx": 6,
+    "file:src/components/AmbientBackdrop.tsx": 0,
+    "file:src/components/CursorGlow.tsx": 0,
+    "file:src/components/Footer.tsx": 0,
+    "file:src/components/Nav.tsx": 3,
+    "file:src/components/ScrollProgress.tsx": 0,
+    "file:src/components/ThemeProvider.tsx": 1,
+    "file:src/components/ThemeToggle.tsx": 1,
+    "file:src/lib/scheduledTheme.ts": 0,
+    "file:src/lib/utils.ts": 0,
+    "file:src/app/contact/page.tsx": 3,
+    "file:src/app/page.tsx": 8,
+    "file:src/components/ContributionGraph.tsx": 2,
+    "file:src/components/HeroPortrait.tsx": 0,
+    "file:src/components/RotatingHi.tsx": 0,
+    "file:src/components/motion/Magnetic.tsx": 0,
+    "file:src/components/motion/Reveal.tsx": 0,
+    "file:src/components/motion/SplitHeadline.tsx": 0,
+    "file:src/app/projects/page.tsx": 4,
+    "file:src/components/WavyRule.tsx": 0,
+    "file:src/components/motion/TiltCard.tsx": 0,
+    "file:src/content/projects.ts": 0,
+    "file:src/app/experience/page.tsx": 4,
+    "file:src/components/TimelineProgress.tsx": 0,
+    "file:src/content/experience.ts": 0,
+    "file:next-env.d.ts": 0,
+    "file:next.config.mjs": 0,
+    "config:package.json": 0,
+    "file:postcss.config.mjs": 0,
+    "file:src/app/globals.css": 0,
+    "file:src/app/template.tsx": 0,
+    "file:tailwind.config.ts": 0,
+    "config:tsconfig.json": 0
+  }
+}

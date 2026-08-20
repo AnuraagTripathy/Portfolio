@@ -1,0 +1,10 @@
+{
+  "projectRoot": "D:/projects/Portfolio",
+  "batchFiles": [
+    {"path": "src/app/projects/page.tsx", "language": "typescript", "sizeLines": 95, "fileCategory": "code"},
+    {"path": "src/components/WavyRule.tsx", "language": "typescript", "sizeLines": 30, "fileCategory": "code"},
+    {"path": "src/components/motion/TiltCard.tsx", "language": "typescript", "sizeLines": 48, "fileCategory": "code"},
+    {"path": "src/content/projects.ts", "language": "typescript", "sizeLines": 253, "fileCategory": "code"}
+  ],
+  "batchImportData": {"src/app/projects/page.tsx":["src/components/WavyRule.tsx","src/components/motion/Reveal.tsx","src/components/motion/TiltCard.tsx","src/content/projects.ts"],"src/components/WavyRule.tsx":[],"src/components/motion/TiltCard.tsx":[],"src/content/projects.ts":[]}
+}

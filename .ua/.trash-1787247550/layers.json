@@ -1,0 +1,84 @@
+[
+  {
+    "id": "layer:routing",
+    "name": "Routing & Pages",
+    "description": "Next.js App Router route segments — the home/hero page plus the contact, projects and experience pages that compose components and read typed content data to render each URL.",
+    "nodeIds": [
+      "file:src/app/page.tsx",
+      "file:src/app/contact/page.tsx",
+      "file:src/app/projects/page.tsx",
+      "file:src/app/experience/page.tsx"
+    ]
+  },
+  {
+    "id": "layer:app-shell",
+    "name": "Application Shell & Chrome",
+    "description": "The persistent frame wrapped around every route: the root layout and page-transition template, plus global navigation, footer, theme context/toggle, scroll progress and the ambient backdrop and cursor glow effects.",
+    "nodeIds": [
+      "file:src/app/layout.tsx",
+      "file:src/app/template.tsx",
+      "file:src/components/Nav.tsx",
+      "file:src/components/Footer.tsx",
+      "file:src/components/ThemeProvider.tsx",
+      "file:src/components/ThemeToggle.tsx",
+      "file:src/components/ScrollProgress.tsx",
+      "file:src/components/AmbientBackdrop.tsx",
+      "file:src/components/CursorGlow.tsx"
+    ]
+  },
+  {
+    "id": "layer:motion",
+    "name": "Motion Primitives",
+    "description": "Generic, content-agnostic Framer Motion wrappers under src/components/motion — reveal-on-scroll, magnetic hover, tilt cards and staggered split headlines — reused across pages and feature components.",
+    "nodeIds": [
+      "file:src/components/motion/Reveal.tsx",
+      "file:src/components/motion/Magnetic.tsx",
+      "file:src/components/motion/TiltCard.tsx",
+      "file:src/components/motion/SplitHeadline.tsx"
+    ]
+  },
+  {
+    "id": "layer:ui",
+    "name": "Presentational Components",
+    "description": "Portfolio-specific display widgets built on the motion primitives — the hero portrait, rotating greeting, GitHub contribution graph, experience timeline progress indicator and decorative wavy rule.",
+    "nodeIds": [
+      "file:src/components/HeroPortrait.tsx",
+      "file:src/components/RotatingHi.tsx",
+      "file:src/components/ContributionGraph.tsx",
+      "file:src/components/TimelineProgress.tsx",
+      "file:src/components/WavyRule.tsx"
+    ]
+  },
+  {
+    "id": "layer:content",
+    "name": "Content Data",
+    "description": "Typed, statically-authored site content in src/content — the project catalogue and work-experience entries that stand in for a CMS or database in this static portfolio.",
+    "nodeIds": [
+      "file:src/content/projects.ts",
+      "file:src/content/experience.ts"
+    ]
+  },
+  {
+    "id": "layer:utility",
+    "name": "Shared Utilities",
+    "description": "Dependency-free helpers in src/lib: the Tailwind class-merging utility and the scheduled light/dark theme calculation consumed by the theme provider.",
+    "nodeIds": [
+      "file:src/lib/utils.ts",
+      "file:src/lib/scheduledTheme.ts"
+    ]
+  },
+  {
+    "id": "layer:config",
+    "name": "Build & Styling Configuration",
+    "description": "Project-level toolchain and design-token setup — Next.js, PostCSS, Tailwind and TypeScript configuration, the dependency manifest, generated Next type declarations, and the global stylesheet defining theme CSS variables.",
+    "nodeIds": [
+      "file:next.config.mjs",
+      "file:postcss.config.mjs",
+      "file:tailwind.config.ts",
+      "file:next-env.d.ts",
+      "config:package.json",
+      "config:tsconfig.json",
+      "file:src/app/globals.css"
+    ]
+  }
+]
