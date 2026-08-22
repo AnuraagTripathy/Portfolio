@@ -45,7 +45,7 @@ export default function HomePage() {
             transition={{ duration: 0.55, delay: 0.08 }}
             className="mt-3 max-w-2xl text-base font-medium leading-snug text-ink sm:text-lg"
           >
-            I&apos;m a junior at the University of Maryland studying CS and Math. I like building
+            I&apos;m a senior at the University of Maryland studying CS and Math. I like building
             things people actually use.
           </motion.p>
           <motion.p
@@ -53,7 +53,7 @@ export default function HomePage() {
             transition={{ duration: 0.55, delay: 0.12 }}
             className="mt-5 max-w-xl text-sm leading-relaxed text-ink-muted sm:text-base"
           >
-            GPA 3.8, graduating Dec 2026. Most of my work sits somewhere between a frontend, an API,
+            GPA 3.8, graduating May 2027. Most of my work sits somewhere between a frontend, an API,
             and a model doing something useful in the middle. I&apos;ve shipped document parsing pipelines at an insurtech
             startup, built a Canvas assistant that 50+ students and teachers actually used,
             automated TikTok scouting for a music label, and helped a planetary science lab
