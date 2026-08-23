@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -18,7 +17,7 @@ export function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-[60] border-b border-line/15 bg-surface/80 backdrop-blur-xl backdrop-saturate-150 dark:bg-surface/70">
+    <header className="fixed left-0 right-0 top-0 z-[60] border-b border-white/10 bg-black/80 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-5 sm:px-8">
         <Link
           href="/"
@@ -45,7 +44,7 @@ export function Nav() {
                   {active && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 -z-10 rounded-full bg-pastel-lilac/90 shadow-soft ring-1 ring-line/15 dark:bg-accent/20 dark:ring-line/10"
+                      className="absolute inset-0 -z-10 rounded-full bg-accent/20 shadow-soft ring-1 ring-accent/40"
                       transition={{ type: "spring", stiffness: 400, damping: 34 }}
                     />
                   )}
@@ -54,7 +53,6 @@ export function Nav() {
               );
             })}
           </nav>
-          <ThemeToggle />
         </div>
       </div>
       <ScrollProgress />

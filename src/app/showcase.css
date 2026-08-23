@@ -1,0 +1,630 @@
+/* =====================================================================
+   Sketchbook — the projects plate book.
+
+   A spread of paper with the screenshot mounted on it. The leaf that turns
+   is a real curved surface: a chain of nested strips whose tangent sweeps
+   through an arc, so the page bends the way paper bends instead of pivoting
+   like a flat door.
+   ===================================================================== */
+.sb {
+  --sb-paper: #f3efe6;
+  --sb-edge: rgba(45, 42, 51, 0.16);
+  --sb-shade: 58, 43, 20;
+  --sb-glint: #fffaf0;
+}
+.dark .sb {
+  --sb-paper: #221f2b;
+  --sb-edge: rgba(255, 255, 255, 0.14);
+  --sb-shade: 6, 4, 12;
+  --sb-glint: #b9aef2;
+}
+
+.sb-wrap {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+}
+.sb-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  touch-action: pan-y;
+}
+.sb-arrow {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 2px;
+  border: 0;
+  background: transparent;
+  color: rgb(var(--tw-ink) / 0.3);
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 8;
+}
+.sb-arrow:hover {
+  color: rgb(var(--tw-ink) / 0.85);
+}
+.sb-3d {
+  position: relative;
+  flex: 1 1;
+  min-width: 0;
+  max-width: 940px;
+  perspective: 1750px;
+  perspective-origin: 50% 46%;
+}
+.sb-tilt {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(var(--zoom, 1));
+  will-change: transform;
+}
+.sb-book {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.72;
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+
+/* The book sits on a surface, so its shadow is a pool underneath — no box,
+   no filter on the artwork, nothing with an edge of its own. Both blobs ease
+   off while a leaf is in the air. */
+.sb-cast {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.sb-cast.ambient {
+  left: 4%;
+  right: 4%;
+  top: 14%;
+  bottom: -6%;
+  background: radial-gradient(
+    50% 50% at 50% 58%,
+    rgba(var(--sb-shade), 0.3) 0%,
+    rgba(var(--sb-shade), 0.16) 40%,
+    rgba(var(--sb-shade), 0) 74%
+  );
+  filter: blur(26px);
+  opacity: calc(1 - var(--shade, 0) * 0.42);
+}
+.sb-cast.contact {
+  left: 8%;
+  right: 8%;
+  top: 62%;
+  bottom: -8%;
+  background: radial-gradient(
+    50% 44% at 50% 42%,
+    rgba(var(--sb-shade), 0.34) 0%,
+    rgba(var(--sb-shade), 0.14) 48%,
+    rgba(var(--sb-shade), 0) 78%
+  );
+  filter: blur(11px);
+  opacity: calc(1 - var(--shade, 0) * 0.5);
+}
+
+.sb-full,
+.sb-half,
+.sb-face {
+  background-repeat: no-repeat, no-repeat;
+  background-color: var(--sb-paper);
+}
+.sb-full {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px var(--sb-edge);
+}
+.sb-half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--sb-edge);
+}
+.sb-half.left {
+  left: 0;
+  border-radius: 4px 0 0 4px;
+}
+.sb-half.right {
+  left: 50%;
+  border-radius: 0 4px 4px 0;
+}
+/* the crease down the middle of an open book */
+.sb-crease {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 8%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 4;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--sb-shade), 0) 0%,
+    rgba(var(--sb-shade), 0.07) 44%,
+    rgba(var(--sb-shade), 0.11) 50%,
+    rgba(var(--sb-shade), 0.05) 56%,
+    rgba(var(--sb-shade), 0) 100%
+  );
+}
+/* the shadow the lifting leaf throws onto the page beneath it */
+.sb-gutter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 46%;
+  pointer-events: none;
+  opacity: calc(var(--shade, 0) * 0.62);
+}
+.sb-gutter.left {
+  right: 0;
+  background: linear-gradient(270deg, rgba(var(--sb-shade), 0.3), rgba(var(--sb-shade), 0) 82%);
+}
+.sb-gutter.right {
+  left: 0;
+  background: linear-gradient(90deg, rgba(var(--sb-shade), 0.24), rgba(var(--sb-shade), 0) 82%);
+}
+
+/* ---- the turning leaf: nested strips forming a curved surface ---- */
+.sb-curl {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: calc(var(--bw, 0px) * var(--span));
+  transform-style: preserve-3d;
+  z-index: 6;
+}
+.sb-curl.next {
+  left: 50%;
+  transform-origin: left center;
+  transform: rotateY(calc(-1 * var(--tt, 0deg)));
+}
+.sb-curl.prev {
+  right: 50%;
+  transform-origin: right center;
+  transform: rotateY(var(--tt, 0deg));
+}
+.sb-strip {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: calc(var(--bw, 0px) * var(--span) / var(--n));
+  transform-style: preserve-3d;
+}
+.sb-curl.next .sb-strip {
+  transform-origin: left center;
+}
+.sb-curl.prev .sb-strip {
+  transform-origin: right center;
+}
+.sb-curl.next > .sb-strip {
+  left: 0;
+}
+.sb-curl.prev > .sb-strip {
+  right: 0;
+  left: auto;
+}
+.sb-curl.next .sb-strip .sb-strip {
+  left: 100%;
+  transform: rotateY(var(--td, 0deg));
+}
+.sb-curl.prev .sb-strip .sb-strip {
+  right: 100%;
+  transform: rotateY(calc(-1 * var(--td, 0deg)));
+}
+.sb-face {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: -1.1px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.sb-face.back {
+  transform: rotateY(180deg);
+}
+.sb-face .sh,
+.sb-face .gl {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+/* the far edge of the leaf is a soft cut, not a guillotine */
+.sb-strip.edge .sb-face .sh,
+.sb-strip.edge .sb-face .gl {
+  -webkit-mask-image: var(--hf);
+  mask-image: var(--hf);
+}
+.sb-curl.next .sb-strip.edge .sb-face.front,
+.sb-curl.prev .sb-strip.edge .sb-face.back {
+  --hf: linear-gradient(90deg, #000 0 22%, transparent 96%);
+}
+.sb-curl.next .sb-strip.edge .sb-face.back,
+.sb-curl.prev .sb-strip.edge .sb-face.front {
+  --hf: linear-gradient(270deg, #000 0 22%, transparent 96%);
+}
+.sb-curl.next .sb-face.front .sh,
+.sb-curl.prev .sb-face.back .sh {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--sb-shade), var(--a1, 0)),
+    rgba(var(--sb-shade), var(--a2, 0))
+  );
+}
+.sb-curl.next .sb-face.back .sh,
+.sb-curl.prev .sb-face.front .sh {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--sb-shade), var(--a2, 0)),
+    rgba(var(--sb-shade), var(--a1, 0))
+  );
+}
+.sb-face .gl {
+  background: var(--sb-glint);
+  opacity: calc(var(--shade, 0) * var(--lit, 1) * var(--lit, 1) * 0.2);
+}
+
+/* ---- the loupe: a real magnifier lying on the page. Pick it up and drag it
+       across the book; it stays where you put it. ---- */
+.sb-loupe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--lr, 240px);
+  height: var(--lr, 240px);
+  pointer-events: none;
+  z-index: 80;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  will-change: transform;
+}
+.sb-loupe.on {
+  opacity: 1;
+}
+.sb-loupe.held .ring {
+  cursor: grabbing;
+}
+.sb-loupe .ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: grab;
+  padding: calc(var(--lr, 240px) * 0.058);
+  box-shadow:
+    0 1px 2px rgba(30, 22, 44, 0.3),
+    0 10px 18px rgba(30, 22, 44, 0.24),
+    0 26px 40px rgba(30, 22, 44, 0.2);
+}
+/* the bezel is an annulus, so the glass really is see-through */
+.sb-loupe .ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background: linear-gradient(
+    146deg,
+    #efeaff 0%,
+    #cfc7f4 14%,
+    #9b91e8 32%,
+    #5f5499 50%,
+    #b0a8ea 66%,
+    #eae5ff 80%,
+    #6f64ad 100%
+  );
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 3px rgba(40, 32, 70, 0.5);
+  -webkit-mask-image: radial-gradient(circle closest-side at 50% 50%, transparent 0 88.2%, #000 89.8% 100%);
+  mask-image: radial-gradient(circle closest-side at 50% 50%, transparent 0 88.2%, #000 89.8% 100%);
+}
+/* the handle, drawn before the bezel so the ring covers its inner end */
+.sb-loupe .grip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--lr, 240px) * 0.74);
+  height: calc(var(--lr, 240px) * 0.125);
+  transform-origin: 0 50%;
+  transform: rotate(40deg) translate(calc(var(--lr, 240px) * 0.33), -50%);
+  border-radius: calc(var(--lr, 240px) * 0.06);
+  pointer-events: auto;
+  cursor: grab;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.46) 0 13%,
+      rgba(255, 255, 255, 0) 44%,
+      rgba(0, 0, 0, 0.26) 100%
+    ),
+    linear-gradient(90deg, #cfc7f4 0 14%, #9b91e8 14% 20%, #4b4180 20% 62%, #3b3369 62% 92%, #5f549980 92% 100%);
+  box-shadow: 0 8px 15px rgba(30, 22, 44, 0.26), 0 18px 26px rgba(30, 22, 44, 0.14);
+}
+.sb-lens {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(52, 44, 88, 0.55),
+    inset 0 4px 12px rgba(28, 22, 48, 0.28),
+    inset 0 -7px 16px rgba(255, 250, 255, 0.14);
+}
+/* A second copy of the book, sitting beside the glass outside the tilt, and
+   scaled about whichever page point the glass is currently over. */
+.sb-zoomwrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+}
+.sb-zoominner {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+}
+.sb-lens::before,
+.sb-lens::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+/* the glass bends and darkens toward its rim, with a faint colour fringe */
+.sb-lens::before {
+  z-index: 1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0) 54%,
+    rgba(40, 32, 70, 0.1) 76%,
+    rgba(30, 24, 54, 0.34) 100%
+  );
+  box-shadow:
+    inset 0 0 0 2px rgba(130, 162, 196, 0.26),
+    inset 0 0 0 4px rgba(180, 158, 212, 0.15);
+}
+/* the dome: one broad specular and a tight crescent opposite it */
+.sb-lens::after {
+  z-index: 2;
+  background:
+    radial-gradient(36% 26% at 29% 19%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 76%),
+    radial-gradient(24% 16% at 74% 86%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 80%),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.06) 0 18%, rgba(255, 255, 255, 0) 42%);
+}
+/* the glass is a desk affordance: no room for it on a phone, and nothing to
+   hover it with on a touch screen */
+@media (pointer: coarse), (max-width: 640px) {
+  .sb-loupe {
+    display: none;
+  }
+}
+
+.sb-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border: 0;
+  background: transparent;
+  cursor: grab;
+  z-index: 60;
+  -webkit-tap-highlight-color: transparent;
+}
+.sb-zone:active {
+  cursor: grabbing;
+}
+.sb-zone.prev {
+  left: 0;
+  width: 50%;
+}
+.sb-zone.next {
+  right: 0;
+  width: 50%;
+}
+
+.sb-captions {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+.sb-captions > * {
+  grid-area: 1 / 1;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  /* full-bleed to the page gutter (px-5), never to 100vw — that counts the
+     scrollbar and pushes the whole document sideways */
+  .sb-wrap {
+    width: calc(100% + 40px);
+    margin-inline: -20px;
+  }
+  .sb-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 70;
+    padding: 12px 6px;
+  }
+  .sb-arrow.left {
+    left: 2px;
+  }
+  .sb-arrow.right {
+    right: 2px;
+  }
+  .sb-3d {
+    max-width: none;
+  }
+}
+
+/* =====================================================================
+   Shelf — working volumes. Each role is a bound book standing on a plank;
+   pull one out to read it.
+   ===================================================================== */
+.shf {
+  --shf-wood: #8a6440;
+  --shf-wood-dark: #4d3220;
+  --shf-back: rgba(45, 42, 51, 0.05);
+}
+.dark .shf {
+  --shf-wood: #4a3423;
+  --shf-wood-dark: #221607;
+  --shf-back: rgba(0, 0, 0, 0.32);
+}
+
+.shf-case {
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  border-radius: 14px;
+  background: var(--shf-back);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -20px 40px -30px rgba(0, 0, 0, 0.5);
+  padding: clamp(16px, 3vw, 28px) clamp(10px, 2vw, 20px) clamp(28px, 4vw, 44px);
+  perspective: 1400px;
+}
+.dark .shf-case {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -20px 40px -24px rgba(0, 0, 0, 0.7);
+}
+.shf-row {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(3px, 0.7vw, 7px);
+  padding: 0 clamp(10px, 2.4vw, 26px);
+  transform-style: preserve-3d;
+}
+.shf-row + .shf-row {
+  margin-top: clamp(34px, 5vw, 56px);
+}
+/* the plank the volumes stand on */
+.shf-plank {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 13px;
+  border-radius: 2px 2px 4px 4px;
+  background: linear-gradient(180deg, var(--shf-wood) 0 38%, var(--shf-wood-dark) 100%);
+  box-shadow:
+    0 12px 24px -12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.shf-vol {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--w, 44px);
+  height: var(--h, 190px);
+  border: 0;
+  padding: 0;
+  border-radius: 2px 4px 4px 2px;
+  cursor: pointer;
+  color: inherit;
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.34) 0 4%,
+      rgba(255, 255, 255, 0.16) 7%,
+      rgba(255, 255, 255, 0) 24%,
+      rgba(0, 0, 0, 0) 76%,
+      rgba(0, 0, 0, 0.32) 100%
+    ),
+    var(--spine, #5f5499);
+  box-shadow:
+    0 14px 24px -14px rgba(0, 0, 0, 0.7),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.25);
+  -webkit-tap-highlight-color: transparent;
+}
+/* head and tail bands */
+.shf-vol::before,
+.shf-vol::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 2px;
+}
+.shf-vol::before {
+  top: 8px;
+}
+.shf-vol::after {
+  bottom: 30px;
+}
+.shf-vol:hover,
+.shf-vol:focus-visible {
+  transform: translateY(-18px) rotateX(6deg);
+  outline: none;
+}
+.shf-vol[aria-expanded="true"] {
+  transform: translateY(-30px) rotateX(9deg) rotateY(-15deg) translateZ(30px);
+}
+
+/* the title, set down the spine */
+.shf-spine-text {
+  position: absolute;
+  inset: 10px 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.shf-spine-text > span {
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  max-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(9px, 0.95vw, 11.5px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+.shf-mark {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  width: 18px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 700px) {
+  .shf-vol {
+    height: var(--hm, 150px);
+    width: var(--wm, 34px);
+  }
+  .shf-spine-text {
+    inset: 18px 0 36px;
+  }
+  }

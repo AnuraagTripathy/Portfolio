@@ -30,7 +30,7 @@ export default function ContactPage() {
             href="mailto:anuraagt@terpmail.umd.edu"
             className="group flex items-center gap-4 rounded-2xl border border-line/15 bg-surface p-6 shadow-card transition hover:border-accent/30 hover:shadow-lift dark:shadow-none dark:hover:ring-1 dark:hover:ring-line/10"
           >
-            <span className="flex size-12 items-center justify-center rounded-xl bg-pastel-lilac text-accent ring-1 ring-line/15 transition duration-300 group-hover:-rotate-6 group-hover:scale-105 dark:bg-accent/15 dark:ring-line/10">
+            <span className="flex size-12 items-center justify-center rounded-xl bg-ink text-canvas ring-1 ring-line/15 transition duration-300 group-hover:-rotate-6 group-hover:scale-105 dark:bg-accent dark:text-canvas dark:ring-line/10">
               <Mail className="size-5" aria-hidden />
             </span>
             <div>
@@ -46,7 +46,7 @@ export default function ContactPage() {
               href="https://github.com/AnuraagTripathy"
               target="_blank"
               rel="noreferrer"
-              className="inline-block rounded-full border border-line/15 bg-pastel-mint/50 px-4 py-2 text-sm font-medium text-ink transition hover:-rotate-1 hover:shadow-soft dark:bg-pastel-mint/15"
+              className="inline-block rounded-full border border-ink/20 bg-ink/10 px-4 py-2 text-sm font-medium text-ink transition hover:-rotate-1 hover:shadow-soft dark:bg-accent/15"
             >
               GitHub
             </Link>
@@ -56,7 +56,7 @@ export default function ContactPage() {
               href="https://www.linkedin.com/in/anuraagtripathy/"
               target="_blank"
               rel="noreferrer"
-              className="inline-block rounded-full border border-line/15 bg-pastel-sky/50 px-4 py-2 text-sm font-medium text-ink transition hover:rotate-1 hover:shadow-soft dark:bg-pastel-sky/15"
+              className="inline-block rounded-full border border-ink/20 bg-surface px-4 py-2 text-sm font-medium text-ink transition hover:rotate-1 hover:shadow-soft dark:bg-accent/10"
             >
               LinkedIn
             </Link>
@@ -66,7 +66,7 @@ export default function ContactPage() {
               href={RESUME}
               target="_blank"
               rel="noreferrer"
-              className="inline-block rounded-full border border-line/15 bg-pastel-peach/50 px-4 py-2 text-sm font-medium text-ink transition hover:-rotate-1 hover:shadow-soft dark:bg-pastel-peach/15"
+              className="inline-block rounded-full border border-ink bg-ink px-4 py-2 text-sm font-medium text-canvas transition hover:-rotate-1 hover:shadow-soft dark:bg-accent dark:text-canvas"
             >
               Résumé PDF
             </Link>

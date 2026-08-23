@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Caveat, DM_Sans, Syne } from "next/font/google";
-import { AmbientBackdrop } from "@/components/AmbientBackdrop";
-import { CursorGlow } from "@/components/CursorGlow";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
+import { SiteBackground } from "@/components/SiteBackground";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -46,15 +45,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${dm.variable} ${syne.variable} ${caveat.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`dark ${dm.variable} ${syne.variable} ${caveat.variable}`} suppressHydrationWarning>
       <body className="font-sans">
         <ThemeProvider>
-          <AmbientBackdrop />
-          <CursorGlow />
-          <div className="grain" />
-          <div className="wash" />
+          <SiteBackground />
           <Nav />
-          <div className="pt-14">{children}</div>
+          <div className="relative z-10 pt-14">{children}</div>
           <Footer />
         </ThemeProvider>
       </body>

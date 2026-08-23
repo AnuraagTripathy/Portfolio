@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
@@ -12,7 +11,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { ContributionGraph } from "@/components/ContributionGraph";
 import { WhyHireMe } from "@/components/WhyHireMe";
-import { projects } from "@/content/projects";
+import { ProjectShowcase } from "@/components/ProjectShowcase";
 
 const fade = {
   initial: { opacity: 0, y: 12 },
@@ -20,8 +19,6 @@ const fade = {
 };
 
 export default function HomePage() {
-  const featured = projects.slice(0, 2);
-
   return (
     <main>
       <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-20 pt-3 sm:px-8 sm:pt-4 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-16 lg:pt-6">
@@ -69,7 +66,7 @@ export default function HomePage() {
             <Magnetic>
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white shadow-soft transition hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-black shadow-soft transition hover:bg-accent-soft hover:text-black"
               >
                 View projects
                 <ArrowUpRight className="size-4" aria-hidden />
@@ -102,8 +99,8 @@ export default function HomePage() {
                 Selected work
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-base">
-                Hackathons, class builds, and side projects where I wanted the demo to match real
-                use. Cards link out to more detail.
+                Hackathons, class builds, and side projects. Drag, click, or use the arrows to flip
+                through the stack.
               </p>
             </div>
             <Link
@@ -114,36 +111,8 @@ export default function HomePage() {
               <span className="inline-block transition group-hover:translate-x-0.5">→</span>
             </Link>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {featured.map((p, i) => (
-              <Reveal key={p.name} delay={i * 0.1}>
-                <Link
-                  href="/projects"
-                  className="group relative block overflow-hidden rounded-2xl bg-surface shadow-card ring-1 ring-line/15 transition duration-300 hover:-translate-y-1 hover:shadow-lift dark:shadow-none dark:ring-line/10 dark:hover:ring-accent/20"
-                >
-                  <div
-                    className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${i === 0 ? "from-pastel-mint via-pastel-sky to-pastel-lilac" : "from-pastel-peach via-pastel-rose to-pastel-lemon"}`}
-                  />
-                  <div className="relative aspect-[16/10]">
-                    <Image
-                      src={p.image}
-                      alt={p.name}
-                      fill
-                      quality={90}
-                      sizes="(min-width: 1280px) 600px, (min-width: 1024px) 50vw, (min-width: 768px) 48vw, 96vw"
-                      className="object-cover transition duration-500 group-hover:scale-[1.02]"
-                    />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent dark:from-surface dark:via-surface/45 dark:to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                      <p className="text-xs font-medium uppercase tracking-wider text-ink-soft">
-                        {p.period}
-                      </p>
-                      <p className="mt-1 font-display text-lg font-semibold text-ink">{p.name}</p>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
+          <div className="mt-10">
+            <ProjectShowcase compact />
           </div>
         </div>
       </section>

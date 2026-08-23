@@ -21,7 +21,7 @@ const stats = [
     suffix: "",
     label: "hackathons won",
     note: "75% win rate.",
-    bar: "from-pastel-lemon via-pastel-peach to-pastel-rose",
+    bar: "from-ink via-accent to-accent-soft",
   },
   {
     icon: TrendingUp,
@@ -30,7 +30,7 @@ const stats = [
     suffix: "K",
     label: "revenue driven",
     note: "Solo, in 6 months.",
-    bar: "from-pastel-mint via-pastel-sky to-pastel-lilac",
+    bar: "from-accent-muted via-accent-soft to-accent",
   },
 ] as const;
 

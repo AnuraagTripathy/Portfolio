@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 import "react-github-calendar/tooltips.css";
 import { Reveal } from "@/components/motion/Reveal";
@@ -8,23 +8,28 @@ import { useThemePreference } from "@/components/ThemeProvider";
 
 const USERNAME = "AnuraagTripathy";
 
-/** Site lilac → accent scale (not GitHub green). */
+/** Black → magenta → cyan (not GitHub green). */
 const theme = {
-  light: ["#ebe7f2", "#ddd5f5", "#b8ade0", "#7b6fd6", "#5f5499"],
-  dark: ["#2a2733", "#3d3560", "#5a4f9a", "#7b6fd6", "#9b91e8"],
+  light: ["#111113", "#3a0a32", "#ff2bd6", "#00f5ff", "#f5ff3a"],
+  dark: ["#111113", "#3a0a32", "#ff2bd6", "#00f5ff", "#f5ff3a"],
 };
 
 export function ContributionGraph() {
-  const { ready, effective } = useThemePreference();
+  const { effective } = useThemePreference();
   const frameRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
   const [scale, setScale] = useState(1);
   const [canvasHeight, setCanvasHeight] = useState<number | undefined>();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useLayoutEffect(() => {
     const frame = frameRef.current;
     const canvas = canvasRef.current;
-    if (!frame || !canvas || !ready) return;
+    if (!frame || !canvas || !mounted) return;
 
     const measure = () => {
       const naturalWidth = canvas.scrollWidth;
@@ -40,7 +45,7 @@ export function ContributionGraph() {
     ro.observe(frame);
     ro.observe(canvas);
     return () => ro.disconnect();
-  }, [ready, effective]);
+  }, [mounted, effective]);
 
   return (
     <section className="pb-20 pt-4 sm:pb-24 sm:pt-6">
@@ -68,7 +73,7 @@ export function ContributionGraph() {
               className="w-max max-w-none origin-top-left will-change-transform"
               style={{ transform: `scale(${scale})` }}
             >
-              {ready ? (
+              {mounted ? (
                 <GitHubCalendar
                   username={USERNAME}
                   year="last"
@@ -84,7 +89,7 @@ export function ContributionGraph() {
                   }}
                 />
               ) : (
-                <div className="h-[132px] w-[720px] animate-pulse rounded-lg bg-line/5" aria-hidden />
+                <div className="h-[132px] w-[720px] rounded-lg bg-white/5" aria-hidden />
               )}
             </div>
           </div>

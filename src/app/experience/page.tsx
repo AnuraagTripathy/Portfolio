@@ -9,11 +9,11 @@ export const metadata = {
 };
 
 const dotStyles = [
-  "border-pastel-mint bg-pastel-mint",
-  "border-pastel-sky bg-pastel-sky",
-  "border-pastel-lilac bg-pastel-lilac",
-  "border-pastel-peach bg-pastel-peach",
-  "border-pastel-rose bg-pastel-rose",
+  "border-ink bg-ink",
+  "border-accent bg-accent",
+  "border-accent-soft bg-accent-soft",
+  "border-ink/70 bg-ink/70",
+  "border-accent-muted bg-accent-muted",
 ] as const;
 
 export default function ExperiencePage() {

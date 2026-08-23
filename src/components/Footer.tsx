@@ -5,7 +5,7 @@ const RESUME =
 
 export function Footer() {
   return (
-    <footer className="border-t border-line/15 bg-surface/40 py-12 dark:bg-surface/30">
+    <footer className="relative z-10 border-t border-white/10 bg-black/50 py-12 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 sm:px-8">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <p className="text-sm text-ink-muted">© {new Date().getFullYear()} Anuraag Tripathy</p>

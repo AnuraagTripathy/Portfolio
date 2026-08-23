@@ -23,7 +23,7 @@ export function TimelineProgress() {
       {!reduce && (
         <motion.div
           style={{ scaleY }}
-          className="absolute inset-0 origin-top bg-gradient-to-b from-pastel-mint via-accent-soft to-pastel-peach"
+          className="absolute inset-0 origin-top bg-gradient-to-b from-ink via-accent to-accent-soft"
         />
       )}
     </div>
