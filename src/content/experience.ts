@@ -23,14 +23,14 @@ export const roles: Role[] = [
     start: "Sep 2025",
     end: "Jan 2026",
     summary:
-      "Worked on the document parsing and underwriting stack for an insurtech platform.",
+      "Document parsing and underwriting for an insurtech. Most of the work was making extraction accurate and recoverable at scale.",
     logoSrc: "/images/experience/gencise.png",
     highlights: [
-      "Built an autonomous LLM agent-based document parsing pipeline with template augmentation, extracting data from 500,000+ documents across 1,000+ document types.",
-      "Built agentic microservices using LangGraph and Flask APIs for entity extraction, validation, and database integration.",
-      "Engineered an async email processor on the Microsoft Graph API with batching and caching, storing data in AWS S3.",
-      "Deployed agent workflows via Docker and Kubernetes with GitHub Actions CI/CD, monitoring performance with k9s.",
-      "Built a FastAPI quote engine with external data enrichment, and shipped full-stack features in TypeScript and Python.",
+      "Extracted structured data from 500,000+ documents across 1,000+ types with an autonomous LLM agent pipeline and template augmentation, displacing an estimated 16,000 hours of manual entry.",
+      "Built labeled eval sets that scored field-level extraction accuracy across document types on every pipeline change.",
+      "Traced failures to specific parsing and agent stages with eval diffs, raising accuracy from 92% to 98%.",
+      "Made extraction recoverable with LangGraph checkpointing over async Microsoft Graph email ingest on AWS S3.",
+      "Kept agent and FastAPI quote workflows live on Docker and Kubernetes with GitHub Actions CI/CD, monitoring them with k9s.",
     ],
   },
   {
