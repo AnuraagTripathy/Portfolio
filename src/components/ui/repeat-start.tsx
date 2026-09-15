@@ -215,7 +215,7 @@ const UNIFORMS = {
   cursorStrength: 0.65,
   cursorRadius: 0.297,
   oklab: 0,
-  timeScale: 0.86,
+  timeScale: 0.6,
 };
 
 const pendingContextReleases = new WeakMap<HTMLCanvasElement, number>();
