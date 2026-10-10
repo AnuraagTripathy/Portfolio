@@ -73,15 +73,14 @@ function Counter({ value, prefix = "", suffix = "" }: { value: number; prefix?: 
   );
 }
 
-/** "Why you should hire me" — two headline numbers and six one-line reasons. */
+/** Proof section — two headline numbers and six one-line reasons. */
 export function WhyHireMe() {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-ink-soft">The pitch</p>
-          <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-            Why you should <span className="wavy-underline">hire me</span>
+          <h2 className="font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+            <span className="wavy-underline">Scoreboard</span>
           </h2>
         </Reveal>
 
