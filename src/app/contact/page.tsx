@@ -30,7 +30,7 @@ export default function ContactPage() {
             href="mailto:anuraagt@terpmail.umd.edu"
             className="group flex items-center gap-4 rounded-2xl border border-line/15 bg-surface p-6 shadow-card transition hover:border-accent/30 hover:shadow-lift dark:shadow-none dark:hover:ring-1 dark:hover:ring-line/10"
           >
-            <span className="flex size-12 items-center justify-center rounded-xl bg-ink text-canvas ring-1 ring-line/15 transition duration-300 group-hover:-rotate-6 group-hover:scale-105 dark:bg-accent dark:text-canvas dark:ring-line/10">
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-ink text-canvas ring-1 ring-line/15 transition duration-300 group-hover:-rotate-6 group-hover:scale-105 dark:bg-accent dark:text-canvas dark:ring-line/10">
               <Mail className="size-5" aria-hidden />
             </span>
             <div>

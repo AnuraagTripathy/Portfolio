@@ -18,10 +18,10 @@ export function Nav() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-[60] border-b border-white/10 bg-black/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-5 sm:px-8">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-8">
         <Link
           href="/"
-          className="group font-display text-[0.95rem] font-semibold tracking-tight text-ink transition hover:text-accent"
+          className="group shrink-0 whitespace-nowrap font-display text-[0.95rem] font-semibold tracking-tight text-ink transition hover:text-accent"
         >
           <span className="inline-block transition group-hover:-rotate-1">Anuraag</span>
           <span className="inline-block font-quirk text-lg text-accent group-hover:animate-wiggle">
@@ -29,7 +29,7 @@ export function Nav() {
           </span>
         </Link>
         <div className="flex items-center gap-1 sm:gap-2">
-          <nav className="flex items-center gap-0.5 text-sm">
+          <nav className="flex items-center gap-0.5 text-[13px] sm:text-sm">
             {links.map((l) => {
               const active = pathname === l.href;
               return (
@@ -37,7 +37,9 @@ export function Nav() {
                   key={l.href}
                   href={l.href}
                   className={cn(
-                    "relative rounded-full px-2.5 py-1.5 text-ink-muted transition hover:text-ink sm:px-3",
+                    "relative rounded-full px-1.5 py-1.5 text-ink-muted transition hover:text-ink sm:px-3",
+                    // Logo already links home; drop the tab on phones to fit.
+                    l.href === "/" && "hidden sm:block",
                     active && "text-ink",
                   )}
                 >
